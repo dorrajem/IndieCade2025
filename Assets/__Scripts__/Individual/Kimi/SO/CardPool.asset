@@ -9,13 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f8fb74b1ad233f4d94f9f208718f94a, type: 3}
-  m_Name: Card_Base
+  m_Script: {fileID: 11500000, guid: 19651d9971e080e4daace37421da4cdc, type: 3}
+  m_Name: CardPool
   m_EditorClassIdentifier: 
-  CardName: 
-  Artwork: {fileID: 0}
-  SaplingCostPoint: 0
-  AttackPower: 0
-  HealthPoint: 0
-  cardState: 0
-  cardCategory: 0
+  numberOfNatureCards: 10
+  numberOfIndustrialCards: 5

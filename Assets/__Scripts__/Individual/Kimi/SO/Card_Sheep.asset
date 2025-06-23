@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f8fb74b1ad233f4d94f9f208718f94a, type: 3}
-  m_Name: Card_Base
+  m_Name: Card_Sheep
   m_EditorClassIdentifier: 
-  CardName: 
-  Artwork: {fileID: 0}
-  SaplingCostPoint: 0
-  AttackPower: 0
-  HealthPoint: 0
+  cardName: 
+  artwrok: {fileID: 0}
+  saplingCostPoint: 0
+  attackPower: 0
+  healthPoint: 0
   cardState: 0
   cardCategory: 0
