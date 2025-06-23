@@ -1,16 +1,16 @@
 using UnityEngine;
 
-public class SO_Card : MonoBehaviour
+[CreateAssetMenu(fileName = "Card", menuName = "CardType")]
+public class SO_Card : ScriptableObject
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public int saplingPoint;
+    private const int sacrifiesPoint = 1;
+}
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+public enum CardState
+{
+    InCardPile,
+    InHand,
+    OnTable,
+    Die
 }
