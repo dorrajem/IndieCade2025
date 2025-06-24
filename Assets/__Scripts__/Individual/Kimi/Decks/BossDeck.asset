@@ -10,7 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19651d9971e080e4daace37421da4cdc, type: 3}
-  m_Name: CardPool
+  m_Name: BossDeck
   m_EditorClassIdentifier: 
-  numberOfNatureCards: 10
-  numberOfIndustrialCards: 5
+  cards: []
