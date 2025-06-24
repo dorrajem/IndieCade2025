@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class HandManager : MonoBehaviour
 {
-    public Transform handArea;
+    [Header("Layout Config")]
+    public Transform origin;
+    public RectTransform handArea;
     public GameObject cardPrefab;
 
+    [Header("Spacing Setting")] 
+    public float defaultSpacing = 160f;
+    public float cardMinSpacing = 60f;
+
     public static HandManager Instance;
-    private List<GameObject> handCards = new List<GameObject>();
+    private List<GameObject> handCards = new ();
 
     private void Awake()
     {
@@ -33,13 +39,28 @@ public class HandManager : MonoBehaviour
 
     public void UpdateCardPositions()
     {
-        float spacing = 100f;
-        float startX = -(handCards.Count - 1) * spacing / 2f;
+        int totalCards = handCards.Count;
+        if (totalCards == 0) return;
 
-        for (int i = 0; i < handCards.Count; i++)
+        float areaWidth = handArea.rect.width;
+        
+        // Handle max width
+        float totalDefaultWidth = (totalCards - 1) * defaultSpacing;
+        float spacing = defaultSpacing;
+        if (totalDefaultWidth > areaWidth)
         {
-            var rt = handCards[i].GetComponent<RectTransform>();
-            rt.anchoredPosition = new Vector2(startX + i * spacing, 0);
+            spacing = Mathf.Max(cardMinSpacing, areaWidth / (totalCards - 1));
+        }
+
+        float totalWidth = spacing * (totalCards - 1);
+        float startX = -totalWidth / 2f;
+        Vector3 originPos = origin.localPosition;
+
+        for (int i = 0; i < totalCards; i++)
+        {
+            RectTransform cardRT = handCards[i].GetComponent<RectTransform>();
+            float xOffset = startX + i * spacing;
+            cardRT.anchoredPosition = new Vector2(originPos.x + xOffset, 0);
             handCards[i].transform.SetSiblingIndex(i);
         }
     }
