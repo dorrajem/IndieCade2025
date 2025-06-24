@@ -14,8 +14,6 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
 
     public CardData cardData;
     
-    
-
     public void Setup(CardData data)
     {
         cardData = data;

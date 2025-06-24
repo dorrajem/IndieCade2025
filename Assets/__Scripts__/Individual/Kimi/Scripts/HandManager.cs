@@ -26,6 +26,8 @@ public class HandManager : MonoBehaviour
         GameObject cardGO = Instantiate(cardPrefab, handArea);
         cardGO.GetComponent<CardDisplay>().Setup(cardData);
         handCards.Add(cardGO);
+
+        cardData.cardState = CardState.OnTable;
         
         UpdateCardPositions();
     }
