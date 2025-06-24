@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardName: Sheep
   Artwork: {fileID: 21300000, guid: 46d1ea82648c84249a8361030d18415d, type: 3}
-  SaplingCostPoint: 0
+  SaplingCostPoint: 1
   AttackPower: 0
-  HealthPoint: 2
+  HealthPoint: 3
   cardState: 0
   cardCategory: 0
