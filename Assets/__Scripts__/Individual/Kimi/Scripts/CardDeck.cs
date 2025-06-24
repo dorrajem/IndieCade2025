@@ -6,50 +6,63 @@ using Random = UnityEngine.Random;
 public class CardDeck : MonoBehaviour
 {
     [Header("Init Card Config")] 
-    public List<CardData> cardDatabase;
-    private List<CardData> _deck = new List<CardData>();
+    //public List<CardData> cardDatabase;
+    private List<CardData> _deck;
+    public DeckData deckData;
+    public DeckRuntime currentDeck;
+    
+    //public List<DeckData> deck;
     
     [Header("Dependency")]
     public HandManager handManager;
     //[SerializeField] private CardDisplay cardDisplay;
-    
-    
+
+
 
     private void Start()
     {
-        InitializeDeck();
-        ShuffleDeck();
-    }
-    
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            DrawCard();
-        }
+        currentDeck = new DeckRuntime();
+        currentDeck.LoadFromTemplate(deckData);
+        currentDeck.Shuffle();
+        
+        DrawInitialCards(5);
     }
 
-    public void InitializeDeck()
+    private void Update()
     {
-        _deck = new List<CardData>(cardDatabase);
         
     }
 
-    private void ShuffleDeck()
+    private void DrawInitialCards(int count)
     {
-        for (int i = 0; i < _deck.Count; i++)
+        for (int i = 0; i < count; i++)
         {
-            int randomIdex = Random.Range(i, _deck.Count);
-            (_deck[i], _deck[randomIdex]) = (_deck[randomIdex], _deck[i]);
+            CardData card = currentDeck.Draw();
+            if (card != null)
+            {
+                HandManager.Instance.AddCardToHand(card);
+            }
         }
     }
 
     public void DrawCard()
     {
-        if (_deck.Count == 0) return;
-        CardData topCard = _deck[0];
-        _deck.RemoveAt(0);
-        
-        handManager.AddCardToHand(topCard);
+        CardData topCard = currentDeck.Draw();
+        if (topCard != null)
+        {
+            HandManager.Instance.AddCardToHand(topCard);
+        }
+    }
+
+    public void AddNewCard(CardData newCard)
+    {
+        currentDeck.AddCard(newCard);
+    }
+
+    public void ResetGame()
+    {
+        Debug.Log("Deck has been reset, run Reset Game Logic here.");
+        currentDeck.LoadFromTemplate(deckData);
+        currentDeck.Shuffle();
     }
 }

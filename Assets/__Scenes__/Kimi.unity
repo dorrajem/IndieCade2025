@@ -848,18 +848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd1b4a6a81cdcb342a33c338823123ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardDatabase:
-  - {fileID: 11400000, guid: f8abdb9d80016f44eb60fd6bd2816286, type: 2}
-  - {fileID: 11400000, guid: 7aa65e316c21bc44db701ae8da4971f9, type: 2}
-  - {fileID: 11400000, guid: 7aa65e316c21bc44db701ae8da4971f9, type: 2}
-  - {fileID: 11400000, guid: 7aa65e316c21bc44db701ae8da4971f9, type: 2}
-  - {fileID: 11400000, guid: 7aa65e316c21bc44db701ae8da4971f9, type: 2}
-  - {fileID: 11400000, guid: 7aa65e316c21bc44db701ae8da4971f9, type: 2}
-  - {fileID: 11400000, guid: 7aa65e316c21bc44db701ae8da4971f9, type: 2}
-  - {fileID: 11400000, guid: 7aa65e316c21bc44db701ae8da4971f9, type: 2}
-  - {fileID: 11400000, guid: 7aa65e316c21bc44db701ae8da4971f9, type: 2}
-  - {fileID: 11400000, guid: 7aa65e316c21bc44db701ae8da4971f9, type: 2}
-  - {fileID: 11400000, guid: 7aa65e316c21bc44db701ae8da4971f9, type: 2}
+  deckData: {fileID: 11400000, guid: b75e0d73705bd6e4eb707ca2e7cef9ed, type: 2}
   handManager: {fileID: 1457333153}
 --- !u!114 &1457333153
 MonoBehaviour:
