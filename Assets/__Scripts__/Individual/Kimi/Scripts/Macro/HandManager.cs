@@ -55,10 +55,11 @@ public class HandManager : MonoBehaviour
     {
         // Local mouse
         Vector3 localMousePos = handArea.InverseTransformPoint(Input.mousePosition);
+        Vector3 worldPos = handArea.TransformPoint(localMousePos);
 
         if (localMousePos.x < -handArea.rect.width / 2f || localMousePos.x > handArea.rect.width / 2f)
         {
-            if (handCards.Contains(currentPlaceholder))
+            if (currentPlaceholder != null && handCards.Contains(currentPlaceholder))
             {
                 handCards.Remove(currentPlaceholder);
                 Destroy(currentPlaceholder);
@@ -71,60 +72,43 @@ public class HandManager : MonoBehaviour
         if (currentPlaceholder == null)
         {
             currentPlaceholder = Instantiate(placeholderPrefab, handArea);
-            handCards.Add(currentPlaceholder);
         }
 
-
-        Vector3 constrainedWorldPos = handArea.TransformPoint(localMousePos);
+        handCards.Remove(draggingCard);
+        handCards.Remove(currentPlaceholder);
         // Dynamically calculate insert index
         int insertIndex = 0;
         
         for (int i = 0; i < handCards.Count; i++)
         {
-            if (handCards[i] == draggingCard || handCards[i] == currentPlaceholder) continue;
-
-            if (constrainedWorldPos.x > handCards[i].transform.position.x)
+            if (worldPos.x > handCards[i].transform.position.x)
             {
                 insertIndex++;
             }
         }
-        
-        handCards.Remove(currentPlaceholder);
+
         insertIndex = Mathf.Clamp(insertIndex, 0, handCards.Count);
         handCards.Insert(insertIndex, currentPlaceholder);
-        
+
         UpdateCardLayout(draggingCard);
+        draggingCard.transform.position = Input.mousePosition;
     }
 
     public void EndDrag(GameObject draggingCard)
     {
+        
+        if (currentPlaceholder == null) return;
 
-        Vector3 localMousePos = handArea.InverseTransformPoint(Input.mousePosition);
-        if (localMousePos.x < - handArea.rect.width / 2f || localMousePos.x > handArea.rect.width / 2f)
-        {
-            if (currentPlaceholder != null)
-            {
-                handCards.Remove(currentPlaceholder);
-                Destroy(currentPlaceholder);
-                currentPlaceholder = null;
-            }
-            UpdateCardLayout(smooth:false);
-            return;
-        }
-        
-        draggingCard.transform.SetParent(handArea);
-        
-        int insertIndex = handCards.IndexOf(currentPlaceholder);
-        if (insertIndex < 0) insertIndex = handCards.Count;
-        
+        int index = handCards.IndexOf(currentPlaceholder);
+
         handCards.Remove(currentPlaceholder);
         Destroy(currentPlaceholder);
         currentPlaceholder = null;
-
-        handCards.Remove(draggingCard);
-        handCards.Insert(insertIndex, draggingCard);
         
-        UpdateCardLayout(smooth:false);
+        handCards.Insert(index, draggingCard);
+        draggingCard.transform.SetParent(handArea);
+        
+        UpdateCardLayout();
     }
 
     

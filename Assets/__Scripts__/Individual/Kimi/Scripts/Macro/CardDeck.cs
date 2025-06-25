@@ -65,4 +65,14 @@ public class CardDeck : MonoBehaviour
         currentDeck.LoadFromTemplate(deckData);
         currentDeck.Shuffle();
     }
+    
+    // for enemy AI
+    public CardData DrawCardDirect()
+    {
+        if (_deck.Count == 0) return null;
+
+        CardData topCard = _deck[0];
+        _deck.RemoveAt(0);
+        return topCard;
+    }
 }

@@ -7,7 +7,7 @@ public class EnemyAIController : MonoBehaviour
     public EnemyAI enemyAI;
 
     [Header("Enemy Deck")]
-    public CardDeck enemyCardDeck;
+    public DeckRuntime enemyCardDeck;
 
     [Header("Enemy Hand")]
     private List<CardData> enemyHand = new();
@@ -24,7 +24,7 @@ public class EnemyAIController : MonoBehaviour
     {
         currentSaplingPoints = maxSaplingPoints;
 
-        enemyCardDeck.InitializeDeck();
+        enemyCardDeck = new DeckRuntime();
 
         DrawInitialHand(initialDrawCount);
     }
@@ -44,7 +44,7 @@ public class EnemyAIController : MonoBehaviour
     {
         for (int i = 0; i < count; i++)
         {
-            CardData card = enemyCardDeck.DrawCardDirect(); // Custom method you'll add
+            CardData card = enemyCardDeck.Draw(); // Custom method you'll add
             if (card != null)
                 enemyHand.Add(card);
         }
