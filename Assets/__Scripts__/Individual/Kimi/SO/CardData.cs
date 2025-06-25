@@ -26,8 +26,7 @@ public enum CardState
 
 public enum CardCategory
 {
-    Land,
-    Air,
-    Water,
-    Block
+    Nature,
+    Industry,
+    Disaster
 }

@@ -13,7 +13,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
     [SerializeField]private TMP_Text healthPoint;
 
     public CardData cardData;
-
+    
     public void Setup(CardData data)
     {
         cardData = data;
@@ -26,7 +26,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        PlayCard();
+       // PlayCard();
     }
 
     private void PlayCard()

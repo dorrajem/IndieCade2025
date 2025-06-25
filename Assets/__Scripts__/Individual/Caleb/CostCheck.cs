@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Hand : MonoBehaviour
+public class CostCheck : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
