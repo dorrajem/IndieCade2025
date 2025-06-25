@@ -15,7 +15,6 @@ public class EnemyAIController : MonoBehaviour
     public int maxSaplingPoints = 5;
     private int currentSaplingPoints;
 
-    [Header("Board Config")]
     public int maxBoardSlots = 4;
 
     public int initialDrawCount = 5;
@@ -44,7 +43,7 @@ public class EnemyAIController : MonoBehaviour
     {
         for (int i = 0; i < count; i++)
         {
-            CardData card = enemyCardDeck.Draw(); // Custom method you'll add
+            CardData card = enemyCardDeck.Draw(); 
             if (card != null)
                 enemyHand.Add(card);
         }
