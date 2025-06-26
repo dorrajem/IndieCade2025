@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+//please use this to check if zones are correct for later placement
+
 public class DropArea : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IDropHandler
 {
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-       // Debug.Log("OnPointerEnter");
+        // Debug.Log("OnPointerEnter");
     }
     public void OnPointerExit(PointerEventData eventData)
     {
@@ -24,6 +26,6 @@ public class DropArea : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         //        d.originalParent = transform;
         //    }
     }
-    
+
 
 }
