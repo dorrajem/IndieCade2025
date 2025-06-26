@@ -16,9 +16,10 @@ public class Card : MonoBehaviour
     [SerializeField] private SpriteRenderer _spriteRenderer;
     
 
-    public void Init(CardData newData)
+    public void Init(CardData newData, bool asUICard)
     {
         cardData = newData;
+        isUICard = asUICard;
 
         if (isUICard)
         {

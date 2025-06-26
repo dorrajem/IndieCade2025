@@ -980,7 +980,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 50
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -1147,6 +1147,7 @@ GameObject:
   - component: {fileID: 1457333154}
   - component: {fileID: 1457333153}
   - component: {fileID: 1457333152}
+  - component: {fileID: 1457333155}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -1183,10 +1184,10 @@ MonoBehaviour:
   origin: {fileID: 570972567}
   handArea: {fileID: 174357312}
   cardPrefab: {fileID: 6937738408158534530, guid: 875f865cc9cf9a445b4926e0faa494b2, type: 3}
-  placeholderPrefab: {fileID: 7692815779163860416, guid: dc813d6a58ea0e442b45fc6d10ebc65d, type: 3}
-  currentPlaceholder: {fileID: 0}
+  cardPrefab2D: {fileID: 3118303636978894477, guid: 93a2abbb136b33140bc24a952fb3c7c5, type: 3}
   defaultSpacing: 160
   cardMinSpacing: 60
+  currentCard: {fileID: 0}
 --- !u!4 &1457333154
 Transform:
   m_ObjectHideFlags: 0
@@ -1202,6 +1203,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1457333155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457333151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76af950490239cc498c30929cea99506, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1460759856
 GameObject:
   m_ObjectHideFlags: 0
@@ -1425,8 +1438,8 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1457333154}
   - {fileID: 1303531687}
   - {fileID: 1081305501}
   - {fileID: 1245812153}
-  - {fileID: 1457333154}
   - {fileID: 114116533}

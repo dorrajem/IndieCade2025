@@ -45,7 +45,7 @@ public class HandManager : MonoBehaviour
     public void AddCardToHand(CardData cardData)
     {
         GameObject card = Instantiate(cardPrefab, handArea);
-        card.GetComponent<Card>().Init(cardData);
+        card.GetComponent<Card>().Init(cardData, true);
         handCards.Add(card);
         UpdateCardLayout(smooth:false);
     }
@@ -207,8 +207,10 @@ public class HandManager : MonoBehaviour
         Destroy(selectedCard.gameObject);
         
         GameObject newCardObj = Instantiate(cardPrefab2D, slotPos, Quaternion.identity);
+        // scale saver
+        newCardObj.transform.localScale = Vector3.one;
         Card card = newCardObj.GetComponent<Card>();
-        card.Init(cardData);
+        card.Init(cardData, false);
     }
 
 
