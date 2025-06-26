@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/__Scenes__/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/__Scenes__/Gurmaan Trial.unity
+    path: Assets/__Scenes__/Kimi Ver2.unity
     guid: a4d894b98b86e1c49b0b2211ec9cbb72
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
