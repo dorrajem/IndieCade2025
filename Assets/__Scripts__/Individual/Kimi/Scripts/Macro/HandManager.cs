@@ -26,7 +26,7 @@ public class HandManager : MonoBehaviour
     
     private List<GameObject> handCards = new ();
 
-    [ReadOnly]public CardDisplay currentCard;
+    [ReadOnly]public Card currentCard;
 
     private void Awake()
     {
@@ -45,7 +45,7 @@ public class HandManager : MonoBehaviour
     public void AddCardToHand(CardData cardData)
     {
         GameObject card = Instantiate(cardPrefab, handArea);
-        card.GetComponent<CardDisplay>().Setup(cardData);
+        card.GetComponent<Card>().Setup(cardData);
         handCards.Add(card);
         UpdateCardLayout(smooth:false);
     }
@@ -194,7 +194,7 @@ public class HandManager : MonoBehaviour
 
     #region PlayCard
 
-    public void PlayCardToWorld(CardDisplay selectedCard, Vector3 slotPos)
+    public void PlayCardToWorld(Card selectedCard, Vector3 slotPos)
     {
         if (cardPrefab2D == null)
         {
@@ -207,7 +207,7 @@ public class HandManager : MonoBehaviour
         Destroy(selectedCard.gameObject);
         
         GameObject newCardObj = Instantiate(cardPrefab2D, slotPos, Quaternion.identity);
-        CardDisplay card = newCardObj.GetComponent<CardDisplay>();
+        Card card = newCardObj.GetComponent<Card>();
         card.Init(cardData, CardState.OnTable);
     }
 

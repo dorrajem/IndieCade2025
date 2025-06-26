@@ -4,14 +4,14 @@ using UnityEngine;
 public class SelectCardManager : MonoBehaviour
 {
     public static SelectCardManager Instance;
-    public CardDisplay currentCard { get; private set; }
+    public Card currentCard { get; private set; }
 
     private void Awake()
     {
         Instance = this;
     }
 
-    public void SelectCard(CardDisplay card)
+    public void SelectCard(Card card)
     {
         currentCard = card;
     }

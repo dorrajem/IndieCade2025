@@ -86,7 +86,7 @@ public class CardHover : MonoBehaviour,
     {
         isSelected = true;
         currentlySelected = this;
-        SelectCardManager.Instance.SelectCard(GetComponent<CardDisplay>());
+        SelectCardManager.Instance.SelectCard(GetComponent<Card>());
 
         originalParent = transform.parent;
         originalPosition = rt.anchoredPosition;

@@ -1,21 +1,39 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CardDisplay : MonoBehaviour
+public class Card : MonoBehaviour
 {
-    [SerializeField] private Image cardImage;
     public CardData cardData;
+
+    private bool isUICard = false;
+    
+    [SerializeField] private CardUI _cardUI;
+    [SerializeField] private Card2D _card2D;
+
+
+    private void Awake()
+    {
+        if (isUICard)
+        {
+            _cardUI = GetComponent<CardUI>();
+            if (_cardUI == null)
+            {
+                Debug.LogWarning("card is ui, but no CardUI");
+            }
+        }
+    }
 
     public void Setup(CardData data)
     {
-        cardData = data;
-        cardImage.sprite = cardData.Artwork;
+        
     }
 
     public void Init(CardData newData, CardState newState)
     {
         cardData = newData;
         cardData.cardState = newState;
+        
         UpdateVisual();
     }
 
