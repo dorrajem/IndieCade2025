@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.Collections;
 using UnityEngine;
 
 public class HandManager : MonoBehaviour
@@ -9,9 +10,13 @@ public class HandManager : MonoBehaviour
     [Header("Layout Config")]
     public Transform origin;
     public RectTransform handArea;
+    //public DropArea dropArea;
     public GameObject cardPrefab;
-    public GameObject placeholderPrefab;
-    public GameObject currentPlaceholder;
+    public GameObject cardPrefab2D;
+    
+    // For later anim
+    //public GameObject placeholderPrefab;
+    //public GameObject currentPlaceholder;
     private List<Vector2> slotPosition = new();
     
 
@@ -20,6 +25,8 @@ public class HandManager : MonoBehaviour
     public float cardMinSpacing = 60f;
     
     private List<GameObject> handCards = new ();
+
+    [ReadOnly]public CardDisplay currentCard;
 
     private void Awake()
     {
@@ -181,6 +188,29 @@ public class HandManager : MonoBehaviour
             UpdateCardLayout();
         }
     }
+
+    #endregion
+
+
+    #region PlayCard
+
+    public void PlayCardToWorld(CardDisplay selectedCard, Vector3 slotPos)
+    {
+        if (cardPrefab2D == null)
+        {
+            Debug.Log("Card prefab is not assigned");
+            return;
+        }
+        
+        CardData cardData = selectedCard.GetCardData();
+        handCards.Remove(selectedCard.gameObject);
+        Destroy(selectedCard.gameObject);
+        
+        GameObject newCardObj = Instantiate(cardPrefab2D, slotPos, Quaternion.identity);
+        CardDisplay card = newCardObj.GetComponent<CardDisplay>();
+        card.Init(cardData, CardState.OnTable);
+    }
+
 
     #endregion
 }

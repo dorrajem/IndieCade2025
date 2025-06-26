@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class CardHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+public class CardHover : MonoBehaviour, 
+    IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     [Header("Hover Settings")]
     [SerializeField] private float hoverScale = 1.2f;
@@ -79,10 +80,13 @@ public class CardHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         transform.localScale = originalScale;
     }
 
+    #region SelectCard
+
     private void SelectCard()
     {
         isSelected = true;
         currentlySelected = this;
+        SelectCardManager.Instance.SelectCard(GetComponent<CardDisplay>());
 
         originalParent = transform.parent;
         originalPosition = rt.anchoredPosition;
@@ -106,4 +110,6 @@ public class CardHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         if (handArea != null)
             handArea.anchoredPosition = originalHandPosition;
     }
+
+    #endregion
 }
