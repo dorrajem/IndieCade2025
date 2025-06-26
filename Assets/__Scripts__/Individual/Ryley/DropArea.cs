@@ -11,14 +11,16 @@ public class DropArea : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0)) // Left mouse button
             {
-                Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
-            
-                if (hit.collider != null && hit.collider.gameObject == gameObject)
-                {   
-                    Debug.Log("spwn");
-                    SpawnCard();
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+                if (Physics.Raycast(ray, out hit))
+                {
+                    if (hit.collider != null && hit.collider.gameObject == gameObject)
+                    {
+                        SpawnCard();
+                    }
                 }
+
             }
         }
     }
