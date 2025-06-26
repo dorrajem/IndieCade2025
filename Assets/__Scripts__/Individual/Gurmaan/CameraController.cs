@@ -21,6 +21,8 @@ public class CameraController : MonoBehaviour
     private Vector3 target_pos;
     private Vector3 target_rot;
     private float target_fov;
+    
+    CardHover selectedCard = CardHover.currentlySelected;
 
     void Start()
     {
@@ -32,11 +34,11 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || selectedCard != null)
         {
             PlayCam();
         }
-        else if (Input.GetKeyDown(KeyCode.Escape))
+        else if (Input.GetKeyDown(KeyCode.Escape) && selectedCard == null)
         {
             BackCam();
         }
