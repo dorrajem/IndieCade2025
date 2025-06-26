@@ -358,8 +358,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardData: {fileID: 11400000, guid: f8abdb9d80016f44eb60fd6bd2816286, type: 2}
-  _cardUI: {fileID: 8195632875214558841}
-  _card2D: {fileID: 0}
+  uiImage: {fileID: 3531578294881192448}
+  _spriteRenderer: {fileID: 0}
 --- !u!114 &5660485544996755215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -402,4 +402,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07a559d31cf7ca548a5c9bb5c27384b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 3531578294881192448}

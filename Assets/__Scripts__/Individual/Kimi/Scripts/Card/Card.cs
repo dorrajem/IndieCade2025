@@ -4,43 +4,53 @@ using UnityEngine.UI;
 
 public class Card : MonoBehaviour
 {
+    [Header("Shared Data")]
     public CardData cardData;
 
     private bool isUICard = false;
     
-    [SerializeField] private CardUI _cardUI;
-    [SerializeField] private Card2D _card2D;
+    [Header("UI Only")]
+    [SerializeField] private Image uiImage;
+    
+    [Header("2D Only")]
+    [SerializeField] private SpriteRenderer _spriteRenderer;
+    
 
-
-    private void Awake()
+    public void Init(CardData newData)
     {
+        cardData = newData;
+
         if (isUICard)
         {
-            _cardUI = GetComponent<CardUI>();
-            if (_cardUI == null)
-            {
-                Debug.LogWarning("card is ui, but no CardUI");
-            }
+            SetupUICard(cardData);
+        }
+        else
+        {
+            Setup2DCard(cardData);
         }
     }
 
-    public void Setup(CardData data)
+    public void SetupUICard(CardData data)
     {
-        
+        if (uiImage == null)
+        {
+            return;
+        }
+
+        uiImage.sprite = data.Artwork;
     }
 
-    public void Init(CardData newData, CardState newState)
+    public void Setup2DCard(CardData data)
     {
-        cardData = newData;
-        cardData.cardState = newState;
-        
-        UpdateVisual();
-    }
+        if (_spriteRenderer == null)
+        {
+            return;
+        }
 
-    private void UpdateVisual()
-    {
-        // UI, Artwork, Name, Cost
+        _spriteRenderer.sprite = cardData.Artwork;
     }
+    
+
 
     public CardData GetCardData() => cardData;
 

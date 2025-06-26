@@ -45,7 +45,7 @@ public class HandManager : MonoBehaviour
     public void AddCardToHand(CardData cardData)
     {
         GameObject card = Instantiate(cardPrefab, handArea);
-        card.GetComponent<Card>().Setup(cardData);
+        card.GetComponent<Card>().Init(cardData);
         handCards.Add(card);
         UpdateCardLayout(smooth:false);
     }
@@ -208,7 +208,7 @@ public class HandManager : MonoBehaviour
         
         GameObject newCardObj = Instantiate(cardPrefab2D, slotPos, Quaternion.identity);
         Card card = newCardObj.GetComponent<Card>();
-        card.Init(cardData, CardState.OnTable);
+        card.Init(cardData);
     }
 
 
