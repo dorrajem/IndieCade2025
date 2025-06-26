@@ -11,7 +11,7 @@ public class HandManager : MonoBehaviour
     public RectTransform handArea;
     public GameObject cardPrefab;
     public GameObject placeholderPrefab;
-    private GameObject currentPlaceholder;
+    public GameObject currentPlaceholder;
     private List<Vector2> slotPosition = new();
     
 
@@ -30,10 +30,11 @@ public class HandManager : MonoBehaviour
     }
     
 
-
+    
     // Needs revision for future card types
     // TODO: DOTween
     #region CardDrag
+    
     public void AddCardToHand(CardData cardData)
     {
         GameObject card = Instantiate(cardPrefab, handArea);
@@ -41,10 +42,10 @@ public class HandManager : MonoBehaviour
         handCards.Add(card);
         UpdateCardLayout(smooth:false);
     }
-
+    /*
     public void StartDrag(GameObject draggingCard)
     {
-        if (currentPlaceholder != null) 
+        if (currentPlaceholder != null)
             Destroy(currentPlaceholder);
         currentPlaceholder = Instantiate(placeholderPrefab, handArea);
         int index = handCards.IndexOf(draggingCard);
@@ -78,7 +79,7 @@ public class HandManager : MonoBehaviour
         handCards.Remove(currentPlaceholder);
         // Dynamically calculate insert index
         int insertIndex = 0;
-        
+
         for (int i = 0; i < handCards.Count; i++)
         {
             if (worldPos.x > handCards[i].transform.position.x)
@@ -96,25 +97,34 @@ public class HandManager : MonoBehaviour
 
     public void EndDrag(GameObject draggingCard)
     {
-        
-        if (currentPlaceholder == null) return;
+        int index = 0;
 
-        int index = handCards.IndexOf(currentPlaceholder);
+        if (currentPlaceholder != null)
+        {
+            index = handCards.IndexOf(currentPlaceholder);
+            handCards.Remove(currentPlaceholder);
+            Destroy(currentPlaceholder);
+            currentPlaceholder = null;
+        }
+        else
+        {
+            index = handCards.Count;
+        }
 
-        handCards.Remove(currentPlaceholder);
-        Destroy(currentPlaceholder);
-        currentPlaceholder = null;
-        
-        handCards.Insert(index, draggingCard);
-        draggingCard.transform.SetParent(handArea);
-        
-        UpdateCardLayout();
+        if (!handCards.Contains(draggingCard))
+        {
+            handCards.Insert(index, draggingCard);
+            draggingCard.transform.SetParent(handArea);
+        }
+
+        UpdateCardLayout(smooth:false);
     }
 
-    
+
+    */
     // Needs decoupling here
     // TODO: create UpdateCardLayout(Gameobject ignore = null, bool useSmooth = false)
-    private void UpdateCardLayout(GameObject ignore = null, bool smooth = true)
+    public void UpdateCardLayout(GameObject ignore = null, bool smooth = true)
     {
         int count = handCards.Count;
         if (count == 0) return;
@@ -154,7 +164,7 @@ public class HandManager : MonoBehaviour
     }
     
     #endregion
-
+    
     #region ManageHandAcrossLevels
 
     public void ResetHand()

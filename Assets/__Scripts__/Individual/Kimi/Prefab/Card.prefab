@@ -595,7 +595,6 @@ GameObject:
   - component: {fileID: 3531578294881192448}
   - component: {fileID: 3126897341854937759}
   - component: {fileID: 5660485544996755215}
-  - component: {fileID: -6697025038041434150}
   - component: {fileID: 8509592793084019197}
   m_Layer: 5
   m_Name: Card
@@ -771,10 +770,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardImage: {fileID: 2955544835773611091}
-  cardName: {fileID: 6794613521389476711}
-  cost: {fileID: 3703398285629162528}
-  attackPower: {fileID: 2185735413113562008}
-  healthPoint: {fileID: 7119581685453558958}
+  selectedAnchoredPosition: {x: 233, y: 120}
+  selectScale: 1.5
+  transitionSpeed: 10
+  handDropAmount: 80
   cardData: {fileID: 11400000, guid: f8abdb9d80016f44eb60fd6bd2816286, type: 2}
 --- !u!114 &5660485544996755215
 MonoBehaviour:
@@ -789,18 +788,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverScale: 1.2
---- !u!114 &-6697025038041434150
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6937738408158534530}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d977a83ee97d7a74a8f2a2f48f9c1d72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!225 &8509592793084019197
 CanvasGroup:
   m_ObjectHideFlags: 0

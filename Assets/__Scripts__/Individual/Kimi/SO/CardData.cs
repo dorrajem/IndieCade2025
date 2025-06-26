@@ -14,6 +14,8 @@ public class CardData : ScriptableObject
 
     public CardState cardState;
     public CardCategory cardCategory;
+    
+    public GameObject worldPrefab;
 }
 
 public enum CardState

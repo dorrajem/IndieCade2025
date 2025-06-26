@@ -19,3 +19,4 @@ MonoBehaviour:
   HealthPoint: 3
   cardState: 0
   cardCategory: 0
+  worldPrefab: {fileID: 6937738408158534530, guid: 875f865cc9cf9a445b4926e0faa494b2, type: 3}
