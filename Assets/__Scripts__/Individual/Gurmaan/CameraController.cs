@@ -29,7 +29,10 @@ public class CameraController : MonoBehaviour
     {
         mainCam = Camera.main;
         
-        BackCam();
+        // Not working, needs rework
+        // BackCam();
+        // Force cam back up
+        ForceCamBack();
         
         target_pos = mainCam.transform.position;
         target_rot = mainCam.transform.eulerAngles;
@@ -84,5 +87,12 @@ public class CameraController : MonoBehaviour
         target_rot = rot;
 
         target_fov = back_fov;
+    }
+
+    private void ForceCamBack()
+    {
+        transform.position = new Vector3(transform.position.x, back_posY, back_posZ);
+        transform.eulerAngles = new Vector3(back_rotX, transform.eulerAngles.y, transform.eulerAngles.z);
+        mainCam.fieldOfView = back_fov;
     }
 }
