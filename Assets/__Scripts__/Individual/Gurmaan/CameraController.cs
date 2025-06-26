@@ -34,6 +34,8 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
+        CardHover selectedCard = CardHover.currentlySelected;
+        
         if (Input.GetKeyDown(KeyCode.Space) || selectedCard != null)
         {
             PlayCam();
