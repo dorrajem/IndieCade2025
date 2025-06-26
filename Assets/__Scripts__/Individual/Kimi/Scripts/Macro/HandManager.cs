@@ -194,13 +194,15 @@ public class HandManager : MonoBehaviour
 
     #region PlayCard
 
-    public void PlayCardToWorld(Card selectedCard, Vector3 slotPos)
+    public GameObject PlayCardToWorld(Card selectedCard, Vector3 slotPos)
     {
         if (cardPrefab2D == null)
         {
             Debug.Log("Card prefab is not assigned");
-            return;
+            return null;
         }
+        
+        selectedCard.DeselectVisual();
         
         CardData cardData = selectedCard.GetCardData();
         handCards.Remove(selectedCard.gameObject);
@@ -211,6 +213,8 @@ public class HandManager : MonoBehaviour
         newCardObj.transform.localScale = Vector3.one;
         Card card = newCardObj.GetComponent<Card>();
         card.Init(cardData, false);
+
+        return newCardObj;
     }
 
 

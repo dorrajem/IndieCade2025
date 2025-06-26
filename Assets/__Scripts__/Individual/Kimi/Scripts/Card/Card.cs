@@ -50,14 +50,21 @@ public class Card : MonoBehaviour
 
         _spriteRenderer.sprite = cardData.Artwork;
     }
-    
-
 
     public CardData GetCardData() => cardData;
 
     public void PlayToBoard(Vector3 pos)
     {
         HandManager.Instance.PlayCardToWorld(this, pos);
+    }
+
+    public void DeselectVisual()
+    {
+        var hover = GetComponent<CardHover>();
+        if (hover != null)
+        {
+            hover.ForceDeselect();
+        }
     }
 
 }

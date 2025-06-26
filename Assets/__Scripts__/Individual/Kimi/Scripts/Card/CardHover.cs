@@ -111,5 +111,13 @@ public class CardHover : MonoBehaviour,
             handArea.anchoredPosition = originalHandPosition;
     }
 
+    public void ForceDeselect()
+    {
+        if (isSelected)
+        {
+            DeselectCard();
+        }
+    }
+
     #endregion
 }

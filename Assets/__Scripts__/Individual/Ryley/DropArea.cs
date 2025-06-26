@@ -4,7 +4,9 @@ using UnityEngine.EventSystems;
 
 public class DropArea : MonoBehaviour
 {
-    
+    public bool isOccupied = false;
+
+    public GameObject placedCard;
     // private void Update() 
     // {
     //     CardHover selectedCard = CardHover.currentlySelected;
@@ -48,16 +50,30 @@ public class DropArea : MonoBehaviour
     private void OnMouseDown()
     {
         var selected = SelectCardManager.Instance.currentCard;
-        
-        if (selected != null) 
+        if (selected != null && !isOccupied)
         {
             Vector3 spawnPos = transform.position;
             spawnPos.z = 0;
             
-            HandManager.Instance.PlayCardToWorld(selected, spawnPos);
+            GameObject newCard = HandManager.Instance.PlayCardToWorld(selected, spawnPos);
+
+            isOccupied = true;
+            placedCard = newCard;
+
+            var slotRef = newCard.AddComponent<SlotReference>();
+            slotRef.slot = this;
+            
             SelectCardManager.Instance.ClearSelection();
+            
+            CameraController.Instance.BackCam();
         }
         
         Debug.Log("Place Works");
+    }
+
+    public void ClearSlot()
+    {
+        isOccupied = false;
+        placedCard = null;
     }
 }

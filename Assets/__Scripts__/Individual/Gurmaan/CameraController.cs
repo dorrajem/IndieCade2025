@@ -21,15 +21,20 @@ public class CameraController : MonoBehaviour
     private Vector3 target_pos;
     private Vector3 target_rot;
     private float target_fov;
-    
+
+    public static CameraController Instance;
     CardHover selectedCard = CardHover.currentlySelected;
 
     void Start()
     {
         mainCam = Camera.main;
+        
+        BackCam();
+        
         target_pos = mainCam.transform.position;
         target_rot = mainCam.transform.eulerAngles;
         target_fov = mainCam.fieldOfView;
+        Instance = this;
     }
 
     void Update()
@@ -52,7 +57,7 @@ public class CameraController : MonoBehaviour
     
     
     //Moves Camera into Play mode (top view of cards)
-    void PlayCam()
+    public void PlayCam()
     {
         Vector3 pos = transform.position;
         pos.y = play_posY;
@@ -67,7 +72,7 @@ public class CameraController : MonoBehaviour
     }
     
     //Moves Camera into Back Mode (full view of scene)
-    void BackCam()
+    public void BackCam()
     {
         Vector3 pos = transform.position;
         pos.y = back_posY;
