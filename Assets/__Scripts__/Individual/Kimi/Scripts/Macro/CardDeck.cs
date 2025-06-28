@@ -17,6 +17,7 @@ public class CardDeck : MonoBehaviour
     public HandManager handManager;
     //[SerializeField] private CardDisplay cardDisplay;
 
+    public EndTurnManager endManager; //Caleb's Edit
 
 
     private void Start()
@@ -26,6 +27,12 @@ public class CardDeck : MonoBehaviour
         currentDeck.Shuffle();
         
         DrawInitialCards(5);
+
+        //Caleb's Edit
+        if (endManager == null)
+        {
+            endManager = UnityEngine.Object.FindFirstObjectByType<EndTurnManager>();
+        }
     }
 
     private void Update()
@@ -47,6 +54,8 @@ public class CardDeck : MonoBehaviour
 
     public void DrawCard()
     {
+        if (endManager == null || !endManager.IsPlayerTurn) return; //Caleb's Edit
+
         CardData topCard = currentDeck.Draw();
         if (topCard != null)
         {

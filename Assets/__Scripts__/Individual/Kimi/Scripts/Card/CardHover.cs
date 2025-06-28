@@ -28,6 +28,8 @@ public class CardHover : MonoBehaviour,
 
     private RectTransform rt;
 
+    public EndTurnManager endManager; //Caleb's Edit
+
     private void Awake()
     {
         rt = GetComponent<RectTransform>();
@@ -35,6 +37,13 @@ public class CardHover : MonoBehaviour,
         handArea = GameObject.FindWithTag("Hand")?.GetComponent<RectTransform>();
         if (handArea != null)
             originalHandPosition = handArea.anchoredPosition;
+
+        //Caleb's Edit
+        // Automatically find EndTurnManager if not set
+        if (endManager == null)
+        {
+            endManager = Object.FindFirstObjectByType<EndTurnManager>();
+        }
     }
 
     private void Update()
@@ -60,6 +69,9 @@ public class CardHover : MonoBehaviour,
     public void OnPointerClick(PointerEventData eventData)
     {
         if (isSelected || eventData.button != PointerEventData.InputButton.Left) return;
+
+        // Only allow selection if it's the player's turn
+        if (endManager == null || !endManager.IsPlayerTurn) return; //Caleb's Edit
 
         if (currentlySelected != null && currentlySelected != this)
             currentlySelected.DeselectCard();
