@@ -26,11 +26,7 @@ public class ResourceManagement : MonoBehaviour
 
     public void TurnStart()
     {
-        saplings += 2;
-        if (saplings > saplingMax)
-        {
-            saplings = saplingMax;
-        }
+        AddPoints(2);
     }
 
     public bool CheckCost(CardData data)
@@ -52,5 +48,26 @@ public class ResourceManagement : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    public void SpendPoints(int amount)
+    {
+        if (saplings - amount >= 0)
+        {
+            saplings -= amount;
+        }
+        else
+        {
+            Debug.Log("Not enough SapplingPoints, this shouldn't have been called");
+        }
+    }
+
+    public void AddPoints(int amount)
+    {
+        saplings += amount;
+        if (saplings > saplingMax)
+        {
+            saplings = saplingMax;
+        }
     }
 }
