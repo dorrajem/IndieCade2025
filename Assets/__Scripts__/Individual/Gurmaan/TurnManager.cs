@@ -4,6 +4,7 @@ public class TurnManager : MonoBehaviour
 {
     public bool IsPlayerTurn = true;
     public ResourceManagement resourceManagement;
+    public OpponentManager opponent;
     public CardDeck cardDeck;
 
     // Ends the player's current turn
@@ -14,6 +15,7 @@ public class TurnManager : MonoBehaviour
     public void EndTurn()
     {
         IsPlayerTurn = false;
+        opponent.isOpponentTurn = true;
     }
     
     // Starts the Player's turn
