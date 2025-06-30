@@ -17,7 +17,8 @@ public class CardDeck : MonoBehaviour
     public HandManager handManager;
     //[SerializeField] private CardDisplay cardDisplay;
 
-    public EndTurnManager endManager; //Caleb's Edit
+    public TurnManager turnManager; //Caleb's Edit
+    public bool drawn = false; //Gurmaan's edit
 
 
     private void Start()
@@ -29,16 +30,12 @@ public class CardDeck : MonoBehaviour
         DrawInitialCards(5);
 
         //Caleb's Edit
-        if (endManager == null)
+        if (turnManager == null)
         {
-            endManager = UnityEngine.Object.FindFirstObjectByType<EndTurnManager>();
+            turnManager = UnityEngine.Object.FindFirstObjectByType<TurnManager>();
         }
     }
-
-    private void Update()
-    {
-        
-    }
+    
 
     private void DrawInitialCards(int count)
     {
@@ -54,12 +51,13 @@ public class CardDeck : MonoBehaviour
 
     public void DrawCard()
     {
-        if (endManager == null || !endManager.IsPlayerTurn) return; //Caleb's Edit
+        if (turnManager == null || !turnManager.IsPlayerTurn || drawn) return; //Caleb's Edit
 
         CardData topCard = currentDeck.Draw();
         if (topCard != null)
         {
             HandManager.Instance.AddCardToHand(topCard);
+            drawn = true;
         }
     }
 

@@ -28,7 +28,7 @@ public class CardHover : MonoBehaviour,
 
     private RectTransform rt;
 
-    public EndTurnManager endManager; //Caleb's Edit
+    public TurnManager turnManager; //Caleb's Edit
 
     private void Awake()
     {
@@ -40,9 +40,9 @@ public class CardHover : MonoBehaviour,
 
         //Caleb's Edit
         // Automatically find EndTurnManager if not set
-        if (endManager == null)
+        if (turnManager == null)
         {
-            endManager = Object.FindFirstObjectByType<EndTurnManager>();
+            turnManager = Object.FindFirstObjectByType<TurnManager>();
         }
     }
 
@@ -71,7 +71,7 @@ public class CardHover : MonoBehaviour,
         if (isSelected || eventData.button != PointerEventData.InputButton.Left) return;
 
         // Only allow selection if it's the player's turn
-        if (endManager == null || !endManager.IsPlayerTurn) return; //Caleb's Edit
+        if (turnManager == null || !turnManager.IsPlayerTurn) return; //Caleb's Edit
 
         if (currentlySelected != null && currentlySelected != this)
             currentlySelected.DeselectCard();

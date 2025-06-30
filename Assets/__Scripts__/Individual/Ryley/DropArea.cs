@@ -68,7 +68,6 @@ public class DropArea : MonoBehaviour
             CameraController.Instance.BackCam();
         }
         
-        Debug.Log("Place Works");
     }
 
     public void ClearSlot()

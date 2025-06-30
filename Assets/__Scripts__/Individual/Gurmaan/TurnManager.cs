@@ -2,15 +2,22 @@ using UnityEngine;
 
 public class TurnManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public bool IsPlayerTurn = true;
+    public ResourceManagement resourceManagement;
+    public CardDeck cardDeck;
 
-    // Update is called once per frame
-    void Update()
+    // Ends the player's current turn
+    public void EndTurn()
     {
-        
+        IsPlayerTurn = false;
+    }
+    
+    // Starts the Player's turn
+    public void TurnStart()
+    {
+        cardDeck.drawn = false;
+        resourceManagement.AddPoints(2);
     }
 }
+
+

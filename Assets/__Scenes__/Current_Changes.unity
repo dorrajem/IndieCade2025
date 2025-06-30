@@ -532,14 +532,14 @@ RectTransform:
   m_GameObject: {fileID: 588588479}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.725, y: 0.725, z: 0.725}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1081305501}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 284.6, y: 163.6}
+  m_AnchoredPosition: {x: 310.7, y: 165.2}
   m_SizeDelta: {x: 180, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &588588481
@@ -1198,6 +1198,7 @@ GameObject:
   - component: {fileID: 1457333153}
   - component: {fileID: 1457333152}
   - component: {fileID: 1457333155}
+  - component: {fileID: 1457333156}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -1219,7 +1220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deckData: {fileID: 11400000, guid: b75e0d73705bd6e4eb707ca2e7cef9ed, type: 2}
   handManager: {fileID: 1457333153}
-  endManager: {fileID: 0}
+  turnManager: {fileID: 0}
 --- !u!114 &1457333153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1266,6 +1267,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76af950490239cc498c30929cea99506, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1457333156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457333151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b1abc86b20995c4ba669aa83bb012a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsPlayerTurn: 1
+  resourceManagement: {fileID: 0}
 --- !u!1 &1460759856
 GameObject:
   m_ObjectHideFlags: 0
@@ -1430,14 +1445,14 @@ RectTransform:
   m_GameObject: {fileID: 1896231574}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.725, y: 0.725, z: 0.725}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1081305501}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 284.6, y: 63.6}
+  m_AnchoredPosition: {x: 165.5, y: 165.2}
   m_SizeDelta: {x: 180, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1896231576
@@ -1484,8 +1499,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1016289919}
-        m_TargetAssemblyTypeName: EndTurnManager, Assembly-CSharp
+      - m_Target: {fileID: 1457333156}
+        m_TargetAssemblyTypeName: TurnManager, Assembly-CSharp
         m_MethodName: EndTurn
         m_Mode: 1
         m_Arguments:

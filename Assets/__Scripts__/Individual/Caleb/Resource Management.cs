@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class ResourceManagement : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     // Current placeholder logic for sapling management
     const int saplingMax = 5;
     public bool turnStart = false;
@@ -22,11 +21,6 @@ public class ResourceManagement : MonoBehaviour
     void Update()
     {
 
-    }
-
-    public void TurnStart()
-    {
-        AddPoints(2);
     }
 
     public bool CheckCost(CardData data)
@@ -58,7 +52,7 @@ public class ResourceManagement : MonoBehaviour
         }
         else
         {
-            Debug.Log("Not enough SapplingPoints, this shouldn't have been called");
+            Debug.Log("Not enough Sapling Points, this shouldn't have been called");
         }
     }
 
