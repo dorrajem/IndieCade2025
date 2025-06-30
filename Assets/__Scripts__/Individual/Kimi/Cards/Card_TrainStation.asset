@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardName: TrainStation
   Artwork: {fileID: -4600905094163153079, guid: 5484fc0d0e007ca4dbff3d7a97a79680, type: 3}
-  SaplingCostPoint: 1
+  SaplingCostPoint: 0
+  SacrificeCostPoint: 1
   AttackPower: 2
   HealthPoint: 3
   cardState: 0

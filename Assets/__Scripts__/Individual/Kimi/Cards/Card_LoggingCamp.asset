@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardName: LoggingCamp
   Artwork: {fileID: -9136893617581186783, guid: 292ecf365117319468e5f7df44ec40e6, type: 3}
-  SaplingCostPoint: 3
+  SaplingCostPoint: 0
+  SacrificeCostPoint: 3
   AttackPower: 2
   HealthPoint: 5
   cardState: 0

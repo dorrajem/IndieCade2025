@@ -7,6 +7,10 @@ public class TurnManager : MonoBehaviour
     public CardDeck cardDeck;
 
     // Ends the player's current turn
+    void Awake()
+    {
+        TurnStart();
+    }
     public void EndTurn()
     {
         IsPlayerTurn = false;
@@ -17,6 +21,7 @@ public class TurnManager : MonoBehaviour
     {
         cardDeck.drawn = false;
         resourceManagement.AddPoints(2);
+        IsPlayerTurn = true;
     }
 }
 

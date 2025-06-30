@@ -8,6 +8,7 @@ public class CardData : ScriptableObject
     public string CardName;
     public Sprite Artwork;
     public int SaplingCostPoint;
+    public int SacrificeCostPoint;
     public int AttackPower;
     public int HealthPoint;
     public const int SacrificePoint = 1;

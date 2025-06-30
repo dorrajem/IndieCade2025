@@ -209,7 +209,8 @@ MonoBehaviour:
   selectedAnchoredPosition: {x: 233, y: 120}
   selectScale: 1.5
   transitionSpeed: 10
-  handDropAmount: 80
+  handDropAmount: 100
+  turnManager: {fileID: 0}
 --- !u!225 &8509592793084019197
 CanvasGroup:
   m_ObjectHideFlags: 0

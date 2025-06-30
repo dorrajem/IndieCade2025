@@ -213,7 +213,8 @@ public class HandManager : MonoBehaviour
         newCardObj.transform.localScale = Vector3.one;
         Card card = newCardObj.GetComponent<Card>();
         card.Init(cardData, false);
-
+        
+        UpdateCardLayout(smooth: true);
         return newCardObj;
     }
 

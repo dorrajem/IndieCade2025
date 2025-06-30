@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 public class DropArea : MonoBehaviour
 {
     public bool isOccupied = false;
+    public ResourceManagement resourceManagement;
 
     public GameObject placedCard;
     // private void Update() 
@@ -50,8 +51,19 @@ public class DropArea : MonoBehaviour
     private void OnMouseDown()
     {
         var selected = SelectCardManager.Instance.currentCard;
+        
+        
         if (selected != null && !isOccupied)
         {
+            if (selected.cardData.cardCategory == CardCategory.Nature)
+            {
+                if(!resourceManagement.CheckCost(selected.cardData))
+                {
+                    return;
+                }
+            }
+            resourceManagement.SpendPoints(selected.cardData.SaplingCostPoint);
+            
             Vector3 spawnPos = transform.position;
             spawnPos.z = 0;
             

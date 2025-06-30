@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class ResourceManagement : MonoBehaviour
@@ -5,22 +6,19 @@ public class ResourceManagement : MonoBehaviour
     // Current placeholder logic for sapling management
     const int saplingMax = 5;
     public bool turnStart = false;
-    private int saplings = 0;
+    private int saplings = 1;
+    
+    public TextMeshProUGUI saplingText;
 
     // Current placeholder for sacrifices 
     //public int currentCards = 0;
     //private int cardMax = 4;
-
-
-    void Start()
-    {
-        
-    }
+    
 
     // Update is called once per frame
-    void Update()
+    void UpdateText()
     {
-
+        saplingText.text = "Saplings: " + saplings;
     }
 
     public bool CheckCost(CardData data)
@@ -49,6 +47,7 @@ public class ResourceManagement : MonoBehaviour
         if (saplings - amount >= 0)
         {
             saplings -= amount;
+            UpdateText();
         }
         else
         {
@@ -63,5 +62,6 @@ public class ResourceManagement : MonoBehaviour
         {
             saplings = saplingMax;
         }
+        UpdateText();
     }
 }

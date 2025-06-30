@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardName: SteelFactory
   Artwork: {fileID: 2596552556267567030, guid: 8b87d921489ec5c49bf195945c826aa8, type: 3}
-  SaplingCostPoint: 2
+  SaplingCostPoint: 0
+  SacrificeCostPoint: 2
   AttackPower: 3
   HealthPoint: 5
   cardState: 0
