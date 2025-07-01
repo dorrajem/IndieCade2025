@@ -18,7 +18,10 @@ public class ResourceManagement : MonoBehaviour
     // Update is called once per frame
     void UpdateText()
     {
-        saplingText.text = "Saplings: " + saplings;
+        if (saplingText != null)
+        {
+            saplingText.text = "Saplings: " + saplings;
+        }
     }
 
     public bool CheckCost(CardData data)

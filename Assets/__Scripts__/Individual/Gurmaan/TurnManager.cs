@@ -4,8 +4,9 @@ public class TurnManager : MonoBehaviour
 {
     public bool IsPlayerTurn = true;
     public ResourceManagement resourceManagement;
-    public OpponentManager opponent;
+    //public OpponentManager opponent;
     public CardDeck cardDeck;
+    public EnemyAIController enemyAI; 
 
     // Ends the player's current turn
     void Awake()
@@ -15,7 +16,7 @@ public class TurnManager : MonoBehaviour
     public void EndTurn()
     {
         IsPlayerTurn = false;
-        opponent.isOpponentTurn = true;
+        enemyAI.EnemyTakeTurn(this);
     }
     
     // Starts the Player's turn

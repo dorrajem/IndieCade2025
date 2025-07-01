@@ -3,62 +3,89 @@ using UnityEngine;
 
 public class EnemyAIController : MonoBehaviour
 {
-    [Header("Enemy AI")]
     public EnemyAI enemyAI;
+    public DeckData enemyDeckTemplate; 
+    private DeckRuntime enemyCardDeck;
 
-    [Header("Enemy Deck")]
-    public DeckRuntime enemyCardDeck;
-
-    [Header("Enemy Hand")]
     private List<CardData> enemyHand = new();
-
     public int maxSaplingPoints = 5;
     private int currentSaplingPoints;
 
     public int maxBoardSlots = 4;
-
     public int initialDrawCount = 5;
+
+    private List<AIDropArea> enemyDropAreas = new();
+
+    private void Awake()
+    {
+        enemyDropAreas = new List<AIDropArea>(FindObjectsByType<AIDropArea>(FindObjectsSortMode.None));
+    }
 
     private void Start()
     {
         currentSaplingPoints = maxSaplingPoints;
 
         enemyCardDeck = new DeckRuntime();
+        enemyCardDeck.LoadFromTemplate(enemyDeckTemplate);
+        enemyCardDeck.Shuffle();
 
         DrawInitialHand(initialDrawCount);
     }
 
-    public void TakeTurn()
+    public void EnemyTakeTurn(TurnManager turnManager)
     {
         Debug.Log("Enemy Turn Starts");
 
-        int boardSpace = maxBoardSlots - GetEnemyCardsOnBoard(); // Placeholder 
+        int boardSpace = GetNumAvailableSlots();
 
-        currentSaplingPoints = enemyAI.ExecuteTurn(enemyHand, PlayCard, currentSaplingPoints, boardSpace);
+        currentSaplingPoints = enemyAI.ExecuteTurn(
+            enemyHand,
+            (cardData) =>
+            {
+                AIDropArea slot = GetNextAvailableDropArea();
+                if (slot != null)
+                {
+                    GameObject cardGO = new GameObject("EnemyCard");
+                    Card card = cardGO.AddComponent<Card>();
+                    card.Init(cardData, false);
+
+                    slot.PlaceEnemyCard(card);
+                    enemyHand.Remove(cardData);
+                }
+            },
+            currentSaplingPoints,
+            boardSpace
+        );
 
         Debug.Log("Enemy Turn Ends");
+        turnManager.TurnStart();
     }
 
     private void DrawInitialHand(int count)
     {
         for (int i = 0; i < count; i++)
         {
-            CardData card = enemyCardDeck.Draw(); 
+            CardData card = enemyCardDeck.Draw();
             if (card != null)
+            {
                 enemyHand.Add(card);
+            }
         }
     }
 
-    private void PlayCard(CardData card)
+    private AIDropArea GetNextAvailableDropArea()
     {
-        // Placeholder: will add card to board
-        Debug.Log($"Enemy played: {card.CardName}");
-
+        return enemyDropAreas.Find(area => !area.isOccupied);
     }
 
-    private int GetEnemyCardsOnBoard()
+    public int GetNumAvailableSlots()
     {
-        // Placeholder 
-        return 0;
+        int val = 0;
+        foreach (var area in enemyDropAreas)
+        {
+            if (!area.isOccupied)
+                val++;
+        }
+        return val;
     }
 }

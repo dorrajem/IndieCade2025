@@ -7,6 +7,7 @@ public class OpponentManager : MonoBehaviour
     const int opponentMaxSaplings = 5;
     public int opponentSaplings = 1;
     public bool isOpponentTurn = false;
+    EnemyAIController enemyAIController;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -14,12 +15,14 @@ public class OpponentManager : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public void EnemyTurn(TurnManager turnManager)
     {
-       if (opponentHealth <= 0)
-        {
-            Debug.Log("You Win!!!");
-        }
+        isOpponentTurn = true;
+       // enemyAIController.EnemyTakeTurn();
+
+        isOpponentTurn = false;
+
+        turnManager.TurnStart();
     }
+
 }
