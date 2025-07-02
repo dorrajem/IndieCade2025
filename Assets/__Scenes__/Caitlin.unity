@@ -187,6 +187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isOccupied: 0
   resourceManagement: {fileID: 801074478}
+  sacrificeManager: {fileID: 801074484}
   placedCard: {fileID: 0}
 --- !u!1 &128708434
 GameObject:
@@ -332,6 +333,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isOccupied: 0
   resourceManagement: {fileID: 801074478}
+  sacrificeManager: {fileID: 801074484}
   placedCard: {fileID: 0}
 --- !u!1 &423059060
 GameObject:
@@ -823,9 +825,10 @@ GameObject:
   - component: {fileID: 801074482}
   - component: {fileID: 801074479}
   - component: {fileID: 801074478}
+  - component: {fileID: 801074484}
   m_Layer: 0
   m_Name: Manager
-  m_TagString: Untagged
+  m_TagString: Manager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -922,6 +925,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &801074484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 801074477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c07f17420e26fb54ca41b0279f3ce469, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceManagement: {fileID: 801074478}
+  playerTiles:
+  - {fileID: 1562701851}
+  - {fileID: 1041581406}
+  - {fileID: 78558746}
+  - {fileID: 175264449}
+  Sacrificing: 0
+  sacrifices: []
+  CanPlace: 0
 --- !u!1 &964338289
 GameObject:
   m_ObjectHideFlags: 0
@@ -1025,6 +1049,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isOccupied: 0
   resourceManagement: {fileID: 801074478}
+  sacrificeManager: {fileID: 801074484}
   placedCard: {fileID: 0}
 --- !u!1 &1064097298
 GameObject:
@@ -1725,6 +1750,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isOccupied: 0
   resourceManagement: {fileID: 801074478}
+  sacrificeManager: {fileID: 801074484}
   placedCard: {fileID: 0}
 --- !u!1 &1596846025
 GameObject:

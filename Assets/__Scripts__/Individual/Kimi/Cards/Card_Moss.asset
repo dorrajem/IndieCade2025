@@ -15,8 +15,10 @@ MonoBehaviour:
   CardName: Moss
   Artwork: {fileID: 1208040086343421634, guid: cdf6f7edc2e4e9b4f80f9af87680b81a, type: 3}
   SaplingCostPoint: 1
+  SacrificeCostPoint: 0
   AttackPower: 2
   HealthPoint: 1
+  SacrificePoint: 1
   cardState: 0
   cardCategory: 0
   worldPrefab: {fileID: 6937738408158534530, guid: 875f865cc9cf9a445b4926e0faa494b2, type: 3}

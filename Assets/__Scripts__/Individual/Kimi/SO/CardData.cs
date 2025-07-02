@@ -11,7 +11,7 @@ public class CardData : ScriptableObject
     public int SacrificeCostPoint;
     public int AttackPower;
     public int HealthPoint;
-    public const int SacrificePoint = 1;
+    public int SacrificePoint = 1;
 
     public CardState cardState;
     public CardCategory cardCategory;

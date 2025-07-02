@@ -15,8 +15,10 @@ MonoBehaviour:
   CardName: Calf
   Artwork: {fileID: -5596915952161779270, guid: ea1bd7ec945d8664d8db5d86d19fff9d, type: 3}
   SaplingCostPoint: 1
+  SacrificeCostPoint: 0
   AttackPower: 1
   HealthPoint: 1
+  SacrificePoint: 1
   cardState: 0
   cardCategory: 0
   worldPrefab: {fileID: 6937738408158534530, guid: 875f865cc9cf9a445b4926e0faa494b2, type: 3}

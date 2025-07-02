@@ -29,6 +29,7 @@ public class CardHover : MonoBehaviour,
     private RectTransform rt;
 
     public TurnManager turnManager; //Caleb's Edit
+    public SacrificeManager sacrificeManager;
 
     private void Awake()
     {
@@ -44,11 +45,12 @@ public class CardHover : MonoBehaviour,
         {
             turnManager = Object.FindFirstObjectByType<TurnManager>();
         }
+        sacrificeManager = GameObject.FindWithTag("Manager").GetComponent<SacrificeManager>();
     }
 
     private void Update()
     {
-        if (isSelected && Input.GetMouseButtonDown(1))
+        if (isSelected && Input.GetMouseButtonDown(1) &&  !sacrificeManager.CanPlace)
         {
             DeselectCard();
         }
@@ -68,7 +70,7 @@ public class CardHover : MonoBehaviour,
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (isSelected || eventData.button != PointerEventData.InputButton.Left) return;
+        if (isSelected || eventData.button != PointerEventData.InputButton.Left || sacrificeManager.CanPlace) return;
 
         // Only allow selection if it's the player's turn
         if (turnManager == null || !turnManager.IsPlayerTurn) return; //Caleb's Edit
@@ -121,11 +123,12 @@ public class CardHover : MonoBehaviour,
 
         if (handArea != null)
             handArea.anchoredPosition = originalHandPosition;
+        SelectCardManager.Instance.ClearSelection();
     }
 
     public void ForceDeselect()
     {
-        if (isSelected)
+        if (isSelected && !sacrificeManager.CanPlace)
         {
             DeselectCard();
         }

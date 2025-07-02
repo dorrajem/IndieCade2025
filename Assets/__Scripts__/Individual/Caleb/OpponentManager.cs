@@ -5,7 +5,7 @@ public class OpponentManager : MonoBehaviour
     public ResourceManagement resourceManagement;
     public int opponentHealth;
     const int opponentMaxSaplings = 5;
-    public int opponentSaplings = 1;
+    public int opponentSaplings = 2;
     public bool isOpponentTurn = false;
     EnemyAIController enemyAIController;
 

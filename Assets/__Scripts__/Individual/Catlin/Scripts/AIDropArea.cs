@@ -18,9 +18,10 @@ public class AIDropArea : MonoBehaviour
                     Debug.Log("Not enough resources to play this card.");
                     return;
                 }
+                resourceManagement.SpendPoints(card.cardData.SaplingCostPoint);
             }
 
-            resourceManagement.SpendPoints(card.cardData.SaplingCostPoint);
+            
 
             Vector3 spawnPos = transform.position;
             spawnPos.z = 0;

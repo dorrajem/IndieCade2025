@@ -4,14 +4,17 @@ using UnityEngine;
 public class Card2D : MonoBehaviour, ICardVisual
 {
     public SpriteRenderer Renderer;
-
-
-    private void OnMouseOver()
+    
+    private SacrificeManager SacrificeManager;
+    void Start()
     {
-        if (Input.GetKeyDown(KeyCode.D))
+        SacrificeManager = GameObject.FindWithTag("Manager").GetComponent<SacrificeManager>();
+    }
+    private void OnMouseDown()
+    {
+        if (SacrificeManager.Sacrificing && !SacrificeManager.CanPlace && !SacrificeManager.sacrifices.Contains(this.gameObject))
         {
-            Debug.Log("Mouse clicked");
-            DestroySelf();
+            SacrificeManager.sacrifices.Add(this.gameObject);
         }
     }
 

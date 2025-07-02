@@ -1,4 +1,5 @@
 using System;
+using UnityEditor.Overlays;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -6,6 +7,7 @@ public class DropArea : MonoBehaviour
 {
     public bool isOccupied = false;
     public ResourceManagement resourceManagement;
+    public SacrificeManager sacrificeManager;
 
     public GameObject placedCard;
     // private void Update() 
@@ -61,9 +63,16 @@ public class DropArea : MonoBehaviour
                 {
                     return;
                 }
+                resourceManagement.SpendPoints(selected.cardData.SaplingCostPoint);
             }
-            resourceManagement.SpendPoints(selected.cardData.SaplingCostPoint);
+
+            if (selected.cardData.cardCategory == CardCategory.Industry)
+            {
+                if (!sacrificeManager.CanPlace) return;
+                else sacrificeManager.CanPlace = false;
+            }
             
+
             Vector3 spawnPos = transform.position;
             spawnPos.z = 0;
             
