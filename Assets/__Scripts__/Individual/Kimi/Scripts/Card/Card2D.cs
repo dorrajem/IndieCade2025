@@ -20,12 +20,18 @@ public class Card2D : MonoBehaviour, ICardVisual
 
     public void DestroySelf()
     {
+        Card card = GetComponent<Card>();
+        if (card != null && card.cardData != null)
+        {
+            CardDeathNotifier.NotifyCardDeath(card.cardData);
+            Debug.Log($"Card has been destroyed.");
+        }
+
         SlotReference refSlot = GetComponent<SlotReference>();
         if (refSlot != null && refSlot.slot != null)
         {
             refSlot.slot.ClearSlot();
         }
-        
         Destroy(gameObject);
     }
 

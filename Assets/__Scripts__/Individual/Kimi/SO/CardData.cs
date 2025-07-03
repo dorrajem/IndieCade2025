@@ -9,6 +9,7 @@ public class CardData : ScriptableObject
     public Sprite Artwork;
     public int SaplingCostPoint;
     public int SacrificeCostPoint;
+    public int DisasterCostPoint;
     public int AttackPower;
     public int HealthPoint;
     public int SacrificePoint = 1;

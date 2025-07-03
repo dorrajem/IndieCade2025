@@ -42,6 +42,26 @@ public class EnemyAIController : MonoBehaviour
         canPlayDisaster = false; 
     }
 
+    private void OnEnable()
+    {
+        CardDeathNotifier.OnCardDied += HandleCardDeath;
+    }
+
+    private void OnDisable()
+    {
+        CardDeathNotifier.OnCardDied -= HandleCardDeath;
+    }
+
+    private void HandleCardDeath(CardData cardData)
+    {
+        if (cardData.cardCategory == CardCategory.Nature)
+        {
+            natureDeaths++;
+            SetDisasterPoints(1); 
+            Debug.Log($"Nature card died. Total natureDeaths: {natureDeaths}");
+        }
+    }
+
     public void EnemyTakeTurn(TurnManager turnManager)
     {
         Debug.Log("Enemy Turn Starts");

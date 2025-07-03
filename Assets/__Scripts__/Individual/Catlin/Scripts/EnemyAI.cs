@@ -17,24 +17,27 @@ public class EnemyAI : ScriptableObject
             .ToList();
 
         List<CardData> playableDisaster = hand
-            .Where(c => c.cardCategory == CardCategory.Disaster && c.SacrificeCostPoint <= currentDisasterPoints)
+            .Where(c => c.cardCategory == CardCategory.Disaster && c.DisasterCostPoint <= currentDisasterPoints)
             .ToList();
 
         int boardSlotsRemaining = boardSlotsAvailable;
+
+        Debug.Log($"Enemy starting turn with {currentSaplingPoints} saplings and {currentDisasterPoints} disasterpoints and {boardSlotsAvailable} board slots.");
+
         while (playableDisaster.Count > 0 && boardSlotsRemaining > 0)
         {
             CardData bestCard = ChooseBestCard(playableDisaster);
-            if (bestCard == null || bestCard.SacrificeCostPoint > currentDisasterPoints)
+            if (bestCard == null || bestCard.DisasterCostPoint > currentDisasterPoints)
                 break;
             playCardCallback?.Invoke(bestCard);
-            currentDisasterPoints -= bestCard.SacrificeCostPoint;
+            currentDisasterPoints -= bestCard.DisasterCostPoint;
             boardSlotsRemaining--;
             playableDisaster = hand
-                .Where(c => c.cardCategory == CardCategory.Disaster && c.SacrificeCostPoint <= currentDisasterPoints)
+                .Where(c => c.cardCategory == CardCategory.Disaster && c.DisasterCostPoint <= currentDisasterPoints)
                 .ToList();
         }
 
-        Debug.Log($"Enemy starting turn with {currentSaplingPoints} saplings and {boardSlotsAvailable} board slots.");
+        
         while (playableNature.Count > 0 && boardSlotsRemaining > 0)
         {
             CardData bestCard = ChooseBestCard(playableNature);

@@ -9,7 +9,7 @@ public class AIDropArea : MonoBehaviour
 
     public void PlaceEnemyCard(Card card)
     {
-        Debug.Log($"Attempting to place {card.cardData.CardName} with cost {card.cardData.SaplingCostPoint}");
+        Debug.Log($"Attempting to place {card.cardData.CardName} with cost {card.cardData.SaplingCostPoint} and disaster cost {card.cardData.DisasterCostPoint}");
         if (card != null && !isOccupied)
         {
             Vector3 spawnPos = transform.position;
