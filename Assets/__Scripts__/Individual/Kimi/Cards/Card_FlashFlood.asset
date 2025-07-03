@@ -15,8 +15,17 @@ MonoBehaviour:
   CardName: Flash Flood
   Artwork: {fileID: -6815437586108985893, guid: 4d54614d766152c42bc0a346ef150fff, type: 3}
   SaplingCostPoint: 0
-  AttackPower: 3
-  HealthPoint: 2
+  SacrificeCostPoint: 0
+  DisasterCostPoint: 0
+  SacrificePoint: 1
   cardState: 0
   cardCategory: 2
+  cardOwner: 0
   worldPrefab: {fileID: 6937738408158534530, guid: 875f865cc9cf9a445b4926e0faa494b2, type: 3}
+  AttackPower: 3
+  HealthPoint: 2
+  hasSpecialAbility: 0
+  detectionRange: 5
+  cardLayer:
+    serializedVersion: 2
+    m_Bits: 128
