@@ -29,12 +29,16 @@ public class EnemyAIController : MonoBehaviour
         enemyCardDeck.LoadFromTemplate(enemyDeckTemplate);
         enemyCardDeck.Shuffle();
 
-        DrawInitialHand(initialDrawCount);
+        DrawNewCard(initialDrawCount);
     }
 
     public void EnemyTakeTurn(TurnManager turnManager)
     {
         Debug.Log("Enemy Turn Starts");
+        currentSaplingPoints += 2;
+        currentSaplingPoints = Mathf.Min(currentSaplingPoints, maxSaplingPoints);
+
+        DrawNewCard(1);
 
         int boardSpace = GetNumAvailableSlots();
 
@@ -61,7 +65,7 @@ public class EnemyAIController : MonoBehaviour
         turnManager.TurnStart();
     }
 
-    private void DrawInitialHand(int count)
+    private void DrawNewCard(int count)
     {
         for (int i = 0; i < count; i++)
         {

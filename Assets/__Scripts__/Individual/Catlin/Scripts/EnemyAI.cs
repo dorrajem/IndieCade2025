@@ -11,15 +11,16 @@ public class EnemyAI : ScriptableObject
         int currentSaplingPoints,
         int boardSlotsAvailable)
     {
-        List<CardData> playable = hand
-            .Where(c => c.SaplingCostPoint <= currentSaplingPoints)
+        List<CardData> playableNature = hand
+            .Where(c => c.cardCategory == CardCategory.Nature && c.SaplingCostPoint <= currentSaplingPoints)
             .ToList();
 
-        int boardSlotsRemaining = boardSlotsAvailable;
 
-        while (playable.Count > 0 && boardSlotsRemaining > 0)
+        int boardSlotsRemaining = boardSlotsAvailable;
+        Debug.Log($"Enemy starting turn with {currentSaplingPoints} saplings and {boardSlotsAvailable} board slots.");
+        while (playableNature.Count > 0 && boardSlotsRemaining > 0)
         {
-            CardData bestCard = ChooseBestCard(playable);
+            CardData bestCard = ChooseBestCard(playableNature);
 
             if (bestCard == null || bestCard.SaplingCostPoint > currentSaplingPoints)
                 break;
@@ -28,8 +29,8 @@ public class EnemyAI : ScriptableObject
             currentSaplingPoints -= bestCard.SaplingCostPoint;
             boardSlotsRemaining--;
 
-            playable = hand
-                .Where(c => c.SaplingCostPoint <= currentSaplingPoints)
+            playableNature = hand
+                .Where(c => c.cardCategory == CardCategory.Nature && c.SaplingCostPoint <= currentSaplingPoints)
                 .ToList();
         }
 

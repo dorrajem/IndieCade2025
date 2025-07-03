@@ -9,20 +9,9 @@ public class AIDropArea : MonoBehaviour
 
     public void PlaceEnemyCard(Card card)
     {
+        Debug.Log($"Attempting to place {card.cardData.CardName} with cost {card.cardData.SaplingCostPoint}");
         if (card != null && !isOccupied)
         {
-            if (card.cardData.cardCategory == CardCategory.Nature)
-            {
-                if (!resourceManagement.CheckCost(card.cardData))
-                {
-                    Debug.Log("Not enough resources to play this card.");
-                    return;
-                }
-                resourceManagement.SpendPoints(card.cardData.SaplingCostPoint);
-            }
-
-            
-
             Vector3 spawnPos = transform.position;
             spawnPos.z = 0;
 
