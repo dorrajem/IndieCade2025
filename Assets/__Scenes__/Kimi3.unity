@@ -200,6 +200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isOccupied: 0
   resourceManagement: {fileID: 1457333157}
+  sacrificeManager: {fileID: 1457333158}
   placedCard: {fileID: 0}
 --- !u!65 &157587942
 BoxCollider:
@@ -647,6 +648,8 @@ GameObject:
   m_Component:
   - component: {fileID: 722921358}
   - component: {fileID: 722921357}
+  - component: {fileID: 722921359}
+  - component: {fileID: 722921360}
   m_Layer: 0
   m_Name: OpponentManager
   m_TagString: Untagged
@@ -666,7 +669,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73db66d348c6653419ed4086876afe89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourceManagement: {fileID: 0}
+  resourceManagement: {fileID: 722921360}
   opponentHealth: 50
   opponentSaplings: 1
   isOpponentTurn: 0
@@ -685,6 +688,42 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &722921359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 722921356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f0d16969d64079439bb61b83fef2c86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyAI: {fileID: 11400000, guid: 69791412d0dd60d47b174de57202e0b3, type: 2}
+  enemyDeckTemplate: {fileID: 11400000, guid: 2371b779c7c25c0428763df32711900f, type: 2}
+  maxSaplingPoints: 5
+  currentDisasterPoints: 0
+  maxDisasterPoints: 7
+  maxBoardSlots: 4
+  initialDrawCount: 5
+  canPlayDisaster: 0
+  natureDeaths: 0
+  maxNatureDeaths: 10
+--- !u!114 &722921360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 722921356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc555daac404ad44a86005f77d13bc59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnStart: 0
+  saplingText: {fileID: 0}
 --- !u!1 &1074160839
 GameObject:
   m_ObjectHideFlags: 0
@@ -873,6 +912,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isOccupied: 0
   resourceManagement: {fileID: 1457333157}
+  sacrificeManager: {fileID: 1457333158}
   placedCard: {fileID: 0}
 --- !u!65 &1108748861
 BoxCollider:
@@ -1206,9 +1246,10 @@ GameObject:
   - component: {fileID: 1457333155}
   - component: {fileID: 1457333156}
   - component: {fileID: 1457333157}
+  - component: {fileID: 1457333158}
   m_Layer: 0
   m_Name: Manager
-  m_TagString: Untagged
+  m_TagString: Manager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1289,8 +1330,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsPlayerTurn: 1
   resourceManagement: {fileID: 1457333157}
-  opponent: {fileID: 722921357}
   cardDeck: {fileID: 1457333152}
+  enemyAI: {fileID: 722921359}
 --- !u!114 &1457333157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1305,6 +1346,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnStart: 0
   saplingText: {fileID: 1855087350}
+--- !u!114 &1457333158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457333151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c07f17420e26fb54ca41b0279f3ce469, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceManagement: {fileID: 1457333157}
+  playerTiles:
+  - {fileID: 1559390451}
+  - {fileID: 1460759859}
+  - {fileID: 1108748860}
+  - {fileID: 157587941}
+  Sacrificing: 0
+  sacrifices: []
+  CanPlace: 0
 --- !u!1 &1460759856
 GameObject:
   m_ObjectHideFlags: 0
@@ -1352,6 +1414,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isOccupied: 0
   resourceManagement: {fileID: 1457333157}
+  sacrificeManager: {fileID: 1457333158}
   placedCard: {fileID: 0}
 --- !u!65 &1460759860
 BoxCollider:
@@ -1421,6 +1484,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isOccupied: 0
   resourceManagement: {fileID: 1457333157}
+  sacrificeManager: {fileID: 1457333158}
   placedCard: {fileID: 0}
 --- !u!65 &1559390452
 BoxCollider:
