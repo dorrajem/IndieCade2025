@@ -15,7 +15,7 @@ public class AIDropArea : MonoBehaviour
             Vector3 spawnPos = transform.position;
             spawnPos.z = 0;
 
-            GameObject newCard = HandManager.Instance.PlayCardToWorld(card, spawnPos);
+            GameObject newCard = HandManager.Instance.PlayCardToWorld(card, spawnPos, CardOwner.Enemy);
 
             isOccupied = true;
             placedCard = newCard;

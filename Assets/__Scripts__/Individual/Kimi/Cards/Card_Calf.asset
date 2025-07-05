@@ -16,9 +16,16 @@ MonoBehaviour:
   Artwork: {fileID: -5596915952161779270, guid: ea1bd7ec945d8664d8db5d86d19fff9d, type: 3}
   SaplingCostPoint: 1
   SacrificeCostPoint: 0
-  AttackPower: 1
-  HealthPoint: 1
+  DisasterCostPoint: 0
   SacrificePoint: 1
   cardState: 0
   cardCategory: 0
+  cardOwner: 0
   worldPrefab: {fileID: 6937738408158534530, guid: 875f865cc9cf9a445b4926e0faa494b2, type: 3}
+  AttackPower: 1
+  HealthPoint: 1
+  hasSpecialAbility: 0
+  detectionRange: 5
+  cardLayer:
+    serializedVersion: 2
+    m_Bits: 128

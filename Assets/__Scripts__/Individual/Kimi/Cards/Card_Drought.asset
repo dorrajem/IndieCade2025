@@ -22,4 +22,12 @@ MonoBehaviour:
   SacrificePoint: 0
   cardState: 0
   cardCategory: 2
+  cardOwner: 0
   worldPrefab: {fileID: 6937738408158534530, guid: 875f865cc9cf9a445b4926e0faa494b2, type: 3}
+  AttackPower: 2
+  HealthPoint: 3
+  hasSpecialAbility: 0
+  detectionRange: 5
+  cardLayer:
+    serializedVersion: 2
+    m_Bits: 128
