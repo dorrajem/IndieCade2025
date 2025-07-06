@@ -39,7 +39,6 @@ public class Card : MonoBehaviour
         }
 
         uiImage.sprite = data.Artwork;
-        cardData.cardState = CardState.InHand;
     }
 
     public void Setup2DCard(CardData data)
@@ -50,14 +49,13 @@ public class Card : MonoBehaviour
         }
 
         _spriteRenderer.sprite = cardData.Artwork;
-        cardData.cardState = CardState.OnTable;
     }
 
     public CardData GetCardData() => cardData;
 
     public void PlayToBoard(Vector3 pos)
     {
-        HandManager.Instance.PlayCardToWorld(this, pos, CardOwner.Player);
+        HandManager.Instance.PlayCardToWorld(this, pos);
     }
 
     public void DeselectVisual()
