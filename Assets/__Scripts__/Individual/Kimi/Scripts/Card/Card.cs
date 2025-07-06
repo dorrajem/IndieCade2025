@@ -7,6 +7,8 @@ public class Card : MonoBehaviour
     [Header("Shared Data")]
     public CardData cardData;
 
+    public CardCombat cardCombat;
+
     private bool isUICard = false;
     
     [Header("UI Only")]
@@ -14,7 +16,12 @@ public class Card : MonoBehaviour
     
     [Header("2D Only")]
     [SerializeField] private SpriteRenderer _spriteRenderer;
-    
+
+    private void Awake()
+    {
+        cardCombat = GetComponent<CardCombat>();
+    }
+
 
     public void Init(CardData newData, bool asUICard)
     {

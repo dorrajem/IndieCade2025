@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class CardCombat : MonoBehaviour
 {
-    public CardData cardData;
+    private Card _card;
 
     [Header("Runtime")] 
     public int currentHP;
@@ -14,24 +14,30 @@ public class CardCombat : MonoBehaviour
 
     public TurnManager turnManager;
 
+
+    private void Awake()
+    {
+        _card = GetComponent<Card>();
+    }
+
     private void Start()
     {
-        currentHP = cardData.HealthPoint;
-        attack = cardData.AttackPower;
+        currentHP = _card.GetCardData().HealthPoint;
+        attack = _card.GetCardData().AttackPower;
     }
 
     public void TryAttack()
     {
         if (!turnManager.IsPlayerTurn || 
-            cardData.cardState != CardState.OnTable || 
-            cardData.cardState == CardState.Die)
+            _card.GetCardData().cardState != CardState.OnTable || 
+            _card.GetCardData().cardState == CardState.Die)
         {
             return;
         }
 
-        if (cardData.hasSpecialAbility)
+        if (_card.GetCardData().hasSpecialAbility)
         {
-            cardData.OnSpecialAttack(this, turnManager);
+            _card.GetCardData().OnSpecialAttack(this, turnManager);
         }
         PerformNormalAttack();
     }
@@ -56,7 +62,7 @@ public class CardCombat : MonoBehaviour
     public void ReceiveDamage(int amount)
     {
         currentHP -= amount;
-        if (currentHP <= 0 && cardData.cardState != CardState.Die)
+        if (currentHP <= 0 && _card.GetCardData().cardState != CardState.Die)
         {
             Die();
         }
@@ -64,7 +70,7 @@ public class CardCombat : MonoBehaviour
 
     private void Die()
     {
-        cardData.cardState = CardState.Die;
+        _card.GetCardData().cardState = CardState.Die;
         Destroy(gameObject);
     }
 }

@@ -1,14 +1,20 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BoardManager : MonoBehaviour
 {
     public static BoardManager Instance;
-    public List<CardCombat> playerCards = new();
-    public List<CardCombat> enemyCards = new();
+    public List<Card> playerCards = new();
+    public List<Card> enemyCards = new();
 
 
-    public void RegisterCard(CardCombat card)
+    private void Awake()
+    {
+        Instance = this;
+    }
+
+    public void RegisterCard(Card card)
     {
         if (card.cardData.cardOwner == CardOwner.Player)
         {
@@ -32,7 +38,7 @@ public class BoardManager : MonoBehaviour
         {
             if (card.cardData.cardState == CardState.OnTable && card.cardData.cardState != CardState.Die)
             {
-                card.TryAttack();
+                card.cardCombat.TryAttack();
             }
         }
     }

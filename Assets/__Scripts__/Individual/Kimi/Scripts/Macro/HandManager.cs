@@ -217,6 +217,8 @@ public class HandManager : MonoBehaviour
         card.Init(cardData, false);
         
         UpdateCardLayout(smooth: true);
+        
+        BoardManager.Instance.RegisterCard(card);
         return newCardObj;
     }
 
