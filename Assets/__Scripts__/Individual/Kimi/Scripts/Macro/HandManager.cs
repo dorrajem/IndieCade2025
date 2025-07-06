@@ -194,7 +194,7 @@ public class HandManager : MonoBehaviour
 
     #region PlayCard
 
-    public GameObject PlayCardToWorld(Card selectedCard, Vector3 slotPos)
+    public GameObject PlayCardToWorld(Card selectedCard, Vector3 slotPos, CardOwner setOwner)
     {
         if (cardPrefab2D == null)
         {
@@ -212,6 +212,8 @@ public class HandManager : MonoBehaviour
         // scale saver
         newCardObj.transform.localScale = Vector3.one;
         Card card = newCardObj.GetComponent<Card>();
+        card.GetCardData().cardState = CardState.OnTable;
+        card.GetCardData().cardOwner = setOwner;
         card.Init(cardData, false);
         
         UpdateCardLayout(smooth: true);

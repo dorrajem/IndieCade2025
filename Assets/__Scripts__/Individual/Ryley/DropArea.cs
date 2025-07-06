@@ -76,7 +76,7 @@ public class DropArea : MonoBehaviour
             Vector3 spawnPos = transform.position;
             spawnPos.z = 0;
             
-            GameObject newCard = HandManager.Instance.PlayCardToWorld(selected, spawnPos);
+            GameObject newCard = HandManager.Instance.PlayCardToWorld(selected, spawnPos, CardOwner.Player);
 
             isOccupied = true;
             placedCard = newCard;
