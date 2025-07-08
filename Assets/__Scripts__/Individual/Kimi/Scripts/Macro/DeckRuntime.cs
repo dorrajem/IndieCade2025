@@ -12,6 +12,12 @@ public class DeckRuntime
 
     public void AddCard(CardData card) => _runtimeDeck.Add(card);
 
+    //Caleb's Edit
+    public void RemoveCard(CardData card)
+    {
+        _runtimeDeck.Remove(card);
+    }
+
     public void Shuffle()
     {
         for (int i = 0; i < _runtimeDeck.Count; i++)

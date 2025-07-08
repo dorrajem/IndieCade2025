@@ -75,5 +75,4 @@ public class Card : MonoBehaviour
             hover.ForceDeselect();
         }
     }
-
 }

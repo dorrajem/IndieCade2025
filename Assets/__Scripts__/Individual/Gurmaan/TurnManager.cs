@@ -6,7 +6,9 @@ public class TurnManager : MonoBehaviour
     public ResourceManagement resourceManagement;
     //public OpponentManager opponent;
     public CardDeck cardDeck;
-    public EnemyAIController enemyAI; 
+    public EnemyAIController enemyAI;
+
+    public int turnCount = 0; //Caleb's Edit
 
     // Ends the player's current turn
     void Awake()
@@ -25,6 +27,7 @@ public class TurnManager : MonoBehaviour
         cardDeck.drawn = false;
         resourceManagement.AddPoints(2);
         IsPlayerTurn = true;
+        turnCount++;
     }
 }
 
