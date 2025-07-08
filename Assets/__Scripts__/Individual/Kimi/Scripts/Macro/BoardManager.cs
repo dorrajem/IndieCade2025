@@ -7,7 +7,7 @@ public class BoardManager : MonoBehaviour
     public static BoardManager Instance;
     public List<Card> playerCards = new();
     public List<Card> enemyCards = new();
-
+    
 
     private void Awake()
     {
@@ -16,11 +16,11 @@ public class BoardManager : MonoBehaviour
 
     public void RegisterCard(Card card)
     {
-        if (card.cardData.cardOwner == CardOwner.Player)
+        if (card.GetCardData().cardOwner == CardOwner.Player)
         {
             playerCards.Add(card);
         }
-        else
+        else if (card.GetCardData().cardOwner == CardOwner.Enemy)
         {
             enemyCards.Add(card);
         }
@@ -34,9 +34,29 @@ public class BoardManager : MonoBehaviour
 
     public void PlayerCardAttack()
     {
+        ClearDeadCards();
         foreach (var card in playerCards)
         {
-            if (card.cardData.cardState == CardState.OnTable && card.cardData.cardState != CardState.Die)
+            if (card.GetCardData().cardState == CardState.OnTable)
+            {
+                if (card.cardCombat != null)
+                {
+                    card.cardCombat.TryAttack();
+                }
+                else
+                {
+                    //Debug.LogWarning($"{card.name} has no CardCombat assigned!");
+                }
+            }
+        }
+    }
+
+    public void EnemyCardAttack()
+    {
+        ClearDeadCards();
+        foreach (var card in enemyCards)
+        {
+            if (card.GetCardData().cardState == CardState.OnTable)
             {
                 card.cardCombat.TryAttack();
             }

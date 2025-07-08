@@ -13,7 +13,9 @@ GameObject:
   - component: {fileID: 8313912365939968207}
   - component: {fileID: 1108471373594210226}
   - component: {fileID: 2532335303521809350}
-  m_Layer: 0
+  - component: {fileID: 2275927824721286651}
+  - component: {fileID: 1111258620359585724}
+  m_Layer: 7
   m_Name: Card2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +71,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -98,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardData: {fileID: 11400000, guid: f8abdb9d80016f44eb60fd6bd2816286, type: 2}
+  cardCombat: {fileID: 0}
   uiImage: {fileID: 0}
   _spriteRenderer: {fileID: 1108471373594210226}
 --- !u!212 &1108471373594210226
@@ -168,3 +171,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Renderer: {fileID: 1108471373594210226}
+--- !u!114 &2275927824721286651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3118303636978894477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bfb996e056abc548a570695af4f76b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _card: {fileID: 8313912365939968207}
+  detectionRange: 5
+  cardLayer:
+    serializedVersion: 2
+    m_Bits: 128
+--- !u!114 &1111258620359585724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3118303636978894477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d1593d1f570e784a9781ed8b91a56f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackBehaviorSO: {fileID: 11400000, guid: 8f74a785692977d49bcf0058bf53b178, type: 2}

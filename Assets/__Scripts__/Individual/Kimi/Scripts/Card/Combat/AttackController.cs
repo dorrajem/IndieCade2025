@@ -10,12 +10,6 @@ public class AttackController : MonoBehaviour
     {
         _attackBehavior = attackBehaviorSO as IAttackBehavior;
     }
-
-    public void PerformAttack()
-    {
-        if (_attackBehavior != null)
-        {
-            _attackBehavior.ExecuteAttack(gameObject);
-        }
-    }
+    
+    
 }

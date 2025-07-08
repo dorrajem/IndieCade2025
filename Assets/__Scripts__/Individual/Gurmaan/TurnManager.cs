@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class TurnManager : MonoBehaviour
 {
+    public static TurnManager Instance;
     public bool IsPlayerTurn = true;
     public ResourceManagement resourceManagement;
     //public OpponentManager opponent;
@@ -12,6 +13,7 @@ public class TurnManager : MonoBehaviour
     void Awake()
     {
         TurnStart();
+        Instance = this;
     }
     public void EndTurn()
     {

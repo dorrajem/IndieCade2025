@@ -16,6 +16,8 @@ public class AIDropArea : MonoBehaviour
             spawnPos.z = 0;
 
             GameObject newCard = HandManager.Instance.PlayCardToWorld(card, spawnPos, CardOwner.Enemy);
+            Card cardNew = newCard.GetComponent<Card>();
+            cardNew.GetCardData().cardOwner = CardOwner.Enemy;
 
             isOccupied = true;
             placedCard = newCard;
@@ -25,6 +27,7 @@ public class AIDropArea : MonoBehaviour
 
             SelectCardManager.Instance.ClearSelection();
             CameraController.Instance.BackCam();
+            BoardManager.Instance.RegisterCard(cardNew);
         }
     }
 

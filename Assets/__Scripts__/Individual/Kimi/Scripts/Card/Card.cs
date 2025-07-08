@@ -16,7 +16,8 @@ public class Card : MonoBehaviour
     
     [Header("2D Only")]
     [SerializeField] private SpriteRenderer _spriteRenderer;
-
+    
+    
     private void Awake()
     {
         cardCombat = GetComponent<CardCombat>();
@@ -27,7 +28,7 @@ public class Card : MonoBehaviour
     {
         cardData = newData;
         isUICard = asUICard;
-
+        
         if (isUICard)
         {
             SetupUICard(cardData);

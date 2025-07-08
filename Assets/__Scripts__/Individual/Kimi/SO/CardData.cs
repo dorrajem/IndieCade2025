@@ -26,10 +26,7 @@ public class CardData : ScriptableObject
     public float detectionRange = 5f;
     public LayerMask cardLayer;
 
-    public virtual void OnSpecialAttack(CardCombat self, TurnManager turnManager)
-    {
-        // special attack logic
-    }
+    public SpecialAttack OnSpecialAttack;
 }
 
 public enum CardState
