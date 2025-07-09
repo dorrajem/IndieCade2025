@@ -10,22 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f8fb74b1ad233f4d94f9f208718f94a, type: 3}
-  m_Name: Card_Calf
+  m_Name: Card_Eagle
   m_EditorClassIdentifier: 
-  CardName: Calf
-  Artwork: {fileID: -5596915952161779270, guid: ea1bd7ec945d8664d8db5d86d19fff9d, type: 3}
-  SaplingCostPoint: 1
+  CardName: Eagle
+  Artwork: {fileID: -9222638678284868780, guid: 74ab23eeb1ba19d4bbc22e774f2f0e10, type: 3}
+  SaplingCostPoint: 4
   SacrificeCostPoint: 0
   DisasterCostPoint: 0
   SacrificePoint: 1
-  cardState: 0
+  cardState: 2
   cardCategory: 0
-  cardOwner: 0
+  cardOwner: 1
   worldPrefab: {fileID: 6937738408158534530, guid: 875f865cc9cf9a445b4926e0faa494b2, type: 3}
-  AttackPower: 1
-  HealthPoint: 1
+  AttackPower: 4
+  HealthPoint: 2
   hasSpecialAbility: 0
   detectionRange: 5
   cardLayer:
     serializedVersion: 2
     m_Bits: 128
+  OnSpecialAttack: {fileID: 0}

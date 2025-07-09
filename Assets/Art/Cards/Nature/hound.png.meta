@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a5bd5eed47bf5b046a21e0b3443359f6
+guid: fffba81c004b0a14aa44190313e40af6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1094812419298378482
-    second: Bull_0
+      213: -794710388649364581
+    second: hound_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bull_0
+      name: hound_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2f247f3481e813f00800000000000000
-      internalID: 1094812419298378482
+      spriteID: b93fd31bc1f98f4f0800000000000000
+      internalID: -794710388649364581
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Bull_0: 1094812419298378482
+      hound_0: -794710388649364581
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

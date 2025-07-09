@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c79b25b8ce083a947bea4b7875c41ae7
+guid: b3a5c41d611b9a14b89f208f0b288b52
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 278214463629154172
-    second: Nevergreen_Bovine_Cards_0
+      213: 8984754096541894249
+    second: Meat_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,12 +100,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Nevergreen_Bovine_Cards_0
+      name: Meat_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 129
+        width: 128
         height: 194
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c77ddf3a49a6cd300800000000000000
-      internalID: 278214463629154172
+      spriteID: 9668d9e5f3240bc70800000000000000
+      internalID: 8984754096541894249
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Nevergreen_Bovine_Cards_0: 278214463629154172
+      Meat_0: 8984754096541894249
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

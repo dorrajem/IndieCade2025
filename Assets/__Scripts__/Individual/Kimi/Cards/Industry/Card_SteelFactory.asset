@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: Card_SteelFactory
   m_EditorClassIdentifier: 
   CardName: SteelFactory
-  Artwork: {fileID: 2596552556267567030, guid: 8b87d921489ec5c49bf195945c826aa8, type: 3}
+  Artwork: {fileID: 5163415756020489457, guid: 4f979b047587bc34baaf307953d2cd7f, type: 3}
   SaplingCostPoint: 0
   SacrificeCostPoint: 2
   DisasterCostPoint: 0
   SacrificePoint: 0
-  cardState: 0
+  cardState: 2
   cardCategory: 1
-  cardOwner: 0
+  cardOwner: 1
   worldPrefab: {fileID: 6937738408158534530, guid: 875f865cc9cf9a445b4926e0faa494b2, type: 3}
   AttackPower: 3
   HealthPoint: 5
@@ -29,3 +29,4 @@ MonoBehaviour:
   cardLayer:
     serializedVersion: 2
     m_Bits: 128
+  OnSpecialAttack: {fileID: 0}

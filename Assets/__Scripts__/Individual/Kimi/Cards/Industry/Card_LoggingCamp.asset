@@ -10,22 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f8fb74b1ad233f4d94f9f208718f94a, type: 3}
-  m_Name: Card_Moss
+  m_Name: Card_LoggingCamp
   m_EditorClassIdentifier: 
-  CardName: Moss
-  Artwork: {fileID: 1208040086343421634, guid: cdf6f7edc2e4e9b4f80f9af87680b81a, type: 3}
-  SaplingCostPoint: 1
-  SacrificeCostPoint: 0
+  CardName: LoggingCamp
+  Artwork: {fileID: -9128409162972235919, guid: 2aaf20ebdc4600845998640c70280e03, type: 3}
+  SaplingCostPoint: 0
+  SacrificeCostPoint: 3
   DisasterCostPoint: 0
-  SacrificePoint: 1
-  cardState: 0
-  cardCategory: 0
+  SacrificePoint: 0
+  cardState: 1
+  cardCategory: 1
   cardOwner: 0
   worldPrefab: {fileID: 6937738408158534530, guid: 875f865cc9cf9a445b4926e0faa494b2, type: 3}
   AttackPower: 2
-  HealthPoint: 1
+  HealthPoint: 5
   hasSpecialAbility: 0
   detectionRange: 5
   cardLayer:
     serializedVersion: 2
     m_Bits: 128
+  OnSpecialAttack: {fileID: 0}

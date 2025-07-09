@@ -10,22 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f8fb74b1ad233f4d94f9f208718f94a, type: 3}
-  m_Name: Card_Meat
+  m_Name: Card_Bull
   m_EditorClassIdentifier: 
-  CardName: Meat
-  Artwork: {fileID: 278214463629154172, guid: c79b25b8ce083a947bea4b7875c41ae7, type: 3}
-  SaplingCostPoint: 0
+  CardName: Bull
+  Artwork: {fileID: 1094812419298378482, guid: a5bd5eed47bf5b046a21e0b3443359f6, type: 3}
+  SaplingCostPoint: 3
   SacrificeCostPoint: 0
   DisasterCostPoint: 0
   SacrificePoint: 1
-  cardState: 0
+  cardState: 1
   cardCategory: 0
   cardOwner: 0
   worldPrefab: {fileID: 6937738408158534530, guid: 875f865cc9cf9a445b4926e0faa494b2, type: 3}
-  AttackPower: 0
-  HealthPoint: 1
+  AttackPower: 2
+  HealthPoint: 3
   hasSpecialAbility: 0
   detectionRange: 5
   cardLayer:
     serializedVersion: 2
     m_Bits: 128
+  OnSpecialAttack: {fileID: 0}

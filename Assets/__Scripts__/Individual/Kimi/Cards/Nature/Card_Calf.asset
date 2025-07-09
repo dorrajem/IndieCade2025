@@ -10,22 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f8fb74b1ad233f4d94f9f208718f94a, type: 3}
-  m_Name: Card_TrainStation
+  m_Name: Card_Calf
   m_EditorClassIdentifier: 
-  CardName: TrainStation
-  Artwork: {fileID: -4600905094163153079, guid: 5484fc0d0e007ca4dbff3d7a97a79680, type: 3}
-  SaplingCostPoint: 0
-  SacrificeCostPoint: 1
+  CardName: Calf
+  Artwork: {fileID: -4604307202144505254, guid: 96ec7babe6846ac41b1780ba46ba3651, type: 3}
+  SaplingCostPoint: 1
+  SacrificeCostPoint: 0
   DisasterCostPoint: 0
-  SacrificePoint: 0
-  cardState: 0
-  cardCategory: 1
+  SacrificePoint: 1
+  cardState: 2
+  cardCategory: 0
   cardOwner: 0
   worldPrefab: {fileID: 6937738408158534530, guid: 875f865cc9cf9a445b4926e0faa494b2, type: 3}
-  AttackPower: 2
-  HealthPoint: 3
+  AttackPower: 1
+  HealthPoint: 1
   hasSpecialAbility: 0
   detectionRange: 5
   cardLayer:
     serializedVersion: 2
     m_Bits: 128
+  OnSpecialAttack: {fileID: 0}
