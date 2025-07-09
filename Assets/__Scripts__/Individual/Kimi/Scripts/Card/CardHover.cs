@@ -31,8 +31,11 @@ public class CardHover : MonoBehaviour,
     public TurnManager turnManager; //Caleb's Edit
     public SacrificeManager sacrificeManager;
 
+    private AudioManager audioManager;
+
     private void Awake()
     {
+        audioManager = GameObject.FindWithTag("Manager").GetComponent<AudioManager>();
         rt = GetComponent<RectTransform>();
         originalScale = transform.localScale;
         handArea = GameObject.FindWithTag("Hand")?.GetComponent<RectTransform>();
@@ -98,6 +101,7 @@ public class CardHover : MonoBehaviour,
 
     private void SelectCard()
     {
+        audioManager.PlayCardSelect();
         isSelected = true;
         currentlySelected = this;
         SelectCardManager.Instance.SelectCard(GetComponent<Card>());

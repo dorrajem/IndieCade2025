@@ -15,10 +15,12 @@ public class CardCombat : MonoBehaviour, IDamageable
 
     public float detectionRange = 5f;
     public LayerMask cardLayer;
-
+    
+    private AudioManager audioManager;
 
     private void Awake()
     {
+        audioManager = GameObject.FindWithTag("Manager").GetComponent<AudioManager>();
         _card = GetComponent<Card>();
         var holder = GetComponent<AttackHolder>();
         _attackBehavior = holder != null ? holder.GetBehavior() : null;
@@ -46,6 +48,7 @@ public class CardCombat : MonoBehaviour, IDamageable
         }
         else
         {
+            audioManager.PlayCardAttack();
             _attackBehavior?.ExecuteAttack(this);
         }
     }
@@ -62,6 +65,7 @@ public class CardCombat : MonoBehaviour, IDamageable
     private void Die()
     {
         _card.GetCardData().cardState = CardState.Die;
+        audioManager.PlayCardDie();
         Destroy(gameObject);
     }
 

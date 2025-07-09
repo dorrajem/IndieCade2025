@@ -22,6 +22,8 @@ public class CameraController : MonoBehaviour
     private Vector3 target_rot;
     private float target_fov;
 
+    private bool CamForward = false;
+
     public static CameraController Instance;
     CardHover selectedCard = CardHover.currentlySelected;
 
@@ -44,13 +46,20 @@ public class CameraController : MonoBehaviour
     {
         CardHover selectedCard = CardHover.currentlySelected;
         
-        if (Input.GetKeyDown(KeyCode.Space) || selectedCard != null)
+        if (selectedCard != null)
         {
             PlayCam();
         }
-        else if (Input.GetKeyDown(KeyCode.Escape) && selectedCard == null)
+        else if (Input.GetKeyDown(KeyCode.Space))
         {
-            BackCam();
+            if (CamForward)
+            {
+                BackCam();
+            }
+            else
+            {
+                PlayCam();
+            }
         }
         
         transform.position = Vector3.MoveTowards(transform.position, target_pos, Time.deltaTime*switchSpeed);
@@ -72,6 +81,8 @@ public class CameraController : MonoBehaviour
         target_rot = rot;
 
         target_fov = play_fov;
+        
+        CamForward = true;
     }
     
     //Moves Camera into Back Mode (full view of scene)
@@ -87,6 +98,7 @@ public class CameraController : MonoBehaviour
         target_rot = rot;
 
         target_fov = back_fov;
+        CamForward = false;
     }
 
     private void ForceCamBack()
@@ -94,5 +106,6 @@ public class CameraController : MonoBehaviour
         transform.position = new Vector3(transform.position.x, back_posY, back_posZ);
         transform.eulerAngles = new Vector3(back_rotX, transform.eulerAngles.y, transform.eulerAngles.z);
         mainCam.fieldOfView = back_fov;
+        CamForward = false;
     }
 }

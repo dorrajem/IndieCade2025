@@ -20,9 +20,10 @@ public class CardDeck : MonoBehaviour
     public TurnManager turnManager; //Caleb's Edit
     public bool drawn = false; //Gurmaan's edit
 
-
+    private AudioManager audioManager;
     private void Start()
     {
+        audioManager = GameObject.FindWithTag("Manager").GetComponent<AudioManager>();
         currentDeck = new DeckRuntime();
         currentDeck.LoadFromTemplate(deckData);
         currentDeck.Shuffle();
@@ -58,6 +59,7 @@ public class CardDeck : MonoBehaviour
         {
             HandManager.Instance.AddCardToHand(topCard);
             drawn = true;
+            audioManager.PlayCardSelect();
         }
     }
 

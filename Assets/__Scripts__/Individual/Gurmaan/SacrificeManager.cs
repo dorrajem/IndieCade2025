@@ -12,6 +12,13 @@ public class SacrificeManager : MonoBehaviour
     public List<GameObject> sacrifices = new List<GameObject>();
 
     public bool CanPlace = false;
+    
+    private AudioManager audioManager;
+
+    void Awake()
+    {
+        audioManager = GameObject.FindWithTag("Manager").GetComponent<AudioManager>();
+    }
     void Update()
     {
         // Finds out whether we are about to sacrifice or not
@@ -61,6 +68,7 @@ public class SacrificeManager : MonoBehaviour
                 }
                 else
                 {
+                    audioManager.PlayCardSacrifice();
                     foreach (GameObject sacrifice in sacrifices)
                     {
                         Card2D card = sacrifice.GetComponent<Card2D>();

@@ -27,9 +27,12 @@ public class HandManager : MonoBehaviour
     private List<GameObject> handCards = new ();
 
     [ReadOnly]public Card currentCard;
+    
+    private AudioManager audioManager;
 
     private void Awake()
     {
+        audioManager = GameObject.FindWithTag("Manager").GetComponent<AudioManager>();
         // Keep singleton
         // Remember to create another manager to manage all singletons
         if (Instance == null) Instance = this;
@@ -122,6 +125,7 @@ public class HandManager : MonoBehaviour
             Debug.Log("Card prefab is not assigned");
             return null;
         }
+        audioManager.PlayCardPlace();
         
         selectedCard.DeselectVisual();
         

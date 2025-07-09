@@ -8,9 +8,21 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/__Scenes__/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 1
+  - enabled: 0
     path: Assets/__Scenes__/Kimi Ver2.unity
     guid: a4d894b98b86e1c49b0b2211ec9cbb72
+  - enabled: 1
+    path: Assets/__Scenes__/Start Scene.unity
+    guid: 7fdc1581ad478f64f847dfe13f8eeb24
+  - enabled: 1
+    path: Assets/__Scenes__/Map.unity
+    guid: 7450b2c9fc6a33a46b4f3ad8aea2ef86
+  - enabled: 1
+    path: Assets/__Scenes__/Butcher.unity
+    guid: 222a288e9fb6c414f8e73a4ac37400a5
+  - enabled: 1
+    path: Assets/__Scenes__/Battle Scene.unity
+    guid: 0ba372196f65633458d49d1a3d512642
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
