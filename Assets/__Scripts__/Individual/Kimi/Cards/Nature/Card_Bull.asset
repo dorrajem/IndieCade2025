@@ -30,3 +30,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   OnSpecialAttack: {fileID: 0}
+  deathClip: {fileID: 7400000, guid: 93b1fc8f5c5b6754aa696a3d819bdbe2, type: 2}

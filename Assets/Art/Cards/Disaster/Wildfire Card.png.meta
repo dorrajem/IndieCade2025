@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 13052bd7c97e62343a4d50dc9bfb5c98
+guid: 9ad802c73f310684e86e5b08ac5c1b33
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1060140732461347030
-    second: Cards_PROTOTYPE_alternate_0
+      213: 4371940929952600025
+    second: Wildfire Card_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 700
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cards_PROTOTYPE_alternate_0
+      name: Wildfire Card_0
       rect:
         serializedVersion: 2
-        x: 9
+        x: 0
         y: 0
-        width: 1277
-        height: 1940
+        width: 128
+        height: 194
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6d0f74a116066be00800000000000000
-      internalID: 1060140732461347030
+      spriteID: 9dfc0dcbc114cac30800000000000000
+      internalID: 4371940929952600025
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Cards_PROTOTYPE_alternate_0: 1060140732461347030
+      Wildfire Card_0: 4371940929952600025
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

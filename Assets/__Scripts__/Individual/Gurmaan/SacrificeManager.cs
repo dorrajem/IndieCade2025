@@ -71,10 +71,9 @@ public class SacrificeManager : MonoBehaviour
                     audioManager.PlayCardSacrifice();
                     foreach (GameObject sacrifice in sacrifices)
                     {
-                        Card2D card = sacrifice.GetComponent<Card2D>();
-                        card.DestroySelf();
+                        CardCombat cardcom = sacrifice.GetComponent<CardCombat>();
+                        StartCoroutine(cardcom.Die());
                     }
-                    
                     sacrifices.Clear();
                     Sacrificing = false;
                 }

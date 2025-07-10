@@ -27,6 +27,8 @@ public class CardData : ScriptableObject
     public LayerMask cardLayer;
 
     public SpecialAttack OnSpecialAttack;
+    
+    public AnimationClip deathClip;
 }
 
 public enum CardState

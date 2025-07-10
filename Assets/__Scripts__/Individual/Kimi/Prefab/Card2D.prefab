@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2532335303521809350}
   - component: {fileID: 2275927824721286651}
   - component: {fileID: 1111258620359585724}
+  - component: {fileID: -7785425237190380349}
   m_Layer: 7
   m_Name: Card2D
   m_TagString: Untagged
@@ -80,7 +81,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1.28, y: 1.94}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 1.28, y: 1.94}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -103,6 +104,8 @@ MonoBehaviour:
   cardCombat: {fileID: 0}
   uiImage: {fileID: 0}
   _spriteRenderer: {fileID: 1108471373594210226}
+  animator: {fileID: -7785425237190380349}
+  controller: {fileID: 9100000, guid: 22a5659bad181104084e38074d2a8e21, type: 2}
 --- !u!212 &1108471373594210226
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -152,7 +155,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.28, y: 1.94}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -201,3 +204,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackBehaviorSO: {fileID: 11400000, guid: 8f74a785692977d49bcf0058bf53b178, type: 2}
+--- !u!95 &-7785425237190380349
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3118303636978894477}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 22a5659bad181104084e38074d2a8e21, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

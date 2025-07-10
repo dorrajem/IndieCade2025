@@ -13,12 +13,10 @@ MonoBehaviour:
   m_Name: Card_Drought
   m_EditorClassIdentifier: 
   CardName: Drought
-  Artwork: {fileID: 1060140732461347030, guid: 13052bd7c97e62343a4d50dc9bfb5c98, type: 3}
+  Artwork: {fileID: -5863628694350899432, guid: ca01ba06d2711e4488e34d742ab79784, type: 3}
   SaplingCostPoint: 0
   SacrificeCostPoint: 0
   DisasterCostPoint: 5
-  AttackPower: 2
-  HealthPoint: 3
   SacrificePoint: 0
   cardState: 0
   cardCategory: 2
@@ -31,3 +29,5 @@ MonoBehaviour:
   cardLayer:
     serializedVersion: 2
     m_Bits: 128
+  OnSpecialAttack: {fileID: 0}
+  deathClip: {fileID: 7400000, guid: 54637e15ee32e9840a866721f42a1db4, type: 2}

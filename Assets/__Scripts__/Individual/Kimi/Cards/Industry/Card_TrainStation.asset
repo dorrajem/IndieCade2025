@@ -18,7 +18,7 @@ MonoBehaviour:
   SacrificeCostPoint: 1
   DisasterCostPoint: 0
   SacrificePoint: 0
-  cardState: 1
+  cardState: 2
   cardCategory: 1
   cardOwner: 0
   worldPrefab: {fileID: 6937738408158534530, guid: 875f865cc9cf9a445b4926e0faa494b2, type: 3}
@@ -30,3 +30,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   OnSpecialAttack: {fileID: 0}
+  deathClip: {fileID: 7400000, guid: 64302139aa5473e46a89afaa34a69404, type: 2}

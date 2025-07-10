@@ -17,9 +17,16 @@ public class Card : MonoBehaviour
     [Header("2D Only")]
     [SerializeField] private SpriteRenderer _spriteRenderer;
     
+    public Animator animator;
+    public RuntimeAnimatorController controller;
     
     private void Awake()
     {
+        if (this.GetComponent<Card2D>() != null)
+        {
+            animator.enabled=false;
+        }
+        
         cardCombat = GetComponent<CardCombat>();
     }
 
@@ -59,6 +66,7 @@ public class Card : MonoBehaviour
 
         _spriteRenderer.sprite = cardData.Artwork;
         cardData.cardState = CardState.OnTable;
+        
     }
 
     public CardData GetCardData() => cardData;
@@ -75,5 +83,15 @@ public class Card : MonoBehaviour
         {
             hover.ForceDeselect();
         }
+    }
+    
+    public void PlayDeathAnim()
+    {
+        animator.enabled = true;
+        AnimatorOverrideController overrideController = new AnimatorOverrideController(controller);
+        overrideController["Base_Death"] = cardData.deathClip; 
+
+        animator.runtimeAnimatorController = overrideController;
+        animator.Play("Base_Death");
     }
 }

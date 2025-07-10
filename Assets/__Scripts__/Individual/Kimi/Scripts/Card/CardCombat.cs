@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,11 +18,13 @@ public class CardCombat : MonoBehaviour, IDamageable
     public LayerMask cardLayer;
     
     private AudioManager audioManager;
+    private Card2D card2d;
 
     private void Awake()
     {
         audioManager = GameObject.FindWithTag("Manager").GetComponent<AudioManager>();
         _card = GetComponent<Card>();
+        card2d = GetComponent<Card2D>();
         var holder = GetComponent<AttackHolder>();
         _attackBehavior = holder != null ? holder.GetBehavior() : null;
         _basicAttack = GetComponent<AttackHolder>();
@@ -58,15 +61,19 @@ public class CardCombat : MonoBehaviour, IDamageable
         currentHP -= amount;
         if (currentHP <= 0 && _card.GetCardData().cardState != CardState.Die)
         {
-            Die();
+            StartCoroutine(Die());
         }
     }
 
-    private void Die()
+    public IEnumerator Die()
     {
         _card.GetCardData().cardState = CardState.Die;
         audioManager.PlayCardDie();
-        Destroy(gameObject);
+        _card.PlayDeathAnim();
+
+        yield return new WaitForSeconds(1f); 
+
+        card2d.DestroySelf();
     }
 
 #if UNITY_EDITOR

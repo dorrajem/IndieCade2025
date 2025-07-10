@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f8fb74b1ad233f4d94f9f208718f94a, type: 3}
+  m_Name: Card_Wildfire
+  m_EditorClassIdentifier: 
+  CardName: Wildfire
+  Artwork: {fileID: 4371940929952600025, guid: 9ad802c73f310684e86e5b08ac5c1b33, type: 3}
+  SaplingCostPoint: 0
+  SacrificeCostPoint: 0
+  DisasterCostPoint: 5
+  SacrificePoint: 0
+  cardState: 0
+  cardCategory: 2
+  cardOwner: 0
+  worldPrefab: {fileID: 6937738408158534530, guid: 875f865cc9cf9a445b4926e0faa494b2, type: 3}
+  AttackPower: 3
+  HealthPoint: 3
+  hasSpecialAbility: 0
+  detectionRange: 5
+  cardLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  OnSpecialAttack: {fileID: 0}
+  deathClip: {fileID: 7400000, guid: 46923dc811002e042ae2e4299e56d832, type: 2}
