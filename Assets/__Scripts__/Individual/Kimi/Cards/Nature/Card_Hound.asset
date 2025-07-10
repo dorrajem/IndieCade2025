@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Card_Hound
   m_EditorClassIdentifier: 
   CardName: Hound
-  Artwork: {fileID: 8984754096541894249, guid: b3a5c41d611b9a14b89f208f0b288b52, type: 3}
+  Artwork: {fileID: -794710388649364581, guid: fffba81c004b0a14aa44190313e40af6, type: 3}
   SaplingCostPoint: 1
   SacrificeCostPoint: 0
   DisasterCostPoint: 0
   SacrificePoint: 1
-  cardState: 2
+  cardState: 1
   cardCategory: 0
   cardOwner: 0
   worldPrefab: {fileID: 6937738408158534530, guid: 875f865cc9cf9a445b4926e0faa494b2, type: 3}
