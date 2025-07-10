@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9d483d614b400764dbdb736ebcdb4e85
+guid: 7e5bcaec489a5724d94a912a2cb7b387
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8932838100523686443
-    second: endturn3_0
+      213: -4897740524597258986
+    second: bg-earth_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,30 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: endturn3_0
+      name: bg-earth_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 1
-        width: 219
-        height: 93
+        y: 0
+        width: 680
+        height: 380
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5d5e536631f280480800000000000000
-      internalID: -8932838100523686443
+      spriteID: 615585531fab70cb0800000000000000
+      internalID: -4897740524597258986
       vertices: []
       indices: 
       edges: []
@@ -148,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      endturn3_0: -8932838100523686443
+      bg-earth_0: -4897740524597258986
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

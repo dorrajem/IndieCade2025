@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a2f9a6080f67c654f8ca33e18df95b06
+guid: f805b7fa20fc2e64f890dd703255f16e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1659729735543705664
-    second: end turn1_0
+      213: 8788259608985701592
+    second: oasis-icon_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: end turn1_0
+      name: oasis-icon_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1
-        width: 216
-        height: 86
+        x: 4
+        y: 0
+        width: 56
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0405c3e966b880710800000000000000
-      internalID: 1659729735543705664
+      spriteID: 8dc818b5d8b26f970800000000000000
+      internalID: 8788259608985701592
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      end turn1_0: 1659729735543705664
+      oasis-icon_0: 8788259608985701592
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

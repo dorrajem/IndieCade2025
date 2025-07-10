@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: a2f9a6080f67c654f8ca33e18df95b06
+guid: 69d7df608d895bc4cb9db2389d999718
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1659729735543705664
-    second: end turn1_0
+      213: -8880464985670359816
+    second: industry-merger-icon_0
+  - first:
+      213: -7263756747867791371
+    second: industry-merger-icon_1
+  - first:
+      213: 4975263101402213517
+    second: industry-merger-icon_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +106,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: end turn1_0
+      name: industry-merger-icon_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1
-        width: 216
-        height: 86
+        x: 5
+        y: 3
+        width: 45
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +121,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0405c3e966b880710800000000000000
-      internalID: 1659729735543705664
+      spriteID: 8f4e2d0752042c480800000000000000
+      internalID: -8880464985670359816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: industry-merger-icon_1
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 31
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ff5e7c09b3f13b90800000000000000
+      internalID: -7263756747867791371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: industry-merger-icon_2
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 32
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8cef2f3e6fab0540800000000000000
+      internalID: 4975263101402213517
       vertices: []
       indices: 
       edges: []
@@ -135,7 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      end turn1_0: 1659729735543705664
+      industry-merger-icon_0: -8880464985670359816
+      industry-merger-icon_1: -7263756747867791371
+      industry-merger-icon_2: 4975263101402213517
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

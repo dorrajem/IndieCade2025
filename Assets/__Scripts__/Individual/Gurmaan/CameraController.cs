@@ -33,8 +33,6 @@ public class CameraController : MonoBehaviour
         
         // Not working, needs rework
         // BackCam();
-        // Force cam back up
-        ForceCamBack();
         
         target_pos = mainCam.transform.position;
         target_rot = mainCam.transform.eulerAngles;

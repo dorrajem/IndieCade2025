@@ -22,7 +22,7 @@ public class EnemyAI : ScriptableObject
 
         int boardSlotsRemaining = boardSlotsAvailable;
 
-        Debug.Log($"Enemy starting turn with {currentSaplingPoints} saplings and {currentDisasterPoints} disasterpoints and {boardSlotsAvailable} board slots.");
+        //Debug.Log($"Enemy starting turn with {currentSaplingPoints} saplings and {currentDisasterPoints} disasterpoints and {boardSlotsAvailable} board slots.");
 
         while (playableDisaster.Count > 0 && boardSlotsRemaining > 0)
         {

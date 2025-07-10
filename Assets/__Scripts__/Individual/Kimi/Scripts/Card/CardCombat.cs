@@ -39,7 +39,7 @@ public class CardCombat : MonoBehaviour, IDamageable
 
     public void TryAttack()
     {
-        if (!TurnManager.Instance.IsPlayerTurn || _card.GetCardData().cardState != CardState.OnTable || _card.GetCardData().cardState == CardState.Die)
+        if (!TurnManager.Instance.IsPlayerTurn || _card.GetCardData().cardState != CardState.OnTable || _card.GetCardData().cardState == CardState.Die || _card.GetCardData().AttackPower==0)
         {
             return;
         }
@@ -51,9 +51,22 @@ public class CardCombat : MonoBehaviour, IDamageable
         }
         else
         {
+            StartCoroutine(AttackMove());
             audioManager.PlayCardAttack();
             _attackBehavior?.ExecuteAttack(this);
         }
+    }
+
+    private IEnumerator AttackMove()
+    {
+        Vector3 dir = GetAttackDirection();
+        Vector3 home=transform.position;
+        transform.position = Vector3.Lerp(transform.position, transform.position+(dir*3), 2f);
+        yield return new WaitForSeconds(0.5f);
+        
+        transform.position = Vector3.Lerp(transform.position, home, 2f);
+        yield return new WaitForSeconds(0.5f);
+        transform.position=home;
     }
 
     public void TakeDamage(int amount)
@@ -93,10 +106,10 @@ public class CardCombat : MonoBehaviour, IDamageable
             {
                 Gizmos.DrawLine(points[i], points[i + 1]);
                 Gizmos.DrawSphere(points[i], 0.05f);
-                Debug.Log($"Sample Point : {i} : {points[i]}");
+                //Debug.Log($"Sample Point : {i} : {points[i]}");
 
                 Collider[] hits = Physics.OverlapSphere(points[i], 0.3f, cardLayer);
-                Debug.Log($"Hits : {hits.Length} objects");
+                //Debug.Log($"Hits : {hits.Length} objects");
                 foreach (var hit in hits)
                 {
                     Debug.Log($"{hit.name}, layer : {hit.gameObject.layer}");
@@ -109,7 +122,7 @@ public class CardCombat : MonoBehaviour, IDamageable
 
     public Vector3 GetAttackDirection()
     {
-        return _card.GetCardData().cardOwner == CardOwner.Player 
+        return _card.cardOwner == CardOwner.Player 
             ? transform.up 
             : -transform.up;
     }

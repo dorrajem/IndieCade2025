@@ -15,7 +15,6 @@ public class CardData : ScriptableObject
 
     public CardState cardState;
     public CardCategory cardCategory;
-    public CardOwner cardOwner;
     
     public GameObject worldPrefab;
     
@@ -46,8 +45,4 @@ public enum CardCategory
     Disaster
 }
 
-public enum CardOwner
-{
-    Player,
-    Enemy
-}
+

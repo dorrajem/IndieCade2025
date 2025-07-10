@@ -93,7 +93,7 @@ public class EnemyAIController : MonoBehaviour
             boardSpace
         );
 
-        Debug.Log("Enemy Turn Ends");
+        //Debug.Log("Enemy Turn Ends");
         turnManager.TurnStart();
     }
 

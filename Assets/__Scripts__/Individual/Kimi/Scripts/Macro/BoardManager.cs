@@ -16,11 +16,11 @@ public class BoardManager : MonoBehaviour
 
     public void RegisterCard(Card card)
     {
-        if (card.GetCardData().cardOwner == CardOwner.Player)
+        if (card.cardOwner == CardOwner.Player)
         {
             playerCards.Add(card);
         }
-        else if (card.GetCardData().cardOwner == CardOwner.Enemy)
+        else if (card.cardOwner == CardOwner.Enemy)
         {
             enemyCards.Add(card);
         }

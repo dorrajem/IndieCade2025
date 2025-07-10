@@ -2,6 +2,12 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+public enum CardOwner
+{
+    Player,
+    Enemy
+}
 public class Card : MonoBehaviour
 {
     [Header("Shared Data")]
@@ -20,6 +26,8 @@ public class Card : MonoBehaviour
     public Animator animator;
     public RuntimeAnimatorController controller;
     
+    public CardOwner cardOwner;
+    
     private void Awake()
     {
         if (this.GetComponent<Card2D>() != null)
@@ -29,7 +37,8 @@ public class Card : MonoBehaviour
         
         cardCombat = GetComponent<CardCombat>();
     }
-
+    
+    
 
     public void Init(CardData newData, bool asUICard)
     {
