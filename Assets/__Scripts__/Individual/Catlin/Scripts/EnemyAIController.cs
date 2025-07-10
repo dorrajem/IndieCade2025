@@ -58,13 +58,13 @@ public class EnemyAIController : MonoBehaviour
         {
             natureDeaths++;
             SetDisasterPoints(1); 
-            Debug.Log($"Nature card died. Total natureDeaths: {natureDeaths}");
+            //Debug.Log($"Nature card died. Total natureDeaths: {natureDeaths}");
         }
     }
 
     public void EnemyTakeTurn(TurnManager turnManager)
     {
-        Debug.Log("Enemy Turn Starts");
+        //Debug.Log("Enemy Turn Starts");
         currentSaplingPoints += 2;
         currentSaplingPoints = Mathf.Min(currentSaplingPoints, maxSaplingPoints);
         SetDisasterPoints(2);

@@ -1,15 +1,16 @@
-using TMPro;
 using UnityEngine;
+using System.Collections.Generic;
+using Image = UnityEngine.UI.Image;
 
 public class ResourceManagement : MonoBehaviour
 {
     // Current placeholder logic for sapling management
     const int saplingMax = 5;
-    public bool turnStart = false;
     private int saplings = 1;
     
-    public TextMeshProUGUI saplingText;
-
+    public Image saplingImage;
+    
+    public List<Sprite> saplingSprites = new();
     // Current placeholder for sacrifices 
     //public int currentCards = 0;
     //private int cardMax = 4;
@@ -18,9 +19,12 @@ public class ResourceManagement : MonoBehaviour
     // Update is called once per frame
     void UpdateText()
     {
-        if (saplingText != null)
+        for (int i = 0; i < saplingSprites.Count; i++)
         {
-            saplingText.text = "Saplings: " + saplings;
+            if (i == saplings)
+            {
+                saplingImage.sprite = saplingSprites[i];
+            }
         }
     }
 
