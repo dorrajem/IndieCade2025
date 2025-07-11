@@ -76,7 +76,7 @@ public class CardHover : MonoBehaviour,
         if (isSelected || eventData.button != PointerEventData.InputButton.Left || sacrificeManager.CanPlace) return;
 
         // Only allow selection if it's the player's turn
-        if (turnManager == null || !turnManager.IsPlayerTurn) return; //Caleb's Edit
+        if (turnManager == null || turnManager.gameTurn!=GameTurn.PlayerTurn) return; //Caleb's Edit
 
         if (currentlySelected != null && currentlySelected != this)
             currentlySelected.DeselectCard();

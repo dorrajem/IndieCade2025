@@ -24,7 +24,7 @@ public class Card2D : MonoBehaviour, ICardVisual
         if (card != null && card.cardData != null)
         {
             CardDeathNotifier.NotifyCardDeath(card.cardData);
-            Debug.Log($"Card has been destroyed.");
+            //Debug.Log($"Card has been destroyed.");
         }
 
         SlotReference refSlot = GetComponent<SlotReference>();

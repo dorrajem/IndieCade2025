@@ -52,7 +52,7 @@ public class CardDeck : MonoBehaviour
 
     public void DrawCard()
     {
-        if (turnManager == null || !turnManager.IsPlayerTurn || drawn) return; //Caleb's Edit
+        if (turnManager == null || turnManager.gameTurn!=GameTurn.PlayerTurn || drawn) return; //Caleb's Edit
 
         CardData topCard = currentDeck.Draw();
         if (topCard != null)

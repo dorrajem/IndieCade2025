@@ -18,11 +18,11 @@ public class OpponentManager : MonoBehaviour
     public void EnemyTurn(TurnManager turnManager)
     {
         isOpponentTurn = true;
-       // enemyAIController.EnemyTakeTurn();
+        enemyAIController.EnemyTakeTurn(turnManager);
 
         isOpponentTurn = false;
 
-        turnManager.TurnStart();
+        turnManager.gameTurn=GameTurn.PlayerCard;
     }
 
 }

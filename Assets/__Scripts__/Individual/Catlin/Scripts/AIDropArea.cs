@@ -40,8 +40,6 @@ public class AIDropArea : MonoBehaviour
             slotRef.slot = this;
 
             SelectCardManager.Instance.ClearSelection();
-            CameraController.Instance.BackCam();
-            BoardManager.Instance.RegisterCard(cardNew);
         }
     }
 

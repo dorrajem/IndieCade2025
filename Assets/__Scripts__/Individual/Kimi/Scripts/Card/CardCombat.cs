@@ -18,10 +18,12 @@ public class CardCombat : MonoBehaviour, IDamageable
     public LayerMask cardLayer;
     
     private AudioManager audioManager;
+    private TurnManager turnManager;
     private Card2D card2d;
 
     private void Awake()
     {
+        turnManager = GameObject.FindWithTag("Manager").GetComponent<TurnManager>();
         audioManager = GameObject.FindWithTag("Manager").GetComponent<AudioManager>();
         _card = GetComponent<Card>();
         card2d = GetComponent<Card2D>();
@@ -39,7 +41,7 @@ public class CardCombat : MonoBehaviour, IDamageable
 
     public void TryAttack()
     {
-        if (!TurnManager.Instance.IsPlayerTurn || _card.GetCardData().cardState != CardState.OnTable || _card.GetCardData().cardState == CardState.Die || _card.GetCardData().AttackPower==0)
+        if ((turnManager.gameTurn!=GameTurn.PlayerCard && turnManager.gameTurn!=GameTurn.EnemyCard) || _card.GetCardData().cardState != CardState.OnTable || _card.GetCardData().cardState == CardState.Die || _card.GetCardData().AttackPower==0)
         {
             return;
         }
@@ -51,20 +53,20 @@ public class CardCombat : MonoBehaviour, IDamageable
         }
         else
         {
-            StartCoroutine(AttackMove());
             audioManager.PlayCardAttack();
             _attackBehavior?.ExecuteAttack(this);
+            StartCoroutine(AttackMove());
         }
     }
 
     private IEnumerator AttackMove()
     {
-        Vector3 dir = GetAttackDirection();
+        Vector3 dir = GetAttackDirection()+new Vector3(0,0,-0.1f);
         Vector3 home=transform.position;
-        transform.position = Vector3.Lerp(transform.position, transform.position+(dir*3), 2f);
+        transform.position = Vector3.Lerp(transform.position, transform.position+(dir*3), 1f);
         yield return new WaitForSeconds(0.5f);
         
-        transform.position = Vector3.Lerp(transform.position, home, 2f);
+        transform.position = Vector3.Lerp(transform.position, home, 1f);
         yield return new WaitForSeconds(0.5f);
         transform.position=home;
     }
@@ -90,35 +92,19 @@ public class CardCombat : MonoBehaviour, IDamageable
     }
 
 #if UNITY_EDITOR
-    private void OnDrawGizmosSelected()
+private void OnDrawGizmosSelected()
+{
+    if (_attackBehavior is BasicAttack basicAttack)
     {
-        if (_attackBehavior is BasicAttack basicAttack)
-        {
-            Vector3 start = transform.position;
+        Bounds box = basicAttack.GetAttackBoxBounds(this);
 
-            Vector3 dir = Application.isPlaying ? GetAttackDirection() : transform.up;
-            Vector3 end = transform.position + dir * 3f;
-
-            List<Vector3> points = basicAttack.GetParabolaPoints(start, end, basicAttack.arcHeight, 20);
-
-            Gizmos.color = Color.blue;
-            for (int i = 0; i < points.Count - 1; i++)
-            {
-                Gizmos.DrawLine(points[i], points[i + 1]);
-                Gizmos.DrawSphere(points[i], 0.05f);
-                //Debug.Log($"Sample Point : {i} : {points[i]}");
-
-                Collider[] hits = Physics.OverlapSphere(points[i], 0.3f, cardLayer);
-                //Debug.Log($"Hits : {hits.Length} objects");
-                foreach (var hit in hits)
-                {
-                    Debug.Log($"{hit.name}, layer : {hit.gameObject.layer}");
-                }
-            }
-        }
+        Gizmos.color = Color.red;
+        Gizmos.matrix = Matrix4x4.TRS(box.center, Quaternion.LookRotation(GetAttackDirection()), Vector3.one);
+        Gizmos.DrawWireCube(Vector3.zero, box.size);
     }
-
+}
 #endif
+
 
     public Vector3 GetAttackDirection()
     {

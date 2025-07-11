@@ -23,15 +23,18 @@ public class EnemyAIController : MonoBehaviour
 
     public int natureDeaths = 0;
     public int maxNatureDeaths = 10;
+    
+    private TurnManager turnManager;
 
     private void Awake()
     {
         enemyDropAreas = new List<AIDropArea>(FindObjectsByType<AIDropArea>(FindObjectsSortMode.None));
+        turnManager = GameObject.FindWithTag("Manager").GetComponent<TurnManager>();
     }
 
     private void Start()
     {
-        currentSaplingPoints = maxSaplingPoints;
+        currentSaplingPoints = maxSaplingPoints-2;
         currentDisasterPoints = 0;
 
         enemyCardDeck = new DeckRuntime();
@@ -40,6 +43,8 @@ public class EnemyAIController : MonoBehaviour
 
         DrawNewCard(initialDrawCount);
         canPlayDisaster = false; 
+        
+        EnemyTakeTurn(turnManager);
     }
 
     private void OnEnable()
@@ -92,8 +97,6 @@ public class EnemyAIController : MonoBehaviour
             currentDisasterPoints,
             boardSpace
         );
-
-        //Debug.Log("Enemy Turn Ends");
         turnManager.TurnStart();
     }
 
@@ -142,7 +145,7 @@ public class EnemyAIController : MonoBehaviour
                 Card card = area.placedCard.GetComponent<Card>();
                 if (card != null && card.cardData.cardCategory == CardCategory.Industry)
                 {
-                    Debug.Log("Industry card found on player board");
+                    //Debug.Log("Industry card found on player board");
                     canPlayDisaster = true;
                     return true;
                 }
