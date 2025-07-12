@@ -38,7 +38,7 @@ public class EnemyAIController : MonoBehaviour
 
     private void Start()
     {
-        currentSaplingPoints = maxSaplingPoints-2;
+        currentSaplingPoints = maxSaplingPoints-3;
         currentDisasterPoints = 0;
 
         enemyCardDeck = new DeckRuntime();
@@ -47,7 +47,7 @@ public class EnemyAIController : MonoBehaviour
 
         DrawNewCard(initialDrawCount);
         InitializeSlotMaps(); 
-        
+        EnemyTakeTurn(turnManager);
     }
 
     private void OnEnable()
