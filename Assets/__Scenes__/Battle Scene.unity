@@ -189,6 +189,7 @@ MonoBehaviour:
   resourceManagement: {fileID: 801074478}
   sacrificeManager: {fileID: 801074484}
   placedCard: {fileID: 0}
+  Index: 2
 --- !u!1 &128708434
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,6 +336,7 @@ MonoBehaviour:
   resourceManagement: {fileID: 801074478}
   sacrificeManager: {fileID: 801074484}
   placedCard: {fileID: 0}
+  Index: 3
 --- !u!1 &423059060
 GameObject:
   m_ObjectHideFlags: 0
@@ -382,6 +384,7 @@ MonoBehaviour:
   isOccupied: 0
   resourceManagement: {fileID: 1130300262}
   placedCard: {fileID: 0}
+  Index: 3
 --- !u!1 &491379555
 GameObject:
   m_ObjectHideFlags: 0
@@ -636,6 +639,7 @@ MonoBehaviour:
   isOccupied: 0
   resourceManagement: {fileID: 1130300262}
   placedCard: {fileID: 0}
+  Index: 2
 --- !u!1 &635873437
 GameObject:
   m_ObjectHideFlags: 0
@@ -1063,6 +1067,7 @@ MonoBehaviour:
   resourceManagement: {fileID: 801074478}
   sacrificeManager: {fileID: 801074484}
   placedCard: {fileID: 0}
+  Index: 1
 --- !u!1 &1064097298
 GameObject:
   m_ObjectHideFlags: 0
@@ -1484,6 +1489,7 @@ MonoBehaviour:
   isOccupied: 0
   resourceManagement: {fileID: 1130300262}
   placedCard: {fileID: 0}
+  Index: 0
 --- !u!1 &1276508401
 GameObject:
   m_ObjectHideFlags: 0
@@ -1867,6 +1873,7 @@ MonoBehaviour:
   resourceManagement: {fileID: 801074478}
   sacrificeManager: {fileID: 801074484}
   placedCard: {fileID: 0}
+  Index: 0
 --- !u!1 &1596846025
 GameObject:
   m_ObjectHideFlags: 0
@@ -2036,6 +2043,7 @@ MonoBehaviour:
   isOccupied: 0
   resourceManagement: {fileID: 1130300262}
   placedCard: {fileID: 0}
+  Index: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

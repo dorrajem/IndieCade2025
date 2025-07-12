@@ -9,6 +9,8 @@ public class AIDropArea : MonoBehaviour
     
     private Card card;
 
+    public int Index;
+
     void Update()
     {
         if (placedCard != null)
@@ -29,7 +31,7 @@ public class AIDropArea : MonoBehaviour
             Vector3 spawnPos = transform.position;
             spawnPos.z = 0;
 
-            GameObject newCard = HandManager.Instance.PlayCardToWorld(card, spawnPos, CardOwner.Enemy);
+            GameObject newCard = HandManager.Instance.PlayCardToWorld(card, spawnPos, CardOwner.Enemy, Index);
             Card cardNew = newCard.GetComponent<Card>();
             cardNew.cardOwner = CardOwner.Enemy;
 

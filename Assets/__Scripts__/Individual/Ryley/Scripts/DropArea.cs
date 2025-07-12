@@ -12,6 +12,8 @@ public class DropArea : MonoBehaviour
 
     private Card card;
 
+    public int Index;
+
     void Update()
     {
         if (placedCard != null)
@@ -50,7 +52,7 @@ public class DropArea : MonoBehaviour
             Vector3 spawnPos = transform.position;
             spawnPos.z = 0;
             
-            GameObject newCard = HandManager.Instance.PlayCardToWorld(selected, spawnPos, CardOwner.Player);
+            GameObject newCard = HandManager.Instance.PlayCardToWorld(selected, spawnPos, CardOwner.Player, Index);
 
             isOccupied = true;
             placedCard = newCard;

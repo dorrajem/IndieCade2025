@@ -33,17 +33,22 @@ public class BoardManager : MonoBehaviour
         }
     }
 
-    public void RegisterCard(Card card)
+    public void RegisterCard(Card card, int index)
     {
         if (card.cardOwner == CardOwner.Player)
         {
             playerCards.Add(card);
+            card.cardIndex = index;
+            playerCards.Sort((a, b) => a.cardIndex.CompareTo(b.cardIndex));
         }
         else if (card.cardOwner == CardOwner.Enemy)
         {
             enemyCards.Add(card);
+            card.cardIndex = index;
+            enemyCards.Sort((a, b) => a.cardIndex.CompareTo(b.cardIndex));
         }
     }
+
 
     public void ClearDeadCards()
     {

@@ -27,6 +27,7 @@ public class Card : MonoBehaviour
     public RuntimeAnimatorController controller;
     
     public CardOwner cardOwner;
+    public int cardIndex;
     
     private void Awake()
     {
@@ -79,11 +80,6 @@ public class Card : MonoBehaviour
     }
 
     public CardData GetCardData() => cardData;
-
-    public void PlayToBoard(Vector3 pos)
-    {
-        HandManager.Instance.PlayCardToWorld(this, pos, CardOwner.Player);
-    }
 
     public void DeselectVisual()
     {

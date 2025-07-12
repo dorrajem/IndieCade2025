@@ -118,7 +118,7 @@ public class HandManager : MonoBehaviour
 
     #region PlayCard
 
-    public GameObject PlayCardToWorld(Card selectedCard, Vector3 slotPos, CardOwner setOwner)
+    public GameObject PlayCardToWorld(Card selectedCard, Vector3 slotPos, CardOwner setOwner, int Index)
     {
         if (cardPrefab2D == null)
         {
@@ -143,7 +143,7 @@ public class HandManager : MonoBehaviour
         
         UpdateCardLayout(smooth: true);
         
-        BoardManager.Instance.RegisterCard(card);
+        BoardManager.Instance.RegisterCard(card,Index);
         return newCardObj;
     }
 
