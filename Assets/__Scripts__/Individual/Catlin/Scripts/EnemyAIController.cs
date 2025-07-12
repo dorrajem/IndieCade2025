@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class EnemyAIController : MonoBehaviour
@@ -18,11 +19,13 @@ public class EnemyAIController : MonoBehaviour
     public int initialDrawCount = 5;
 
     private List<AIDropArea> enemyDropAreas = new();
-    private List<DropArea> playerDropAreas = new(); 
-    public bool canPlayDisaster;
+    private List<DropArea> playerDropAreas = new();
+    private Dictionary<int, AIDropArea> enemySlotMap;
+    private Dictionary<int, DropArea> playerSlotMap;
+    public bool canPlayDisaster = false;
 
     public int natureDeaths = 0;
-    public int maxNatureDeaths = 10;
+    public int maxNatureDeaths = 5;
     
     private TurnManager turnManager;
 
@@ -30,7 +33,8 @@ public class EnemyAIController : MonoBehaviour
     {
         enemyDropAreas = new List<AIDropArea>(FindObjectsByType<AIDropArea>(FindObjectsSortMode.None));
         turnManager = GameObject.FindWithTag("Manager").GetComponent<TurnManager>();
-    }
+
+       }
 
     private void Start()
     {
@@ -42,9 +46,8 @@ public class EnemyAIController : MonoBehaviour
         enemyCardDeck.Shuffle();
 
         DrawNewCard(initialDrawCount);
-        canPlayDisaster = false; 
+        InitializeSlotMaps(); 
         
-        EnemyTakeTurn(turnManager);
     }
 
     private void OnEnable()
@@ -80,15 +83,14 @@ public class EnemyAIController : MonoBehaviour
 
         (currentSaplingPoints, currentDisasterPoints) = enemyAI.ExecuteTurn(
             enemyHand,
-            (cardData) =>
+            cardData =>
             {
-                AIDropArea slot = GetNextAvailableDropArea();
+                var slot = GetBestCounterSlot(cardData);
                 if (slot != null)
                 {
                     GameObject cardGO = new GameObject("EnemyCard");
                     Card card = cardGO.AddComponent<Card>();
                     card.Init(cardData, false);
-
                     slot.PlaceEnemyCard(card);
                     enemyHand.Remove(cardData);
                 }
@@ -163,4 +165,48 @@ public class EnemyAIController : MonoBehaviour
         currentDisasterPoints += increment;
         currentDisasterPoints = Mathf.Min(currentDisasterPoints, maxDisasterPoints);
     }
+
+    private void InitializeSlotMaps()
+    {
+        enemySlotMap = enemyDropAreas
+            .ToDictionary(
+                slot => ParseSlotIndex(slot.gameObject.name),
+                slot => slot
+            );
+        var playerSlots = new List<DropArea>(FindObjectsByType<DropArea>(FindObjectsSortMode.None));
+        playerSlotMap = playerSlots
+            .ToDictionary(
+                slot => ParseSlotIndex(slot.gameObject.name),
+                slot => slot
+            );
+    }
+
+    private int ParseSlotIndex(string name)
+    {
+        // Assumes names like "Slot_1" through "Slot_8"
+        if (name.StartsWith("Slot_") && int.TryParse(name.Substring(5), out int idx))
+            return idx;
+        Debug.LogError("Unrecognized slot name: " + name);
+        return -1;
+    }
+
+    private AIDropArea GetBestCounterSlot(CardData cardToPlay)
+    {
+        InitializeSlotMaps();
+
+        foreach (var kvp in playerSlotMap)
+        {
+            int playerIndex = kvp.Key;
+            var playerArea = kvp.Value;
+
+            if (playerArea.isOccupied && enemySlotMap.TryGetValue(playerIndex + 4, out var enemyArea))
+            {
+                if (!enemyArea.isOccupied)
+                    return enemyArea;  
+            }
+        }
+        return enemySlotMap.Values.FirstOrDefault(area => !area.isOccupied);
+    }
+
+
 }

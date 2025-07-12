@@ -21,7 +21,7 @@ public class TurnManager : MonoBehaviour
     // Ends the player's current turn
     void Awake()
     {
-        gameTurn = GameTurn.EnemyTurn;
+        gameTurn = GameTurn.PlayerTurn;
         Instance = this;
     }
     
