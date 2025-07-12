@@ -1,12 +1,9 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
-    //Caleb's Edit
-    //public static AudioManager Instance;
-
-
     public AudioSource audioSource;
     
     public List<AudioClip> CardSelect;
@@ -47,31 +44,4 @@ public class AudioManager : MonoBehaviour
         audioSource.PlayOneShot(clips[index]);
         audioSource.pitch = 1f;
     }
-
-
-    //Caleb's Edit
-    /*
-    void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject); // Keep this across scenes
-        }
-        else
-        {
-            Destroy(gameObject); // Avoid duplicates
-        }
-    }
-
-    public void SetVolume(float volume)
-    {
-        audioSource.volume = volume;
-    }
-
-    public float GetVolume()
-    {
-        return audioSource.volume;
-    }
-    */
 }

@@ -938,6 +938,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45056f9a1a0f38646b8d59439685c37c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: ad1c238564c57ed42bbeab2d53c947da, type: 2}
   audioSource: {fileID: 1256576705}
   CardSelect:
   - {fileID: 8300000, guid: 0d909edf0e637ec4688876b5675006e0, type: 3}
@@ -1354,7 +1355,7 @@ AudioSource:
   m_GameObject: {fileID: 1256576699}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: ad1c238564c57ed42bbeab2d53c947da, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1

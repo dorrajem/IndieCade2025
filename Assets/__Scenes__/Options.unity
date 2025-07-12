@@ -655,6 +655,7 @@ GameObject:
   m_Component:
   - component: {fileID: 849660176}
   - component: {fileID: 849660177}
+  - component: {fileID: 849660178}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -677,11 +678,11 @@ RectTransform:
   - {fileID: 1228567382}
   - {fileID: 310647480}
   - {fileID: 1595186748}
-  m_Father: {fileID: 1646049608}
+  m_Father: {fileID: 938231075}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 393.45886, y: 0}
+  m_AnchoredPosition: {x: 111.03888, y: 80.100006}
   m_SizeDelta: {x: 436.4376, y: 29.8728}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &849660177
@@ -731,10 +732,36 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 1
-  m_Value: 0
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 849660178}
+        m_TargetAssemblyTypeName: VolumeControl, Assembly-CSharp
+        m_MethodName: OnSliderChanged
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &849660178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849660175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccd8f3d00636bd9409b6a7ace5cf91df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: ad1c238564c57ed42bbeab2d53c947da, type: 2}
+  volumeSlider: {fileID: 849660177}
 --- !u!1 &938231071
 GameObject:
   m_ObjectHideFlags: 0
@@ -835,6 +862,7 @@ RectTransform:
   - {fileID: 811432750}
   - {fileID: 396560145}
   - {fileID: 674369594}
+  - {fileID: 849660176}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1619,8 +1647,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 849660176}
+  m_Children: []
   m_Father: {fileID: 938231075}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
