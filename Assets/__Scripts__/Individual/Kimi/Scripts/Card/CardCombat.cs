@@ -12,7 +12,6 @@ public class CardCombat : MonoBehaviour, IDamageable
     public int attack { get; private set; }
 
     private IAttackBehavior _attackBehavior;
-    private AttackHolder _basicAttack;
 
     public float detectionRange = 5f;
     public LayerMask cardLayer;
@@ -20,6 +19,8 @@ public class CardCombat : MonoBehaviour, IDamageable
     private AudioManager audioManager;
     private TurnManager turnManager;
     private Card2D card2d;
+    
+    public List<ScriptableObject> attackBehaviorSO = new();
 
     private void Awake()
     {
@@ -27,9 +28,16 @@ public class CardCombat : MonoBehaviour, IDamageable
         audioManager = GameObject.FindWithTag("Manager").GetComponent<AudioManager>();
         _card = GetComponent<Card>();
         card2d = GetComponent<Card2D>();
-        var holder = GetComponent<AttackHolder>();
-        _attackBehavior = holder != null ? holder.GetBehavior() : null;
-        _basicAttack = GetComponent<AttackHolder>();
+    }
+    public IAttackBehavior GetBehavior()
+    {
+        int dmg = _card.GetCardData().AttackPower;
+        Debug.Log(_card.cardData.CardName+":"+dmg);
+        if (dmg==0)
+        {
+            return null;
+        }
+        return attackBehaviorSO[dmg-1] as IAttackBehavior;
     }
 
     private void Start()
@@ -37,6 +45,7 @@ public class CardCombat : MonoBehaviour, IDamageable
         var data = _card.GetCardData();
         currentHP = data.HealthPoint;
         attack = data.AttackPower;
+        _attackBehavior = GetBehavior();
     }
 
     public void TryAttack()

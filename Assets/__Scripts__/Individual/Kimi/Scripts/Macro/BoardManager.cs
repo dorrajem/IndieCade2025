@@ -68,7 +68,6 @@ public class BoardManager : MonoBehaviour
         attacking = true;
         foreach (var card in Cards)
         {
-            Debug.Log(card.cardData.CardName+":"+ card.cardOwner);
             if (card.GetCardData().cardState == CardState.OnTable)
             {
                 if (card.cardCombat != null)

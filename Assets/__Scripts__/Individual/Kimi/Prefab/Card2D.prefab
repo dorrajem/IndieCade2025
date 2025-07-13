@@ -9,13 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8771706891403588877}
-  - component: {fileID: 6309813693217258877}
   - component: {fileID: 8313912365939968207}
   - component: {fileID: 1108471373594210226}
   - component: {fileID: 2532335303521809350}
   - component: {fileID: 2275927824721286651}
-  - component: {fileID: 1111258620359585724}
   - component: {fileID: -7785425237190380349}
+  - component: {fileID: 1836266398946846538}
   m_Layer: 7
   m_Name: Card2D
   m_TagString: Untagged
@@ -42,52 +41,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.1569, y: -0.7532}
   m_SizeDelta: {x: 1.3137, y: 2.0121}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!61 &6309813693217258877
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3118303636978894477}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 1.94}
-    newSize: {x: 1.28, y: 1.94}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 2.5, y: 4}
-  m_EdgeRadius: 0
 --- !u!114 &8313912365939968207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,6 +59,8 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 1108471373594210226}
   animator: {fileID: -7785425237190380349}
   controller: {fileID: 9100000, guid: 22a5659bad181104084e38074d2a8e21, type: 2}
+  cardOwner: 0
+  cardIndex: 0
 --- !u!212 &1108471373594210226
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -191,19 +146,15 @@ MonoBehaviour:
   cardLayer:
     serializedVersion: 2
     m_Bits: 128
---- !u!114 &1111258620359585724
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3118303636978894477}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d1593d1f570e784a9781ed8b91a56f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackBehaviorSO: {fileID: 11400000, guid: 8f74a785692977d49bcf0058bf53b178, type: 2}
+  attackBehaviorSO:
+  - {fileID: 11400000, guid: 6ee02b8b0129fcf44b43ac7dd1f36aa8, type: 2}
+  - {fileID: 11400000, guid: bd5660e78330a2f46843598e342a40c4, type: 2}
+  - {fileID: 11400000, guid: 61eaab445b4670047a896ba99a521346, type: 2}
+  - {fileID: 11400000, guid: c06b83f030ccef9499a977ed6f133560, type: 2}
+  - {fileID: 11400000, guid: 7661ca7514b7e344280f5c19ebcf4fc1, type: 2}
+  - {fileID: 11400000, guid: c7252c778ccd79d41a0b6bb6fd0db2c5, type: 2}
+  - {fileID: 11400000, guid: c51114de801aff345ae9f45caa473483, type: 2}
+  - {fileID: 11400000, guid: f28197948ee1b59419759d646eacaa89, type: 2}
 --- !u!95 &-7785425237190380349
 Animator:
   serializedVersion: 7
@@ -226,3 +177,24 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &1836266398946846538
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3118303636978894477}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.3, y: 2, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}

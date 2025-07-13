@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e11c448f614ba646aec6e651c6fcf08, type: 3}
-  m_Name: BasicAttack
+  m_Name: BasicAttack 2
   m_EditorClassIdentifier: 
   range: 10
-  arcHeight: 2
-  hitRadius: 0.3
-  damage: 1
+  width: 1
+  height: 1
+  damage: 2
   targetLayer:
     serializedVersion: 2
     m_Bits: 128

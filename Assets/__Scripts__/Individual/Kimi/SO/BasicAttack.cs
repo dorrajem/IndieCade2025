@@ -32,7 +32,7 @@ public class BasicAttack : ScriptableObject, IAttackBehavior
             if (hit.TryGetComponent(out CardCombat targetCard))
             {
                 targetCard.TakeDamage(damage);
-                Debug.Log($"{attacker.name} hit {targetCard.name} for {damage} damage!");
+                Debug.Log($"{attacker.name} hit {targetCard._card.cardData.CardName} for {damage} damage!");
             }
         }
     }

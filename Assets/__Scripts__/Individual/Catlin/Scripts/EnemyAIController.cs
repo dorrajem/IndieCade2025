@@ -73,7 +73,7 @@ public class EnemyAIController : MonoBehaviour
     public void EnemyTakeTurn(TurnManager turnManager)
     {
         //Debug.Log("Enemy Turn Starts");
-        currentSaplingPoints += 2;
+        currentSaplingPoints += 3;
         currentSaplingPoints = Mathf.Min(currentSaplingPoints, maxSaplingPoints);
         SetDisasterPoints(2);
 
