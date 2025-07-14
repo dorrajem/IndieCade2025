@@ -41,7 +41,7 @@ public class TurnManager : MonoBehaviour
     public void TurnStart()
     {
         cardDeck.drawn = false;
-        resourceManagement.AddPoints(2);
+        resourceManagement.AddPoints(1);
         gameTurn = GameTurn.PlayerTurn;
         turnCount++;
     }

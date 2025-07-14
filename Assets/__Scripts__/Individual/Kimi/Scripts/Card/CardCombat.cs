@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CardCombat : MonoBehaviour, IDamageable
@@ -16,6 +17,7 @@ public class CardCombat : MonoBehaviour, IDamageable
     
     private AudioManager audioManager;
     private TurnManager turnManager;
+    private BoardManager boardManager;
     private Card2D card2d;
     
     [Header("Attack Settings")]
@@ -28,6 +30,7 @@ public class CardCombat : MonoBehaviour, IDamageable
     {
         turnManager = GameObject.FindWithTag("Manager").GetComponent<TurnManager>();
         audioManager = GameObject.FindWithTag("Manager").GetComponent<AudioManager>();
+        boardManager = GameObject.FindWithTag("Manager").GetComponent<BoardManager>();
         _card = GetComponent<Card>();
         card2d = GetComponent<Card2D>();
     }
@@ -68,13 +71,28 @@ public class CardCombat : MonoBehaviour, IDamageable
             targetLayer
         );
         // Damage all targets in th box
-        foreach (var hit in hits)
+        if (hits.Length != 0)
         {
-            if (hit.TryGetComponent(out CardCombat targetCard))
+            foreach (var hit in hits)
             {
-                targetCard.TakeDamage(attack);
+                if (hit.TryGetComponent(out CardCombat targetCard))
+                {
+                    targetCard.TakeDamage(attack);
+                }
             }
         }
+        else
+        {
+            if (attacker._card.cardOwner == CardOwner.Player)
+            {
+                boardManager.Score = Mathf.Min(10,boardManager.Score+attack);
+            }
+            else if (attacker._card.cardOwner == CardOwner.Enemy)
+            {
+                boardManager.Score = Mathf.Max(0,boardManager.Score-attack);
+            }
+        }
+       
     }
 
     private IEnumerator AttackMove()

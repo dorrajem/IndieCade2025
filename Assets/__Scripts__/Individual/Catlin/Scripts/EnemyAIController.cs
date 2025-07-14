@@ -16,7 +16,7 @@ public class EnemyAIController : MonoBehaviour
     public int maxDisasterPoints = 7;
 
     public int maxBoardSlots = 4;
-    public int initialDrawCount = 5;
+    public int initialDrawCount = 6;
 
     private List<AIDropArea> enemyDropAreas = new();
     private List<DropArea> playerDropAreas = new();
@@ -38,7 +38,7 @@ public class EnemyAIController : MonoBehaviour
 
     private void Start()
     {
-        currentSaplingPoints = maxSaplingPoints-3;
+        currentSaplingPoints = 1;
         currentDisasterPoints = 0;
 
         enemyCardDeck = new DeckRuntime();
@@ -73,7 +73,7 @@ public class EnemyAIController : MonoBehaviour
     public void EnemyTakeTurn(TurnManager turnManager)
     {
         //Debug.Log("Enemy Turn Starts");
-        currentSaplingPoints += 3;
+        currentSaplingPoints += 2;
         currentSaplingPoints = Mathf.Min(currentSaplingPoints, maxSaplingPoints);
         SetDisasterPoints(2);
 

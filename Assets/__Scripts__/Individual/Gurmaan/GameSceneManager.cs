@@ -4,9 +4,19 @@ using UnityEngine.SceneManagement;
 public class GameSceneManager : MonoBehaviour
 {
     public Texture2D cursor;
-    public void StartGame()
+    void Awake()
+    {
+        Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
+    }
+    
+    public void Battle()
     {
         SceneManager.LoadScene("Battle Scene");
+    }
+    
+    public void Map()
+    {
+        SceneManager.LoadScene("Map");
     }
 
     public void OptionsMenu()
@@ -14,7 +24,7 @@ public class GameSceneManager : MonoBehaviour
         SceneManager.LoadScene("Options");
     }
 
-    public void Exit()
+    public void Menu()
     {
         SceneManager.LoadScene("Start Scene");
     }
@@ -22,14 +32,5 @@ public class GameSceneManager : MonoBehaviour
     public void Credits()
     {
         SceneManager.LoadScene("Credits");
-    }
-
-    void Awake()
-    {
-        Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
-    }
-    void Update()
-    {
-        
     }
 }

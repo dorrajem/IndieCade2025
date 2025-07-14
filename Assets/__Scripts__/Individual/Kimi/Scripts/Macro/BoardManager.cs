@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BoardManager : MonoBehaviour
 {
@@ -10,14 +11,27 @@ public class BoardManager : MonoBehaviour
     public List<Card> playerCards = new();
     
     public List<Card> enemyCards = new();
+    
+    [Header("Score")]
+    public Image ScoreSprite;
+    public List<Sprite> scoreSprites = new();
+
+    public int Score = 5;
 
     private TurnManager turnManager;
 
     private bool attacking = false;
+    
+    public GameObject WinPanel;
+    public GameObject LosePanel;
     private void Awake()
     {
         turnManager = GetComponent<TurnManager>();
         Instance = this;
+        Score = 5;
+        Time.timeScale = 1;
+        WinPanel.SetActive(false);
+        LosePanel.SetActive(false);
     }
 
     void Update()
@@ -33,8 +47,22 @@ public class BoardManager : MonoBehaviour
                 EnemyCardAttack();
             } 
         }
+        ScoreSprite.sprite = scoreSprites[Score];
+        if (Score == 0)
+        {
+            LosePanel.SetActive(true);
+            Time.timeScale = 0;
+        }
+        else if (Score == 10)
+        {
+            WinPanel.SetActive(true);
+            Time.timeScale = 0;
+        }
     }
-
+    public void TimeReturn()
+    {
+        Time.timeScale = 1;
+    }
     public void RegisterCard(Card card, int index)
     {
         if (card.cardOwner == CardOwner.Player)

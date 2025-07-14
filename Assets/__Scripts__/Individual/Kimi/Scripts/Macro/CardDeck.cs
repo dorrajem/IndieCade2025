@@ -28,7 +28,7 @@ public class CardDeck : MonoBehaviour
         currentDeck.LoadFromTemplate(deckData);
         currentDeck.Shuffle();
         
-        DrawInitialCards(5);
+        DrawInitialCards(4);
 
         //Caleb's Edit
         if (turnManager == null)
