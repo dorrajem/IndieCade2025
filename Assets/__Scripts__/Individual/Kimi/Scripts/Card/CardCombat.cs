@@ -11,8 +11,6 @@ public class CardCombat : MonoBehaviour, IDamageable
     public int currentHP { get; private set; }
     public int attack { get; private set; }
 
-    private IAttackBehavior _attackBehavior;
-
     public float detectionRange = 5f;
     public LayerMask cardLayer;
     
@@ -20,7 +18,11 @@ public class CardCombat : MonoBehaviour, IDamageable
     private TurnManager turnManager;
     private Card2D card2d;
     
-    public List<ScriptableObject> attackBehaviorSO = new();
+    [Header("Attack Settings")]
+    public float range = 5f;
+    public float width = 1f; 
+    public float height = 1f;  
+    public LayerMask targetLayer;
 
     private void Awake()
     {
@@ -29,42 +31,49 @@ public class CardCombat : MonoBehaviour, IDamageable
         _card = GetComponent<Card>();
         card2d = GetComponent<Card2D>();
     }
-    public IAttackBehavior GetBehavior()
-    {
-        int dmg = _card.GetCardData().AttackPower;
-        Debug.Log(_card.cardData.CardName+":"+dmg);
-        if (dmg==0)
-        {
-            return null;
-        }
-        return attackBehaviorSO[dmg-1] as IAttackBehavior;
-    }
-
+    
     private void Start()
     {
         var data = _card.GetCardData();
         currentHP = data.HealthPoint;
         attack = data.AttackPower;
-        _attackBehavior = GetBehavior();
     }
 
     public void TryAttack()
     {
-        if ((turnManager.gameTurn!=GameTurn.PlayerCard && turnManager.gameTurn!=GameTurn.EnemyCard) || _card.GetCardData().cardState != CardState.OnTable || _card.GetCardData().cardState == CardState.Die || _card.GetCardData().AttackPower==0)
+        if ((turnManager.gameTurn!=GameTurn.PlayerCard && turnManager.gameTurn!=GameTurn.EnemyCard) || _card.cardState != CardState.OnTable || _card.cardState == CardState.Die || _card.GetCardData().AttackPower==0)
         {
             return;
         }
-
-        if (_card.GetCardData().hasSpecialAbility && _card.GetCardData().OnSpecialAttack != null)
+        
+        audioManager.PlayCardAttack();
+        ExecuteAttack(this);
+        StartCoroutine(AttackMove());
+        
+    }
+    
+    public void ExecuteAttack(CardCombat attacker)
+    {
+        Vector3 origin = attacker.transform.position;
+        Vector3 direction = attacker.GetAttackDirection();
+        
+        Vector3 halfExtents = new Vector3(width * 0.8f, height *1.6f, range*0.25f);
+        Vector3 center = origin + direction * (range*0.66f);
+        
+        // Detect cards in the attack box
+        Collider[] hits = Physics.OverlapBox(
+            center, 
+            halfExtents, 
+            Quaternion.LookRotation(direction), 
+            targetLayer
+        );
+        // Damage all targets in th box
+        foreach (var hit in hits)
         {
-            Debug.LogWarning("Special attack applied");
-            // apply special attack
-        }
-        else
-        {
-            audioManager.PlayCardAttack();
-            _attackBehavior?.ExecuteAttack(this);
-            StartCoroutine(AttackMove());
+            if (hit.TryGetComponent(out CardCombat targetCard))
+            {
+                targetCard.TakeDamage(attack);
+            }
         }
     }
 
@@ -83,7 +92,7 @@ public class CardCombat : MonoBehaviour, IDamageable
     public void TakeDamage(int amount)
     {
         currentHP -= amount;
-        if (currentHP <= 0 && _card.GetCardData().cardState != CardState.Die)
+        if (currentHP <= 0 && _card.cardState != CardState.Die)
         {
             StartCoroutine(Die());
         }
@@ -91,7 +100,7 @@ public class CardCombat : MonoBehaviour, IDamageable
 
     public IEnumerator Die()
     {
-        _card.GetCardData().cardState = CardState.Die;
+        _card.cardState = CardState.Die;
         audioManager.PlayCardDie();
         _card.PlayDeathAnim();
 
@@ -103,22 +112,30 @@ public class CardCombat : MonoBehaviour, IDamageable
 #if UNITY_EDITOR
 private void OnDrawGizmosSelected()
 {
-    if (_attackBehavior is BasicAttack basicAttack)
-    {
-        Bounds box = basicAttack.GetAttackBoxBounds(this);
-
-        Gizmos.color = Color.red;
-        Gizmos.matrix = Matrix4x4.TRS(box.center, Quaternion.LookRotation(GetAttackDirection()), Vector3.one);
-        Gizmos.DrawWireCube(Vector3.zero, box.size);
-    }
+    
+    Bounds box = GetAttackBoxBounds(this);
+    Gizmos.color = Color.red;
+    Gizmos.matrix = Matrix4x4.TRS(box.center, Quaternion.LookRotation(GetAttackDirection()), Vector3.one);
+    Gizmos.DrawWireCube(Vector3.zero, box.size);
+    
 }
 #endif
-
-
+    
     public Vector3 GetAttackDirection()
     {
         return _card.cardOwner == CardOwner.Player 
             ? transform.up 
             : -transform.up;
+    }
+    
+    public Bounds GetAttackBoxBounds(CardCombat attacker)
+    {
+        Vector3 origin = attacker.transform.position;
+        Vector3 direction = attacker.GetAttackDirection().normalized;
+
+        Vector3 halfExtents = new Vector3(width * 0.8f, height *1.6f, range*0.25f);
+        Vector3 center = origin + direction * (range*0.66f);
+
+        return new Bounds(center, halfExtents * 2f); 
     }
 }

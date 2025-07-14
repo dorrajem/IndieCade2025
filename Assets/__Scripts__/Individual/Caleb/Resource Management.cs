@@ -40,9 +40,9 @@ public class ResourceManagement : MonoBehaviour
         }
     }
 
-    public bool CheckEnums(CardData data)
+    public bool CheckEnums(CardData data,Card card)
     {
-        if (data.cardState == CardState.OnTable && data.cardCategory == CardCategory.Nature)
+        if (card.cardState == CardState.OnTable && data.cardCategory == CardCategory.Nature)
         {
             return true;
         }

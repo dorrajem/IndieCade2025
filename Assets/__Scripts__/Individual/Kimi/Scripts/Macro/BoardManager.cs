@@ -6,7 +6,9 @@ using UnityEngine;
 public class BoardManager : MonoBehaviour
 {
     public static BoardManager Instance;
+    
     public List<Card> playerCards = new();
+    
     public List<Card> enemyCards = new();
 
     private TurnManager turnManager;
@@ -48,27 +50,20 @@ public class BoardManager : MonoBehaviour
             enemyCards.Sort((a, b) => a.cardIndex.CompareTo(b.cardIndex));
         }
     }
-
-
+    
     public void ClearDeadCards()
     {
-        playerCards.RemoveAll(c => c == null || c.cardData.cardState == CardState.Die);
-        enemyCards.RemoveAll(c => c == null || c.cardData.cardState == CardState.Die);
+        playerCards.RemoveAll(c => c == null || c.cardState == CardState.Die);
+        enemyCards.RemoveAll(c => c == null || c.cardState == CardState.Die);
     }
-
-    public void PlayerCardAttack()
-    {
-        ClearDeadCards();
-        StartCoroutine(AttackTime(playerCards));
-    }
-
+    
     private IEnumerator AttackTime(List<Card> Cards)
     {
         
         attacking = true;
         foreach (var card in Cards)
         {
-            if (card.GetCardData().cardState == CardState.OnTable)
+            if (card.cardState == CardState.OnTable)
             {
                 if (card.cardCombat != null)
                 {
@@ -89,6 +84,12 @@ public class BoardManager : MonoBehaviour
         }
 
         attacking = false;
+    }
+    
+    public void PlayerCardAttack()
+    {
+        ClearDeadCards();
+        StartCoroutine(AttackTime(playerCards));
     }
 
     public void EnemyCardAttack()

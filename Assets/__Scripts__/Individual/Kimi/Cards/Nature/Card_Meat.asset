@@ -28,5 +28,5 @@ MonoBehaviour:
   cardLayer:
     serializedVersion: 2
     m_Bits: 128
-  OnSpecialAttack: {fileID: 0}
+  ability: 0
   deathClip: {fileID: 7400000, guid: 7c678218a227ff049b05a6017b39f8b6, type: 2}

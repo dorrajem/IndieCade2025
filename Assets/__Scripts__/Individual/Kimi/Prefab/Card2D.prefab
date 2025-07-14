@@ -146,15 +146,12 @@ MonoBehaviour:
   cardLayer:
     serializedVersion: 2
     m_Bits: 128
-  attackBehaviorSO:
-  - {fileID: 11400000, guid: 6ee02b8b0129fcf44b43ac7dd1f36aa8, type: 2}
-  - {fileID: 11400000, guid: bd5660e78330a2f46843598e342a40c4, type: 2}
-  - {fileID: 11400000, guid: 61eaab445b4670047a896ba99a521346, type: 2}
-  - {fileID: 11400000, guid: c06b83f030ccef9499a977ed6f133560, type: 2}
-  - {fileID: 11400000, guid: 7661ca7514b7e344280f5c19ebcf4fc1, type: 2}
-  - {fileID: 11400000, guid: c7252c778ccd79d41a0b6bb6fd0db2c5, type: 2}
-  - {fileID: 11400000, guid: c51114de801aff345ae9f45caa473483, type: 2}
-  - {fileID: 11400000, guid: f28197948ee1b59419759d646eacaa89, type: 2}
+  range: 5
+  width: 1
+  height: 1
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!95 &-7785425237190380349
 Animator:
   serializedVersion: 7

@@ -137,7 +137,7 @@ public class HandManager : MonoBehaviour
         // scale saver
         newCardObj.transform.localScale = Vector3.one;
         Card card = newCardObj.GetComponent<Card>();
-        card.GetCardData().cardState = CardState.OnTable;
+        card.cardState = CardState.OnTable;
         card.cardOwner = setOwner;
         card.Init(cardData, false);
         

@@ -13,7 +13,7 @@ public class CardData : ScriptableObject
     
     public int SacrificePoint = 1;
 
-    public CardState cardState;
+    
     public CardCategory cardCategory;
     
     public GameObject worldPrefab;
@@ -24,19 +24,13 @@ public class CardData : ScriptableObject
     public bool hasSpecialAbility = false;
     public float detectionRange = 5f;
     public LayerMask cardLayer;
-
-    public SpecialAttack OnSpecialAttack;
+    
+    public Ability ability;
     
     public AnimationClip deathClip;
 }
 
-public enum CardState
-{
-    InCardPile,
-    InHand,
-    OnTable,
-    Die
-}
+
 
 public enum CardCategory
 {
