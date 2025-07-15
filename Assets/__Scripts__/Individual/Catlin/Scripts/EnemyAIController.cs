@@ -10,7 +10,8 @@ public class EnemyAIController : MonoBehaviour
 
     private List<CardData> enemyHand = new();
     public int maxSaplingPoints = 5;
-    private int currentSaplingPoints;
+    public int currentSaplingPoints;
+
     
     public int currentDisasterPoints;
     public int maxDisasterPoints = 7;
@@ -60,12 +61,31 @@ public class EnemyAIController : MonoBehaviour
         CardDeathNotifier.OnCardDied -= HandleCardDeath;
     }
 
-    private void HandleCardDeath(CardData cardData)
+    private void HandleCardDeath(Card card)
     {
-        if (cardData.cardCategory == CardCategory.Nature)
+        if (card.cardData.cardCategory == CardCategory.Nature)
         {
             natureDeaths++;
-            SetDisasterPoints(1); 
+            SetDisasterPoints(1);
+        }
+
+        if (card.cardOwner == CardOwner.Enemy)
+        {
+            var slotRef = card.GetComponent<AISlotReference>();
+            if (slotRef != null && slotRef.slot != null)
+            {
+                if (card.cardData.hasSpecialAbility)
+                {
+                    if (card.cardData.ability == Ability.Livestock)
+                    {
+                        // If the card has a farm ability, it does not clear the slot
+                        Debug.Log($"[AI] Slot not cleared for farm card: {card.cardData.CardName}");
+                        return;
+                    }
+                }
+                slotRef.slot.ClearSlot();
+                Debug.Log($"[AI] Slot cleared after death of: {card.cardData.CardName}");
+            }
         }
     }
 
@@ -97,6 +117,7 @@ public class EnemyAIController : MonoBehaviour
             currentDisasterPoints,
             boardSpace
         );
+        Debug.Log($"[AI] After turn: Sapling={currentSaplingPoints}, Disaster={currentDisasterPoints}, Hand={enemyHand.Count}");
         turnManager.TurnStart();
     }
 
@@ -130,13 +151,15 @@ public class EnemyAIController : MonoBehaviour
 
     public bool CheckCanPlayDisaster()
     {
+        if (canPlayDisaster)
+            return true;
+
         if (natureDeaths >= maxNatureDeaths)
         {
             canPlayDisaster = true;
             return true;
         }
-        if (canPlayDisaster)
-            return true;
+
        playerDropAreas = new List<DropArea>(FindObjectsByType<DropArea>(FindObjectsSortMode.None));
        foreach (var area in playerDropAreas)
        {

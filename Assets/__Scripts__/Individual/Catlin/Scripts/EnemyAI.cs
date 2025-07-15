@@ -22,8 +22,8 @@ public class EnemyAI : ScriptableObject
 
         int boardSlotsRemaining = boardSlotsAvailable;
 
-        //Debug.Log($"Enemy starting turn with {currentSaplingPoints} saplings and {currentDisasterPoints} disasterpoints and {boardSlotsAvailable} board slots.");
-
+        Debug.Log($"Enemy starting turn with {currentSaplingPoints} saplings and {currentDisasterPoints} disasterpoints and {boardSlotsAvailable} board slots.");
+        Debug.Log($"[AI] Starting with: {hand.Count} cards, {playableNature.Count} playable nature, {playableDisaster.Count} playable disaster, {boardSlotsAvailable} slots.");
         while (playableDisaster.Count > 0 && boardSlotsRemaining > 0)
         {
             CardData bestCard = ChooseBestCard(playableDisaster);

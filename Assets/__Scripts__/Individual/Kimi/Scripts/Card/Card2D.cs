@@ -40,9 +40,9 @@ public class Card2D : MonoBehaviour, ICardVisual
     public void DestroySelf()
     {
         Card card = GetComponent<Card>();
-        if (card != null && card.cardData != null)
+        if (card != null && card != null)
         {
-            CardDeathNotifier.NotifyCardDeath(card.cardData);
+            CardDeathNotifier.NotifyCardDeath(card);
             //Debug.Log($"Card has been destroyed.");
         }
 
