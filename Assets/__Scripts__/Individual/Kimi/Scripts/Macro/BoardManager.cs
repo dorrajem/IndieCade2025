@@ -95,8 +95,13 @@ public class BoardManager : MonoBehaviour
             {
                 if (card.cardCombat != null && card.cardCombat.attack!=0)
                 {
+                    if (card.cardData.ability == Ability.Ram)
+                    {
+                        card.cardCombat.TryAttack();
+                        yield return new WaitForSeconds(1.5f); 
+                    }
                     card.cardCombat.TryAttack();
-                    yield return new WaitForSeconds(1.5f);
+                    yield return new WaitForSeconds(1.5f); 
                 }
             }
         }

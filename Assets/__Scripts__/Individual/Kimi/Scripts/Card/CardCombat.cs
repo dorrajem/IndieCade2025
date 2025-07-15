@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using NUnit.Framework;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -85,9 +86,62 @@ public class CardCombat : MonoBehaviour, IDamageable
     {
         Vector3 origin = attacker.transform.position;
         Vector3 direction = attacker.GetAttackDirection();
+        List<Vector3> mass = new List<Vector3>
+        {
+            new Vector3(-2.25f, 0, 0), 
+            new Vector3(2.25f, 0, 0) 
+        };
+        Vector3 target= new Vector3(0,10,0);
         
         Vector3 halfExtents = new Vector3(width * 0.8f, height *1.6f, range*0.25f);
+
+        #region Mass_Destruction
+        
+        if (_card.cardData.ability == Ability.Mass_Destruction)
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                Vector3 hitcenter = origin + direction * (range*0.66f)+mass[i];
+        
+                // Detect cards in the attack box
+                Collider[] diagonalhits = Physics.OverlapBox(
+                    hitcenter, 
+                    halfExtents, 
+                    Quaternion.LookRotation(direction), 
+                    targetLayer
+                );
+                // Damage all targets in th box
+                if (diagonalhits.Length != 0)
+                {
+                    foreach (var hit in diagonalhits)
+                    {
+                        if (hit.TryGetComponent(out CardCombat targetCard))
+                        {
+                            targetCard.TakeDamage(attack,attacker);
+                        }
+                    }
+                }
+                else
+                {
+                    if (attacker._card.cardOwner == CardOwner.Player)
+                    {
+                        boardManager.Score = Mathf.Min(10,boardManager.Score+attack);
+                    }
+                    else if (attacker._card.cardOwner == CardOwner.Enemy)
+                    {
+                        boardManager.Score = Mathf.Max(0,boardManager.Score-attack);
+                    }
+                }
+            }
+        }
+        #endregion
+        
         Vector3 center = origin + direction * (range*0.66f);
+        if (_card.cardData.ability == Ability.Target)
+        {
+            center = origin + direction * (range*0.66f)+target;
+        }
+        
         
         // Detect cards in the attack box
         Collider[] hits = Physics.OverlapBox(
@@ -103,7 +157,7 @@ public class CardCombat : MonoBehaviour, IDamageable
             {
                 if (hit.TryGetComponent(out CardCombat targetCard))
                 {
-                    targetCard.TakeDamage(attack);
+                    targetCard.TakeDamage(attack, attacker);
                 }
             }
         }
@@ -125,7 +179,15 @@ public class CardCombat : MonoBehaviour, IDamageable
     {
         Vector3 dir = GetAttackDirection()+new Vector3(0,0,-0.1f);
         Vector3 home=transform.position;
-        transform.position = Vector3.Lerp(transform.position, transform.position+(dir*3), 1f);
+        if (_card.cardData.ability == Ability.Target)
+        {
+            transform.position = Vector3.Lerp(transform.position, transform.position + (dir * 4f), 1f);
+        }
+        else
+        {
+            transform.position = Vector3.Lerp(transform.position, transform.position+(dir*2.5f), 1f);
+        }
+        
         yield return new WaitForSeconds(0.5f);
         
         transform.position = Vector3.Lerp(transform.position, home, 1f);
@@ -133,8 +195,12 @@ public class CardCombat : MonoBehaviour, IDamageable
         transform.position=home;
     }
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(int amount, CardCombat attacker)
     {
+        if (_card.cardData.ability == Ability.Weaken && attacker._card.cardData.cardCategory == CardCategory.Nature)
+        {
+            return;
+        }
         currentHP -= amount;
         if (currentHP <= 0 && _card.cardState != CardState.Die)
         {

@@ -28,5 +28,5 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   ability: 1
-  grown: {fileID: 11400000, guid: 9ae296a41fe1af04d80e9043a5aca0cb, type: 2}
+  changed: {fileID: 11400000, guid: 9ae296a41fe1af04d80e9043a5aca0cb, type: 2}
   deathClip: {fileID: 7400000, guid: 094050c0872fa9c42bf3b50878dce51c, type: 2}

@@ -34,4 +34,19 @@ public class DeckRuntime
         _runtimeDeck.RemoveAt(0);
         return card;
     }
+
+    public CardData DrawInit()
+    {
+        var card = _runtimeDeck[0];
+        for (int i = 0; i < _runtimeDeck.Count; i++)
+        {
+            card = _runtimeDeck[i];
+            if (card.cardCategory == CardCategory.Nature)
+            {
+                _runtimeDeck.RemoveAt(i);
+                return card;
+            }
+        }
+        return card;
+    }
 }

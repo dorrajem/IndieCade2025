@@ -40,7 +40,8 @@ public class CardDeck : MonoBehaviour
 
     private void DrawInitialCards(int count)
     {
-        for (int i = 0; i < count; i++)
+        currentDeck.DrawInit();
+        for (int i = 0; i < count-1; i++)
         {
             CardData card = currentDeck.Draw();
             if (card != null)
