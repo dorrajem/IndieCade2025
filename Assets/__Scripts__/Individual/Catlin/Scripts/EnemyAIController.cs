@@ -73,7 +73,7 @@ public class EnemyAIController : MonoBehaviour
     {
         currentSaplingPoints += 2;
         currentSaplingPoints = Mathf.Min(currentSaplingPoints, maxSaplingPoints);
-        SetDisasterPoints(2);
+        SetDisasterPoints(1);
 
         DrawNewCard(1);
 

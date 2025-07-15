@@ -30,6 +30,7 @@ public class CardCombat : MonoBehaviour, IDamageable
     private DropArea dropArea;
     private int turnPlayed;
     private bool changing=false;
+    private bool healing=false;
 
     private void Awake()
     {
@@ -50,7 +51,6 @@ public class CardCombat : MonoBehaviour, IDamageable
 
     private void Update()
     {
-        
         if (!changing)
         {
             if (_card.cardData.ability == Ability.Grow)
@@ -65,6 +65,17 @@ public class CardCombat : MonoBehaviour, IDamageable
                     changing=true;
                     StartCoroutine(Grow());
                 }
+            }
+        }
+
+        if (!healing)
+        {
+            if (_card.cardData.ability == Ability.Heal && turnManager.turnCount > turnPlayed)
+            {
+                healing=true;
+                turnPlayed++;
+                currentHP++;
+                healing = false;
             }
         }
     }
@@ -157,7 +168,15 @@ public class CardCombat : MonoBehaviour, IDamageable
             {
                 if (hit.TryGetComponent(out CardCombat targetCard))
                 {
-                    targetCard.TakeDamage(attack, attacker);
+                    if (_card.cardData.ability == Ability.Killer)
+                    {
+                        targetCard.TakeDamage(attack*3, attacker);
+                    }
+                    else
+                    {
+                        targetCard.TakeDamage(attack, attacker);
+                    }
+                    
                 }
             }
         }
@@ -197,7 +216,7 @@ public class CardCombat : MonoBehaviour, IDamageable
 
     public void TakeDamage(int amount, CardCombat attacker)
     {
-        if (_card.cardData.ability == Ability.Weaken && attacker._card.cardData.cardCategory == CardCategory.Nature)
+        if ((_card.cardData.ability == Ability.Weaken && attacker._card.cardData.cardCategory == CardCategory.Nature )||_card.cardData.ability == Ability.Immortal)
         {
             return;
         }

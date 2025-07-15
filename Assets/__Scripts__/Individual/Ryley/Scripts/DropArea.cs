@@ -47,7 +47,11 @@ public class DropArea : MonoBehaviour
                 if (!sacrificeManager.CanPlace) return;
                 else sacrificeManager.CanPlace = false;
             }
-            
+
+            if (selected.cardData.ability == Ability.Farm)
+            {
+                resourceManagement.AddPoints(3);
+            }
 
             Vector3 spawnPos = transform.position;
             spawnPos.z = 0;
