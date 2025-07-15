@@ -25,7 +25,7 @@ public class EnemyAIController : MonoBehaviour
     public bool canPlayDisaster = false;
 
     public int natureDeaths = 0;
-    public int maxNatureDeaths = 5;
+    public int maxNatureDeaths = 4;
     
     private TurnManager turnManager;
 

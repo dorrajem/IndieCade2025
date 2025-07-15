@@ -44,6 +44,20 @@ public class AIDropArea : MonoBehaviour
             SelectCardManager.Instance.ClearSelection();
         }
     }
+    
+    public void AIChange(CardData changed, AISlotReference slotReference, CardOwner owner)
+    {
+        Vector3 spawnPos = slotReference.slot.transform.position;
+        spawnPos.z = 0;
+            
+        GameObject newCard = HandManager.Instance.ChangeCardToWorld(changed, spawnPos, owner, slotReference.slot.Index);
+
+        slotReference.slot.isOccupied = true;
+        slotReference.slot.placedCard = newCard;
+
+        var slotRef = newCard.AddComponent<AISlotReference>();
+        slotRef.slot = slotReference.slot;
+    }
 
     public void ClearSlot()
     {

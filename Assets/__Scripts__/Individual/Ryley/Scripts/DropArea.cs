@@ -61,10 +61,22 @@ public class DropArea : MonoBehaviour
             slotRef.slot = this;
             
             SelectCardManager.Instance.ClearSelection();
-            
-            CameraController.Instance.BackCam();
         }
         
+    }
+
+    public void Change(CardData changed, SlotReference slotReference, CardOwner owner)
+    {
+        Vector3 spawnPos = slotReference.slot.transform.position;
+        spawnPos.z = 0;
+            
+        GameObject newCard = HandManager.Instance.ChangeCardToWorld(changed, spawnPos, owner, slotReference.slot.Index);
+
+        slotReference.slot.isOccupied = true;
+        slotReference.slot.placedCard = newCard;
+
+        var slotRef = newCard.AddComponent<SlotReference>();
+        slotRef.slot = slotReference.slot;
     }
 
     public void ClearSlot()

@@ -25,6 +25,10 @@ public class CardCombat : MonoBehaviour, IDamageable
     public float width = 1f; 
     public float height = 1f;  
     public LayerMask targetLayer;
+    
+    private DropArea dropArea;
+    private int turnPlayed;
+    private bool changing=false;
 
     private void Awake()
     {
@@ -33,6 +37,7 @@ public class CardCombat : MonoBehaviour, IDamageable
         boardManager = GameObject.FindWithTag("Manager").GetComponent<BoardManager>();
         _card = GetComponent<Card>();
         card2d = GetComponent<Card2D>();
+        turnPlayed = turnManager.turnCount;
     }
     
     private void Start()
@@ -40,6 +45,27 @@ public class CardCombat : MonoBehaviour, IDamageable
         var data = _card.GetCardData();
         currentHP = data.HealthPoint;
         attack = data.AttackPower;
+    }
+
+    private void Update()
+    {
+        
+        if (!changing)
+        {
+            if (_card.cardData.ability == Ability.Grow)
+            {
+                if (_card.cardOwner == CardOwner.Player && turnManager.turnCount > turnPlayed)
+                {
+                    changing=true;
+                    StartCoroutine(Grow());
+                }
+                else if (_card.cardOwner == CardOwner.Enemy && turnManager.turnCount - turnPlayed == 2)
+                {
+                    changing=true;
+                    StartCoroutine(Grow());
+                }
+            }
+        }
     }
 
     public void TryAttack()
@@ -118,12 +144,44 @@ public class CardCombat : MonoBehaviour, IDamageable
 
     public IEnumerator Die()
     {
+        
         _card.cardState = CardState.Die;
         audioManager.PlayCardDie();
         _card.PlayDeathAnim();
-
         yield return new WaitForSeconds(1f); 
+        if (_card.cardData.ability == Ability.Livestock)
+        {
+            if (_card.cardOwner == CardOwner.Player)
+            {
+                var slotRef = _card.GetComponent<SlotReference>();
+                slotRef.slot.Change(_card.cardData.changed, slotRef, _card.cardOwner);
+            }
+            else
+            {
+                var slotRef = _card.GetComponent<AISlotReference>();
+                slotRef.slot.AIChange(_card.cardData.changed, slotRef, _card.cardOwner);
+            }
+        }
+        card2d.DestroySelf();
+    }
 
+    public IEnumerator Grow()
+    {
+        _card.cardState = CardState.Die;
+        audioManager.PlayCardPlace();
+        _card.PlayDeathAnim();
+        yield return new WaitForSeconds(1f);
+        if (_card.cardOwner == CardOwner.Player) 
+        {
+            var slotRef = _card.GetComponent<SlotReference>();
+            slotRef.slot.Change(_card.cardData.changed, slotRef, _card.cardOwner); 
+        }
+        else 
+        {
+            var slotRef = _card.GetComponent<AISlotReference>();
+            slotRef.slot.AIChange(_card.cardData.changed, slotRef, _card.cardOwner);
+        }
+        
         card2d.DestroySelf();
     }
 

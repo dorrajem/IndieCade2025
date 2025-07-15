@@ -18,9 +18,7 @@ MonoBehaviour:
   SacrificeCostPoint: 2
   DisasterCostPoint: 0
   SacrificePoint: 0
-  cardState: 2
   cardCategory: 1
-  cardOwner: 0
   worldPrefab: {fileID: 6937738408158534530, guid: 875f865cc9cf9a445b4926e0faa494b2, type: 3}
   AttackPower: 3
   HealthPoint: 5
@@ -29,5 +27,5 @@ MonoBehaviour:
   cardLayer:
     serializedVersion: 2
     m_Bits: 128
-  OnSpecialAttack: {fileID: 0}
+  ability: 10
   deathClip: {fileID: 7400000, guid: 0159495bc6220f441b262f07312fd443, type: 2}

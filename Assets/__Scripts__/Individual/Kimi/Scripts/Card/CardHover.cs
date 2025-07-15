@@ -69,6 +69,16 @@ public class CardHover : MonoBehaviour,
                 isMovingToPreview = false;
             }
         }
+
+        if (turnManager.gameTurn == GameTurn.EnemyCard || turnManager.gameTurn == GameTurn.PlayerCard)
+        {
+            handArea.anchoredPosition = originalHandPosition - new Vector2(0, handDropAmount);
+        }
+        else if (turnManager.gameTurn == GameTurn.EnemyTurn)
+        {
+            handArea.anchoredPosition = originalHandPosition;
+        }
+        
     }
 
     public void OnPointerClick(PointerEventData eventData)

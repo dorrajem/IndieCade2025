@@ -147,6 +147,24 @@ public class HandManager : MonoBehaviour
         return newCardObj;
     }
 
+    public GameObject ChangeCardToWorld(CardData cardData, Vector3 slotPos, CardOwner setOwner, int Index)
+    {
+        audioManager.PlayCardPlace();
+        
+        GameObject newCardObj = Instantiate(cardPrefab2D, slotPos, Quaternion.identity);
+        // scale saver
+        newCardObj.transform.localScale = Vector3.one;
+        Card card = newCardObj.GetComponent<Card>();
+        card.cardState = CardState.OnTable;
+        card.cardOwner = setOwner;
+        card.Init(cardData, false);
+        
+        UpdateCardLayout(smooth: true);
+        
+        BoardManager.Instance.RegisterCard(card,Index);
+        return newCardObj;
+    }
+
 
     #endregion
 }

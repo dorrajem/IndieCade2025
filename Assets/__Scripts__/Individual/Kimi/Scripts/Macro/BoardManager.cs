@@ -93,7 +93,7 @@ public class BoardManager : MonoBehaviour
         {
             if (card.cardState == CardState.OnTable)
             {
-                if (card.cardCombat != null)
+                if (card.cardCombat != null && card.cardCombat.attack!=0)
                 {
                     card.cardCombat.TryAttack();
                     yield return new WaitForSeconds(1.5f);
@@ -108,7 +108,7 @@ public class BoardManager : MonoBehaviour
         else if (turnManager.gameTurn == GameTurn.EnemyCard)
         {
             turnManager.gameTurn = GameTurn.EnemyTurn;
-            turnManager.EnemyTurn();
+            StartCoroutine(turnManager.EnemyTurn());
         }
 
         attacking = false;

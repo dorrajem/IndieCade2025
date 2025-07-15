@@ -26,6 +26,7 @@ public class CardData : ScriptableObject
     public LayerMask cardLayer;
     
     public Ability ability;
+    public CardData changed;
     
     public AnimationClip deathClip;
 }
@@ -37,6 +38,19 @@ public enum CardCategory
     Nature,
     Industry,
     Disaster
+}
+public enum Ability{
+    Livestock,
+    Grow,
+    Ram,
+    Mass_Destruction,
+    Weaken,
+    Target,
+    Killer,
+    Immortal,
+    Farm,
+    Heal,
+    None
 }
 
 

@@ -1439,7 +1439,7 @@ MonoBehaviour:
   initialDrawCount: 5
   canPlayDisaster: 0
   natureDeaths: 0
-  maxNatureDeaths: 10
+  maxNatureDeaths: 4
 --- !u!4 &1130300261
 Transform:
   m_ObjectHideFlags: 0

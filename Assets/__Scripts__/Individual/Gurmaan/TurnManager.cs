@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public enum GameTurn
@@ -31,9 +32,10 @@ public class TurnManager : MonoBehaviour
         gameTurn = GameTurn.PlayerCard;
     }
 
-    public void EnemyTurn()
+    public IEnumerator EnemyTurn()
     {
-        if (gameTurn != GameTurn.EnemyTurn) return;
+        if (gameTurn != GameTurn.EnemyTurn) yield return new WaitForSeconds(0f);
+        yield return new WaitForSeconds(0.25f);
         enemyAI.EnemyTakeTurn(this);
     }
     
