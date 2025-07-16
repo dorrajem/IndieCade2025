@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Card_Moss
   m_EditorClassIdentifier: 
   CardName: Moss
-  Artwork: {fileID: 7729588048284540171, guid: b59803a009644884e8c6eb86fabc943f, type: 3}
+  Artwork: {fileID: 7729588048284540171, guid: 34dfc5b0c7326af48b3c9e86a22d2ace, type: 3}
   SaplingCostPoint: 1
   SacrificeCostPoint: 0
   DisasterCostPoint: 0
@@ -28,4 +28,5 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   ability: 10
+  changed: {fileID: 0}
   deathClip: {fileID: 7400000, guid: c00f7a02137b1ad489d1c04e40dec465, type: 2}

@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f8fb74b1ad233f4d94f9f208718f94a, type: 3}
+  m_Name: Card_Aloe
+  m_EditorClassIdentifier: 
+  CardName: Aloe
+  Artwork: {fileID: -2817107685474369666, guid: 81e97ba434df7e144a68e21ff0e9b6c4, type: 3}
+  SaplingCostPoint: 2
+  SacrificeCostPoint: 0
+  DisasterCostPoint: 0
+  SacrificePoint: 1
+  cardCategory: 0
+  worldPrefab: {fileID: 6937738408158534530, guid: 875f865cc9cf9a445b4926e0faa494b2, type: 3}
+  AttackPower: 1
+  HealthPoint: 2
+  hasSpecialAbility: 0
+  detectionRange: 5
+  cardLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  ability: 9
+  changed: {fileID: 0}
+  deathClip: {fileID: 7400000, guid: 859e5b25a6aabcb4e8ea33e8f42d2c09, type: 2}

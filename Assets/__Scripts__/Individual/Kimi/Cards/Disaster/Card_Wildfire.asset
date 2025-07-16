@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Card_Wildfire
   m_EditorClassIdentifier: 
   CardName: Wildfire
-  Artwork: {fileID: 4371940929952600025, guid: 9ad802c73f310684e86e5b08ac5c1b33, type: 3}
+  Artwork: {fileID: 4371940929952600025, guid: 69beba2b778e9514c83d3e93aaad1e60, type: 3}
   SaplingCostPoint: 0
   SacrificeCostPoint: 0
-  DisasterCostPoint: 5
+  DisasterCostPoint: 3
   SacrificePoint: 0
   cardCategory: 2
   worldPrefab: {fileID: 6937738408158534530, guid: 875f865cc9cf9a445b4926e0faa494b2, type: 3}
@@ -28,4 +28,5 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   ability: 10
+  changed: {fileID: 0}
   deathClip: {fileID: 7400000, guid: 46923dc811002e042ae2e4299e56d832, type: 2}

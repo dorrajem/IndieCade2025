@@ -68,6 +68,11 @@ public class CardCombat : MonoBehaviour, IDamageable
             }
         }
 
+        if (_card.cardData.ability == Ability.Immortal)
+        {
+            card2d.EraseSprites();
+        }
+
         if (!healing)
         {
             if (_card.cardData.ability == Ability.Heal && turnManager.turnCount > turnPlayed)
@@ -80,7 +85,7 @@ public class CardCombat : MonoBehaviour, IDamageable
         }
     }
 
-    public void TryAttack()
+    public void TryAttack(float offset)
     {
         if ((turnManager.gameTurn!=GameTurn.PlayerCard && turnManager.gameTurn!=GameTurn.EnemyCard) || _card.cardState != CardState.OnTable || _card.cardState == CardState.Die || _card.GetCardData().AttackPower==0)
         {
@@ -88,71 +93,25 @@ public class CardCombat : MonoBehaviour, IDamageable
         }
         
         audioManager.PlayCardAttack();
-        ExecuteAttack(this);
-        StartCoroutine(AttackMove());
+        ExecuteAttack(this, offset);
+        StartCoroutine(AttackMove(offset));
         
     }
     
-    public void ExecuteAttack(CardCombat attacker)
+    public void ExecuteAttack(CardCombat attacker, float offset)
     {
         Vector3 origin = attacker.transform.position;
         Vector3 direction = attacker.GetAttackDirection();
-        List<Vector3> mass = new List<Vector3>
-        {
-            new Vector3(-2.25f, 0, 0), 
-            new Vector3(2.25f, 0, 0) 
-        };
+        Vector3 off = new Vector3(offset, 0, 0);
+        
         Vector3 target= new Vector3(0,10,0);
         
         Vector3 halfExtents = new Vector3(width * 0.8f, height *1.6f, range*0.25f);
-
-        #region Mass_Destruction
-        
-        if (_card.cardData.ability == Ability.Mass_Destruction)
-        {
-            for (int i = 0; i < 2; i++)
-            {
-                Vector3 hitcenter = origin + direction * (range*0.66f)+mass[i];
-        
-                // Detect cards in the attack box
-                Collider[] diagonalhits = Physics.OverlapBox(
-                    hitcenter, 
-                    halfExtents, 
-                    Quaternion.LookRotation(direction), 
-                    targetLayer
-                );
-                // Damage all targets in th box
-                if (diagonalhits.Length != 0)
-                {
-                    foreach (var hit in diagonalhits)
-                    {
-                        if (hit.TryGetComponent(out CardCombat targetCard))
-                        {
-                            targetCard.TakeDamage(attack,attacker);
-                        }
-                    }
-                }
-                else
-                {
-                    if (attacker._card.cardOwner == CardOwner.Player)
-                    {
-                        boardManager.Score = Mathf.Min(10,boardManager.Score+attack);
-                    }
-                    else if (attacker._card.cardOwner == CardOwner.Enemy)
-                    {
-                        boardManager.Score = Mathf.Max(0,boardManager.Score-attack);
-                    }
-                }
-            }
-        }
-        #endregion
-        
-        Vector3 center = origin + direction * (range*0.66f);
+        Vector3 center = origin + direction * (range*0.66f) + off;
         if (_card.cardData.ability == Ability.Target)
         {
             center = origin + direction * (range*0.66f)+target;
         }
-        
         
         // Detect cards in the attack box
         Collider[] hits = Physics.OverlapBox(
@@ -194,9 +153,10 @@ public class CardCombat : MonoBehaviour, IDamageable
        
     }
 
-    private IEnumerator AttackMove()
+    private IEnumerator AttackMove(float offset)
     {
-        Vector3 dir = GetAttackDirection()+new Vector3(0,0,-0.1f);
+        Vector3 off = new Vector3(offset/2.7f,0,0);
+        Vector3 dir = GetAttackDirection()+new Vector3(0,0,-0.1f)+off;
         Vector3 home=transform.position;
         if (_card.cardData.ability == Ability.Target)
         {

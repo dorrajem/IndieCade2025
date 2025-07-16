@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Card_LoggingCamp
   m_EditorClassIdentifier: 
   CardName: LoggingCamp
-  Artwork: {fileID: -9128409162972235919, guid: 2aaf20ebdc4600845998640c70280e03, type: 3}
+  Artwork: {fileID: -9128409162972235919, guid: f11318d20bd9822469f5279aa463ed3b, type: 3}
   SaplingCostPoint: 0
-  SacrificeCostPoint: 3
+  SacrificeCostPoint: 1
   DisasterCostPoint: 0
   SacrificePoint: 0
   cardCategory: 1
@@ -28,4 +28,5 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   ability: 3
+  changed: {fileID: 0}
   deathClip: {fileID: 7400000, guid: 9c53c6c7678397843ab8b802be4478fd, type: 2}

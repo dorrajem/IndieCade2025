@@ -87,10 +87,17 @@ public class SacrificeManager : MonoBehaviour
         {
             float angle = Mathf.Sin(Time.time * 20) * 6;
             card.transform.localRotation = Quaternion.Euler(0f, 0f, angle);
+            foreach (GameObject sacrifice in sacrifices)
+            {
+                SpriteRenderer spriteRenderer = sacrifice.GetComponent<SpriteRenderer>();
+                spriteRenderer.color = new Color(1,0.5f,0.5f);
+            }
         }
         else
         {
             card.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+            SpriteRenderer spriteRenderer = card.GetComponent<SpriteRenderer>();
+            spriteRenderer.color = new Color(1,1,1);
         }
     }
 }

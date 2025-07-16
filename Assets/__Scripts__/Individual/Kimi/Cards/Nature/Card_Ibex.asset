@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f8fb74b1ad233f4d94f9f208718f94a, type: 3}
+  m_Name: Card_Ibex
+  m_EditorClassIdentifier: 
+  CardName: Ibex
+  Artwork: {fileID: -3412975623475027032, guid: 2b86a052a31a2fc4ba0a093118c2b334, type: 3}
+  SaplingCostPoint: 3
+  SacrificeCostPoint: 0
+  DisasterCostPoint: 0
+  SacrificePoint: 1
+  cardCategory: 0
+  worldPrefab: {fileID: 6937738408158534530, guid: 875f865cc9cf9a445b4926e0faa494b2, type: 3}
+  AttackPower: 2
+  HealthPoint: 2
+  hasSpecialAbility: 0
+  detectionRange: 5
+  cardLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  ability: 2
+  changed: {fileID: 0}
+  deathClip: {fileID: 7400000, guid: f3948fdecdb8d86478b1cd491a10e487, type: 2}

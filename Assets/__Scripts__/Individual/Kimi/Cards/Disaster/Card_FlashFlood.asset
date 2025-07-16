@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Card_FlashFlood
   m_EditorClassIdentifier: 
   CardName: Flash Flood
-  Artwork: {fileID: 6191411143265221964, guid: b544bc5a82aeecb48bae64bcea080e96, type: 3}
+  Artwork: {fileID: 6191411143265221964, guid: 316917d8de5dd644b89aa071a42d12a3, type: 3}
   SaplingCostPoint: 0
   SacrificeCostPoint: 0
   DisasterCostPoint: 5
@@ -28,4 +28,5 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   ability: 3
+  changed: {fileID: 0}
   deathClip: {fileID: 7400000, guid: fe71a76b8b86f2543beb64b2661120b6, type: 2}

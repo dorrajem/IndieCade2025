@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AIDeck
   m_EditorClassIdentifier: 
   cards:
-  - {fileID: 11400000, guid: 9ae296a41fe1af04d80e9043a5aca0cb, type: 2}
+  - {fileID: 11400000, guid: fdde0b36129c94843997239d8affafd0, type: 2}
   - {fileID: 11400000, guid: 9ae296a41fe1af04d80e9043a5aca0cb, type: 2}
   - {fileID: 11400000, guid: 56afa225e092c3a40af38abf0eba87e9, type: 2}
   - {fileID: 11400000, guid: 56afa225e092c3a40af38abf0eba87e9, type: 2}
@@ -25,6 +25,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7aa65e316c21bc44db701ae8da4971f9, type: 2}
   - {fileID: 11400000, guid: aee9fefcd58a0064aac4fd23e755795b, type: 2}
   - {fileID: 11400000, guid: b76cf564343df10468c4b88439cc1c62, type: 2}
-  - {fileID: 11400000, guid: 7aa65e316c21bc44db701ae8da4971f9, type: 2}
   - {fileID: 11400000, guid: aee9fefcd58a0064aac4fd23e755795b, type: 2}
   - {fileID: 11400000, guid: b76cf564343df10468c4b88439cc1c62, type: 2}

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Card_Eagle
   m_EditorClassIdentifier: 
   CardName: Eagle
-  Artwork: {fileID: -9222638678284868780, guid: 74ab23eeb1ba19d4bbc22e774f2f0e10, type: 3}
+  Artwork: {fileID: -9222638678284868780, guid: f9fcc705278e3754584640fbfdf37939, type: 3}
   SaplingCostPoint: 4
   SacrificeCostPoint: 0
   DisasterCostPoint: 0
@@ -28,4 +28,5 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   ability: 10
+  changed: {fileID: 0}
   deathClip: {fileID: 7400000, guid: 746cc263bfed0c04986b8c534dffad75, type: 2}

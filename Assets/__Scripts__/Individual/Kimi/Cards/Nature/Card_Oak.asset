@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f8fb74b1ad233f4d94f9f208718f94a, type: 3}
+  m_Name: Card_Oak
+  m_EditorClassIdentifier: 
+  CardName: Oak
+  Artwork: {fileID: -6800927168972201395, guid: 6f05eddaf79e6ec4999a0bb119a57feb, type: 3}
+  SaplingCostPoint: 4
+  SacrificeCostPoint: 0
+  DisasterCostPoint: 0
+  SacrificePoint: 1
+  cardCategory: 0
+  worldPrefab: {fileID: 6937738408158534530, guid: 875f865cc9cf9a445b4926e0faa494b2, type: 3}
+  AttackPower: 1
+  HealthPoint: 4
+  hasSpecialAbility: 0
+  detectionRange: 5
+  cardLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  ability: 10
+  changed: {fileID: 0}
+  deathClip: {fileID: 7400000, guid: b47d8891e6545e14f97ce1c9a1707340, type: 2}

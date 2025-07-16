@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Card_TrainStation
   m_EditorClassIdentifier: 
   CardName: TrainStation
-  Artwork: {fileID: -6459787356106037523, guid: 6c87348cc4f86584f9778be6ab010bd0, type: 3}
+  Artwork: {fileID: -6459787356106037523, guid: 6aa28baecea77fb46b6295b4a44ba218, type: 3}
   SaplingCostPoint: 0
   SacrificeCostPoint: 1
   DisasterCostPoint: 0
@@ -28,4 +28,5 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   ability: 2
+  changed: {fileID: 0}
   deathClip: {fileID: 7400000, guid: 64302139aa5473e46a89afaa34a69404, type: 2}

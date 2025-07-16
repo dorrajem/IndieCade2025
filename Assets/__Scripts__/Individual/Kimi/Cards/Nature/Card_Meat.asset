@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Card_Meat
   m_EditorClassIdentifier: 
   CardName: Meat
-  Artwork: {fileID: 8984754096541894249, guid: b3a5c41d611b9a14b89f208f0b288b52, type: 3}
+  Artwork: {fileID: 8984754096541894249, guid: feb40c5c0bc7f19418da84572926f775, type: 3}
   SaplingCostPoint: 0
   SacrificeCostPoint: 0
   DisasterCostPoint: 0
@@ -28,4 +28,5 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   ability: 10
+  changed: {fileID: 0}
   deathClip: {fileID: 7400000, guid: 7c678218a227ff049b05a6017b39f8b6, type: 2}

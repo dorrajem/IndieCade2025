@@ -193,6 +193,11 @@ MonoBehaviour:
   cardCombat: {fileID: 0}
   uiImage: {fileID: 3531578294881192448}
   _spriteRenderer: {fileID: 0}
+  animator: {fileID: 0}
+  controller: {fileID: 0}
+  cardOwner: 0
+  cardIndex: 0
+  cardState: 0
 --- !u!114 &5660485544996755215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,8 +212,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverScale: 1.2
   hoverable: 1
-  selectedAnchoredPosition: {x: 233, y: 120}
-  selectScale: 1.5
+  selectedAnchoredPosition: {x: 210, y: 200}
+  selectScale: 1.7
   transitionSpeed: 10
   handDropAmount: 100
   turnManager: {fileID: 0}

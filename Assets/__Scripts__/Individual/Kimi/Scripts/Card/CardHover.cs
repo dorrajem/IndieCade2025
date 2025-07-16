@@ -9,8 +9,8 @@ public class CardHover : MonoBehaviour,
     [SerializeField] private bool hoverable = true;
 
     [Header("Selection Settings")]
-    [SerializeField] private Vector2 selectedAnchoredPosition = new Vector2(0, 200);
-    [SerializeField] private float selectScale = 1.2f;
+    [SerializeField] private Vector2 selectedAnchoredPosition = new Vector2(-20, 500);
+    [SerializeField] private float selectScale = 1.4f;
     [SerializeField] private float transitionSpeed = 10f;
     [SerializeField] private float handDropAmount = 50f;
 

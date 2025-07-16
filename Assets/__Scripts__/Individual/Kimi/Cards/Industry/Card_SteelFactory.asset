@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Card_SteelFactory
   m_EditorClassIdentifier: 
   CardName: SteelFactory
-  Artwork: {fileID: 5163415756020489457, guid: 4f979b047587bc34baaf307953d2cd7f, type: 3}
+  Artwork: {fileID: 5163415756020489457, guid: 81e9c4142ba5d7240b76f6bebefa2421, type: 3}
   SaplingCostPoint: 0
   SacrificeCostPoint: 2
   DisasterCostPoint: 0
@@ -28,4 +28,5 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   ability: 10
+  changed: {fileID: 0}
   deathClip: {fileID: 7400000, guid: 0159495bc6220f441b262f07312fd443, type: 2}

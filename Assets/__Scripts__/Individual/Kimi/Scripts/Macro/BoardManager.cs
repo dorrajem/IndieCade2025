@@ -95,13 +95,25 @@ public class BoardManager : MonoBehaviour
             {
                 if (card.cardCombat != null && card.cardCombat.attack!=0)
                 {
-                    if (card.cardData.ability == Ability.Ram)
+                    if (card.cardData.ability == Ability.Mass_Destruction)
                     {
-                        card.cardCombat.TryAttack();
+                        card.cardCombat.TryAttack(-2.25f);
                         yield return new WaitForSeconds(1.5f); 
                     }
-                    card.cardCombat.TryAttack();
-                    yield return new WaitForSeconds(1.5f); 
+                    if (card.cardData.ability == Ability.Ram)
+                    {
+                        card.cardCombat.TryAttack(0);
+                        yield return new WaitForSeconds(1.5f); 
+                    }
+                    
+                    card.cardCombat.TryAttack(0);
+                    yield return new WaitForSeconds(1.5f);
+                    
+                    if (card.cardData.ability == Ability.Mass_Destruction)
+                    {
+                        card.cardCombat.TryAttack(2.25f);
+                        yield return new WaitForSeconds(1.5f); 
+                    }
                 }
             }
         }

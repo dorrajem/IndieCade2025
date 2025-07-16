@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Card_Calf
   m_EditorClassIdentifier: 
   CardName: Calf
-  Artwork: {fileID: -4604307202144505254, guid: 96ec7babe6846ac41b1780ba46ba3651, type: 3}
+  Artwork: {fileID: -4604307202144505254, guid: c9e40cff1dfdd5e43b071c2cf2995788, type: 3}
   SaplingCostPoint: 1
   SacrificeCostPoint: 0
   DisasterCostPoint: 0
