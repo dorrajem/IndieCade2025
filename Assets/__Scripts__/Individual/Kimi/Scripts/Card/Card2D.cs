@@ -11,6 +11,7 @@ public class Card2D : MonoBehaviour, ICardVisual
     
     private SacrificeManager SacrificeManager;
     private CardCombat CardCombat;
+    private bool erased = false;
     void Start()
     {
         SacrificeManager = GameObject.FindWithTag("Manager").GetComponent<SacrificeManager>();
@@ -26,17 +27,17 @@ public class Card2D : MonoBehaviour, ICardVisual
 
     void Update()
     {
-        if (CardCombat.currentHP == 0)
+        if (!erased && CardCombat.currentHP>0)
         {
-            HeartSprite.sprite = null;
-        }
-
-        for (int i = 0; i < CardCombat.currentHP; i++)
-        {
-            HeartSprite.sprite = HeartSprites[i];
+            HeartSprite.sprite = HeartSprites[CardCombat.currentHP-1];
         }
     }
 
+    public void EraseSprites()
+    {
+        erased = true;
+        HeartSprite.sprite = null;
+    }
     public void DestroySelf()
     {
         Card card = GetComponent<Card>();
@@ -49,7 +50,10 @@ public class Card2D : MonoBehaviour, ICardVisual
         SlotReference refSlot = GetComponent<SlotReference>();
         if (refSlot != null && refSlot.slot != null)
         {
-            refSlot.slot.ClearSlot();
+            if (card.cardData.ability != Ability.Livestock && card.cardData.ability != Ability.Grow)
+            {
+                refSlot.slot.ClearSlot();
+            }
         }
         Destroy(gameObject);
     }

@@ -1433,6 +1433,7 @@ MonoBehaviour:
   enemyAI: {fileID: 11400000, guid: 69791412d0dd60d47b174de57202e0b3, type: 2}
   enemyDeckTemplate: {fileID: 11400000, guid: 2371b779c7c25c0428763df32711900f, type: 2}
   maxSaplingPoints: 6
+  currentSaplingPoints: 0
   currentDisasterPoints: 0
   maxDisasterPoints: 7
   maxBoardSlots: 4
@@ -1524,7 +1525,7 @@ Camera:
   m_ShutterSpeed: 0.005
   m_Aperture: 16
   m_FocusDistance: 10
-  m_FocalLength: 50
+  m_FocalLength: 25.734083
   m_BladeCount: 5
   m_Curvature: {x: 2, y: 11}
   m_BarrelClipping: 0.25

@@ -41,7 +41,7 @@ public class DeckRuntime
         for (int i = 0; i < _runtimeDeck.Count; i++)
         {
             card = _runtimeDeck[i];
-            if (card.cardCategory == CardCategory.Nature)
+            if (card.cardCategory == CardCategory.Nature && card.SaplingCostPoint<=2)
             {
                 _runtimeDeck.RemoveAt(i);
                 return card;

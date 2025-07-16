@@ -79,12 +79,12 @@ public class EnemyAIController : MonoBehaviour
                     if (card.cardData.ability == Ability.Livestock)
                     {
                         // If the card has a farm ability, it does not clear the slot
-                        Debug.Log($"[AI] Slot not cleared for farm card: {card.cardData.CardName}");
+                        //Debug.Log($"[AI] Slot not cleared for farm card: {card.cardData.CardName}");
                         return;
                     }
                 }
                 slotRef.slot.ClearSlot();
-                Debug.Log($"[AI] Slot cleared after death of: {card.cardData.CardName}");
+                //Debug.Log($"[AI] Slot cleared after death of: {card.cardData.CardName}");
             }
         }
     }
@@ -117,7 +117,7 @@ public class EnemyAIController : MonoBehaviour
             currentDisasterPoints,
             boardSpace
         );
-        Debug.Log($"[AI] After turn: Sapling={currentSaplingPoints}, Disaster={currentDisasterPoints}, Hand={enemyHand.Count}");
+        //Debug.Log($"[AI] After turn: Sapling={currentSaplingPoints}, Disaster={currentDisasterPoints}, Hand={enemyHand.Count}");
         turnManager.TurnStart();
     }
 

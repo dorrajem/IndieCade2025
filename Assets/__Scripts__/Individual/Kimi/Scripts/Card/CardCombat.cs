@@ -229,8 +229,8 @@ public class CardCombat : MonoBehaviour, IDamageable
 
     public IEnumerator Die()
     {
-        
         _card.cardState = CardState.Die;
+        card2d.EraseSprites();
         audioManager.PlayCardDie();
         _card.PlayDeathAnim();
         yield return new WaitForSeconds(1f); 
@@ -254,6 +254,7 @@ public class CardCombat : MonoBehaviour, IDamageable
     {
         _card.cardState = CardState.Die;
         audioManager.PlayCardPlace();
+        card2d.EraseSprites();
         _card.PlayDeathAnim();
         yield return new WaitForSeconds(1f);
         if (_card.cardOwner == CardOwner.Player) 
