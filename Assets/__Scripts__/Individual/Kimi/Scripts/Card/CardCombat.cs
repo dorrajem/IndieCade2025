@@ -79,7 +79,7 @@ public class CardCombat : MonoBehaviour, IDamageable
             {
                 healing=true;
                 turnPlayed++;
-                currentHP++;
+                currentHP=Mathf.Min(currentHP+1,_card.cardData.HealthPoint);
                 healing = false;
             }
         }
