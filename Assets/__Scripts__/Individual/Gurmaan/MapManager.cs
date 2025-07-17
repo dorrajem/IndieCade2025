@@ -5,10 +5,8 @@ public class MapManager : MonoBehaviour
 {
     public List<GameObject> MapEvents;
     public List<GameObject> MapAreas;
-    public List<GameObject> MapFights;
     
-    public List<GameObject> RandomEvents;
-    
+    public GameObject PlayerLoc;  
     void Update()
     {
         foreach (GameObject mapEvent in MapEvents)
