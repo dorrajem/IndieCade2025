@@ -18,5 +18,15 @@ public class GameSession : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
+
+        if (PlayerDeck.IsEmpty())
+        {
+            DeckData startingDeck = Resources.Load<DeckData>("PlayerDeck");
+            if (startingDeck != null)
+            {
+                PlayerDeck.LoadFromTemplate(startingDeck);
+                PlayerDeck.Shuffle();
+            }
+        }
     }
 }

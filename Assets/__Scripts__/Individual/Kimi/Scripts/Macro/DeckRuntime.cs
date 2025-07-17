@@ -3,11 +3,16 @@ using UnityEngine;
 
 public class DeckRuntime
 {
-    private List<CardData> _runtimeDeck;
+    private List<CardData> _runtimeDeck = new ();
 
     public void LoadFromTemplate(DeckData template)
     {
         _runtimeDeck = new List<CardData>(template.cards);
+    }
+
+    public bool IsEmpty()
+    {
+        return _runtimeDeck == null || _runtimeDeck.Count == 0;
     }
 
     public void AddCard(CardData card) => _runtimeDeck.Add(card);
@@ -48,5 +53,11 @@ public class DeckRuntime
             }
         }
         return card;
+    }
+
+    // For debug
+    public List<CardData> GetAllCards()
+    {
+        return _runtimeDeck;
     }
 }
