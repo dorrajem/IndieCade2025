@@ -18,6 +18,7 @@ public class TurnManager : MonoBehaviour
     public GameTurn gameTurn;
 
     public int turnCount = 0; //Caleb's Edit
+    public DisasterManager disaster;
 
     // Ends the player's current turn
     void Awake()
@@ -46,6 +47,10 @@ public class TurnManager : MonoBehaviour
         resourceManagement.AddPoints(1);
         gameTurn = GameTurn.PlayerTurn;
         turnCount++;
+        if (turnCount >= 2)
+        {
+            disaster.disasterCount--;
+        }
     }
 }
 

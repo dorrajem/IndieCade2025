@@ -1045,6 +1045,7 @@ GameObject:
   - component: {fileID: 801074485}
   - component: {fileID: 801074486}
   - component: {fileID: 801074487}
+  - component: {fileID: 801074488}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Manager
@@ -1089,6 +1090,7 @@ MonoBehaviour:
   enemyAI: {fileID: 1130300260}
   gameTurn: 0
   turnCount: 0
+  disaster: {fileID: 801074488}
 --- !u!114 &801074480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1251,6 +1253,25 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9640d2572abcf784da1ae3873377773f, type: 3}
   - {fileID: 8300000, guid: ac467971ebdda8246a576b307ecf0e8e, type: 3}
   - {fileID: 8300000, guid: ba212a266d7221943923f534af4c10f3, type: 3}
+--- !u!114 &801074488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 801074477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd0c117f65d68e74a83f40a713251f78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSlots:
+  - {fileID: 1562701851}
+  - {fileID: 1041581406}
+  - {fileID: 78558746}
+  - {fileID: 175264449}
+  manager: {fileID: 801074479}
+  disasterCount: 2
 --- !u!1 &964338289
 GameObject:
   m_ObjectHideFlags: 0
