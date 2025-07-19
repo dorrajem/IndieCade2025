@@ -35,7 +35,7 @@ public class CardHover : MonoBehaviour,
 
     private void Awake()
     {
-        audioManager = GameObject.FindWithTag("Manager").GetComponent<AudioManager>();
+        audioManager = GameObject.FindWithTag("PManager").GetComponent<AudioManager>();
         rt = GetComponent<RectTransform>();
         originalScale = transform.localScale;
         handArea = GameObject.FindWithTag("Hand")?.GetComponent<RectTransform>();

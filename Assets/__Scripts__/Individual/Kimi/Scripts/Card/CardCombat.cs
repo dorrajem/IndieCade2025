@@ -35,7 +35,7 @@ public class CardCombat : MonoBehaviour, IDamageable
     private void Awake()
     {
         turnManager = GameObject.FindWithTag("Manager").GetComponent<TurnManager>();
-        audioManager = GameObject.FindWithTag("Manager").GetComponent<AudioManager>();
+        audioManager = GameObject.FindWithTag("PManager").GetComponent<AudioManager>();
         boardManager = GameObject.FindWithTag("Manager").GetComponent<BoardManager>();
         _card = GetComponent<Card>();
         card2d = GetComponent<Card2D>();

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Hand
   - Manager
+  - PManager
+  - Location
   layers:
   - Default
   - TransparentFX

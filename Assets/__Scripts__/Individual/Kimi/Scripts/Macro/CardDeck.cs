@@ -23,7 +23,7 @@ public class CardDeck : MonoBehaviour
     private AudioManager audioManager;
     private void Start()
     {
-        audioManager = GameObject.FindWithTag("Manager").GetComponent<AudioManager>();
+        audioManager = GameObject.FindWithTag("PManager").GetComponent<AudioManager>();
         currentDeck = new DeckRuntime();
         currentDeck.LoadFromTemplate(deckData);
         currentDeck.Shuffle();

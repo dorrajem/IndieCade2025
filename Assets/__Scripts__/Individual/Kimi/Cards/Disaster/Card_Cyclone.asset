@@ -29,4 +29,4 @@ MonoBehaviour:
     m_Bits: 128
   ability: 5
   changed: {fileID: 0}
-  deathClip: {fileID: 7400000, guid: 46923dc811002e042ae2e4299e56d832, type: 2}
+  deathClip: {fileID: 7400000, guid: 9188ad107edb7f049a2d956eead4e725, type: 2}

@@ -23,8 +23,7 @@ public class CameraController : MonoBehaviour
     private float target_fov;
 
     private bool CamForward = false;
-
-    public static CameraController Instance;
+    
     CardHover selectedCard = CardHover.currentlySelected;
 
     void Start()
@@ -37,11 +36,14 @@ public class CameraController : MonoBehaviour
         target_pos = mainCam.transform.position;
         target_rot = mainCam.transform.eulerAngles;
         target_fov = mainCam.fieldOfView;
-        Instance = this;
+        PlayCam();
     }
 
     void Update()
     {
+        Camera mainCam = Camera.main;
+        if (mainCam == null) return;
+        
         CardHover selectedCard = CardHover.currentlySelected;
         
         if (selectedCard != null)

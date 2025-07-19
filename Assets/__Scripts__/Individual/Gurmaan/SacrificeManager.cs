@@ -17,7 +17,7 @@ public class SacrificeManager : MonoBehaviour
 
     void Awake()
     {
-        audioManager = GameObject.FindWithTag("Manager").GetComponent<AudioManager>();
+        audioManager = GameObject.FindWithTag("PManager").GetComponent<AudioManager>();
     }
     void Update()
     {

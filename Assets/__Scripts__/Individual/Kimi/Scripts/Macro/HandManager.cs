@@ -32,7 +32,7 @@ public class HandManager : MonoBehaviour
 
     private void Awake()
     {
-        audioManager = GameObject.FindWithTag("Manager").GetComponent<AudioManager>();
+        audioManager = GameObject.FindWithTag("PManager").GetComponent<AudioManager>();
         // Keep singleton
         // Remember to create another manager to manage all singletons
         if (Instance == null) Instance = this;

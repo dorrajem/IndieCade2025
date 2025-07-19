@@ -1,0 +1,203 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4155943147417615060
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6758286282690036502}
+  - component: {fileID: 7841606721273508240}
+  - component: {fileID: 4511402803822306820}
+  - component: {fileID: 2645141229442386171}
+  m_Layer: 0
+  m_Name: PersistantManager
+  m_TagString: PManager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6758286282690036502
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4155943147417615060}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &7841606721273508240
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4155943147417615060}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 43b5b7b394529e54e86c40ae656ace71, type: 3}
+  m_Resource: {fileID: 8300000, guid: 43b5b7b394529e54e86c40ae656ace71, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.15
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &4511402803822306820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4155943147417615060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4decf693f3021c4d9d41f803539deb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MapEvents: 000000000100000003000000040000000500000006000000
+  MapLocs: []
+  iconPairsList:
+  - mapEvent: 0
+    icon: {fileID: 2105708645165569765, guid: 9492b229d125a7348aaa4be2acb4707d, type: 3}
+  - mapEvent: 1
+    icon: {fileID: 2114315179832446111, guid: f7c447a473abeb24b94d1f1771b6694e, type: 3}
+  - mapEvent: 2
+    icon: {fileID: -1682047984822140000, guid: a17701b195e82cf4a94d5b674bc3bbb7, type: 3}
+  - mapEvent: 3
+    icon: {fileID: 2876996051366427447, guid: a3b002d9f47861845a158d3d0455eff7, type: 3}
+  - mapEvent: 4
+    icon: {fileID: 2921459335136691152, guid: fc798c0575985cb4b85dd85672c0a776, type: 3}
+  - mapEvent: 5
+    icon: {fileID: 8833764855369466586, guid: e11474b0c5ca45a47a7375411f9d7f94, type: 3}
+  - mapEvent: 6
+    icon: {fileID: 2075669092268502290, guid: ac0f14d2c84d08f4ebb87b057f81b1ca, type: 3}
+  PlayerLoc: 
+--- !u!114 &2645141229442386171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4155943147417615060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45056f9a1a0f38646b8d59439685c37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  themeSource: {fileID: 7841606721273508240}
+  CardSelect:
+  - {fileID: 8300000, guid: 0d909edf0e637ec4688876b5675006e0, type: 3}
+  - {fileID: 8300000, guid: 52e6c788b053e84488c3392cc9ca1983, type: 3}
+  - {fileID: 8300000, guid: 73c93a25f0edf324589fb6e5c4de4322, type: 3}
+  - {fileID: 8300000, guid: 165ad24bf4d25824a88531ea24abcbc1, type: 3}
+  CardPlace:
+  - {fileID: 8300000, guid: 950204664e6c0f04dacbf68681d58775, type: 3}
+  - {fileID: 8300000, guid: 5a6e4fc3b4dbe464789e44479eaf5dbc, type: 3}
+  - {fileID: 8300000, guid: 909bc41a4f4b05044b0c07582de3ee4d, type: 3}
+  - {fileID: 8300000, guid: 9ecfa92b6db7f6e40a3a92dd654d1d48, type: 3}
+  CardAttack:
+  - {fileID: 8300000, guid: a76e6aebe3a880542858be803146cebd, type: 3}
+  - {fileID: 8300000, guid: fad268221813e4e4da4719bc04dd9ce9, type: 3}
+  - {fileID: 8300000, guid: 8e7542a8209ad994cb21af57917fe1a7, type: 3}
+  CardDie:
+  - {fileID: 8300000, guid: 56fb1bcb02622394bb3b53328b4ed15a, type: 3}
+  - {fileID: 8300000, guid: 646beef2063bd6349a95eecaf5e6c1c4, type: 3}
+  - {fileID: 8300000, guid: 117b6f4314d8e754c8238eeb53228058, type: 3}
+  CardSacrifice:
+  - {fileID: 8300000, guid: 1b139e1e6a3ffb24889e087a5164d94a, type: 3}
+  - {fileID: 8300000, guid: 9640d2572abcf784da1ae3873377773f, type: 3}
+  - {fileID: 8300000, guid: ac467971ebdda8246a576b307ecf0e8e, type: 3}
+  - {fileID: 8300000, guid: ba212a266d7221943923f534af4c10f3, type: 3}
+  Theme: {fileID: 8300000, guid: 43b5b7b394529e54e86c40ae656ace71, type: 3}
+  BossTheme: {fileID: 0}
+  OfficeTheme: {fileID: 0}
