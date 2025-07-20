@@ -489,7 +489,6 @@ GameObject:
   - component: {fileID: 1367834460}
   - component: {fileID: 1367834454}
   - component: {fileID: 1367834453}
-  - component: {fileID: 1367834463}
   - component: {fileID: 1367834464}
   - component: {fileID: 1367834465}
   - component: {fileID: 1367834466}
@@ -513,6 +512,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 0}
+  themeSource: {fileID: 0}
   CardSelect:
   - {fileID: 8300000, guid: 0d909edf0e637ec4688876b5675006e0, type: 3}
   - {fileID: 8300000, guid: 52e6c788b053e84488c3392cc9ca1983, type: 3}
@@ -536,6 +536,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9640d2572abcf784da1ae3873377773f, type: 3}
   - {fileID: 8300000, guid: ac467971ebdda8246a576b307ecf0e8e, type: 3}
   - {fileID: 8300000, guid: ba212a266d7221943923f534af4c10f3, type: 3}
+  Theme: {fileID: 0}
+  BossTheme: {fileID: 0}
+  OfficeTheme: {fileID: 0}
 --- !u!114 &1367834454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -580,18 +583,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1367834463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1367834452}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88ce47ad8d228fe4898aa4a3e8f15875, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1367834464
 MonoBehaviour:
   m_ObjectHideFlags: 0
