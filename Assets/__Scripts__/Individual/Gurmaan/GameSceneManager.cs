@@ -7,6 +7,7 @@ public class GameSceneManager : MonoBehaviour
     public Texture2D cursor;
     private MapManager mapManager;
     public Boolean isCutscene = false;
+    public Boolean isTutorial = false; 
        
     void Awake()
     {
@@ -14,8 +15,22 @@ public class GameSceneManager : MonoBehaviour
         {
             return;
         }
+
         Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
         mapManager = GameObject.FindWithTag("PManager").GetComponent<MapManager>();
+
+        if (isTutorial)
+        {
+            Tutorial tutorial = FindFirstObjectByType<Tutorial>();
+            if (tutorial != null)
+            {
+                tutorial.StartTutorial();
+            }
+            else
+            {
+                Debug.LogWarning("Tutorial script not found in scene.");
+            }
+        }
     }
     
     public void Battle()
@@ -37,6 +52,11 @@ public class GameSceneManager : MonoBehaviour
     public void OpeningCutscene()
     {
         SceneManager.LoadScene("Opening Cutscene");
+    }
+
+    public void Tutorial()
+    {
+        SceneManager.LoadScene("Tutorial");
     }
 
     public void Menu()

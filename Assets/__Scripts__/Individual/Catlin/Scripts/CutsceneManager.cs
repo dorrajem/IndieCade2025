@@ -9,6 +9,7 @@ public class CutsceneManager : MonoBehaviour
 {
     [Header("UI Elements")]
     public Image fadeImage;
+    public Image fadeImage1;
     public TextMeshProUGUI quoteText;
     public TextMeshProUGUI storyText;
     public Image storyImage;
@@ -33,9 +34,9 @@ public class CutsceneManager : MonoBehaviour
     IEnumerator PlayCutscene()
     {
         //Fade to black
-        yield return StartCoroutine(FadeImage(0, 1, fadeDuration));
-
-        //Show quote
+        yield return StartCoroutine(FadeImage(fadeImage1, 1, 0, fadeDuration));
+        fadeImage1.gameObject.SetActive(false);
+       
         yield return new WaitForSeconds(quoteDelay);
         yield return StartCoroutine(FadeText(quoteText, 0, 1, quoteFadeDuration));
 
@@ -71,49 +72,31 @@ public class CutsceneManager : MonoBehaviour
         }
 
         //Fade to black
-        yield return StartCoroutine(FadeImage(1, 1, 0));
+        yield return StartCoroutine(FadeImage(fadeImage, 1, 1, 0));
         GameSceneManager gsm = GameObject.FindFirstObjectByType<GameSceneManager>();
         if (gsm != null)
         {
-            gsm.Battle();
+            gsm.Tutorial();
         }
 
     }
 
-    IEnumerator FadeImage(float fromAlpha, float toAlpha, float duration)
+    IEnumerator FadeImage(Image imageToFade, float fromAlpha, float toAlpha, float duration)
     {
         float elapsed = 0f;
-        Color color = fadeImage.color;
+        Color color = imageToFade.color;
 
         while (elapsed < duration)
         {
             float t = elapsed / duration;
             color.a = Mathf.Lerp(fromAlpha, toAlpha, t);
-            fadeImage.color = color;
+            imageToFade.color = color;
             elapsed += Time.deltaTime;
             yield return null;
         }
 
         color.a = toAlpha;
-        fadeImage.color = color;
-    }
-
-    IEnumerator FadeImageUI(Image img, float fromAlpha, float toAlpha, float duration)
-    {
-        float elapsed = 0f;
-        Color color = img.color;
-
-        while (elapsed < duration)
-        {
-            float t = elapsed / duration;
-            color.a = Mathf.Lerp(fromAlpha, toAlpha, t);
-            img.color = color;
-            elapsed += Time.deltaTime;
-            yield return null;
-        }
-
-        color.a = toAlpha;
-        img.color = color;
+        imageToFade.color = color;
     }
 
     IEnumerator FadeText(TextMeshProUGUI textElement, float fromAlpha, float toAlpha, float duration)
