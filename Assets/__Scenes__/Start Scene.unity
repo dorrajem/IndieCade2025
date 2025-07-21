@@ -368,6 +368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursor: {fileID: 2800000, guid: 23ee50df4fdddea4fb7f10ef0c7e05a0, type: 3}
+  isCutscene: 0
 --- !u!1001 &127022940
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -915,7 +916,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 60143321}
         m_TargetAssemblyTypeName: GameSceneManager, Assembly-CSharp
-        m_MethodName: Battle
+        m_MethodName: OpeningCutscene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
