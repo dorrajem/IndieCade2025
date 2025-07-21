@@ -47,7 +47,7 @@ public class TurnManager : MonoBehaviour
         resourceManagement.AddPoints(1);
         gameTurn = GameTurn.PlayerTurn;
         turnCount++;
-        if (turnCount >= 2)
+        if (turnCount >= 5)
         {
             disaster.disasterCount--;
         }

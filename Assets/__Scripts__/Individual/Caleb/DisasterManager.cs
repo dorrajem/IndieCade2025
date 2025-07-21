@@ -19,13 +19,13 @@ public class DisasterManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (manager.turnCount == 2 && callCount == 0)
+        if (manager.turnCount == 5 && callCount == 0)
         {
             //Debug.Log("A disaster can happen at any moment now");
             callCount++;
         }
 
-        if (manager.turnCount > 2 && disasterCount == 0)
+        if (manager.turnCount > 5 && disasterCount == 0)
         {
             //Disaster();
             disasterCount = 2;
