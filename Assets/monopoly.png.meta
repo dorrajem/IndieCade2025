@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7b68716db974c1041abe112686d6f051
+guid: 1682a08d1f33b114db280a7f73a7e661
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4946964399052662241
-    second: 3industry_0
+      213: 8363250947499466682
+    second: monopoly_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 3industry_0
+      name: monopoly_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1350
-        height: 664
+        width: 4760
+        height: 760
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f1a56f5d61ad85bb0800000000000000
-      internalID: -4946964399052662241
+      spriteID: abf97252d6c301470800000000000000
+      internalID: 8363250947499466682
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      3industry_0: -4946964399052662241
+      monopoly_0: 8363250947499466682
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

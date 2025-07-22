@@ -10,20 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19651d9971e080e4daace37421da4cdc, type: 3}
-  m_Name: AIDeck
+  m_Name: AIDeck 3
   m_EditorClassIdentifier: 
   cards:
   - {fileID: 11400000, guid: fdde0b36129c94843997239d8affafd0, type: 2}
-  - {fileID: 11400000, guid: 9ae296a41fe1af04d80e9043a5aca0cb, type: 2}
-  - {fileID: 11400000, guid: 56afa225e092c3a40af38abf0eba87e9, type: 2}
-  - {fileID: 11400000, guid: 56afa225e092c3a40af38abf0eba87e9, type: 2}
   - {fileID: 11400000, guid: 181bb69565d5ab743803ef6c65550fa6, type: 2}
-  - {fileID: 11400000, guid: 10c45e963ebfa3c46a7b40a29b374f57, type: 2}
+  - {fileID: 11400000, guid: 56afa225e092c3a40af38abf0eba87e9, type: 2}
+  - {fileID: 11400000, guid: a9cabdfcb1a7a294688096ccda3fc92f, type: 2}
+  - {fileID: 11400000, guid: 181bb69565d5ab743803ef6c65550fa6, type: 2}
+  - {fileID: 11400000, guid: a9cabdfcb1a7a294688096ccda3fc92f, type: 2}
   - {fileID: 11400000, guid: 10c45e963ebfa3c46a7b40a29b374f57, type: 2}
   - {fileID: 11400000, guid: 77a574420eae21146956eda0cd745c7d, type: 2}
   - {fileID: 11400000, guid: 77a574420eae21146956eda0cd745c7d, type: 2}
-  - {fileID: 11400000, guid: 7aa65e316c21bc44db701ae8da4971f9, type: 2}
-  - {fileID: 11400000, guid: aee9fefcd58a0064aac4fd23e755795b, type: 2}
+  - {fileID: 11400000, guid: aaa4214223ad4c74881acd5e1a495b63, type: 2}
+  - {fileID: 11400000, guid: f8e681b476025ae49bd98008cd37213e, type: 2}
+  - {fileID: 11400000, guid: 935efef369474214d8ab1fdc86ae508f, type: 2}
+  - {fileID: 11400000, guid: 67e85b2555a30684d98ff9bc639f4617, type: 2}
   - {fileID: 11400000, guid: b76cf564343df10468c4b88439cc1c62, type: 2}
   - {fileID: 11400000, guid: aee9fefcd58a0064aac4fd23e755795b, type: 2}
   - {fileID: 11400000, guid: b76cf564343df10468c4b88439cc1c62, type: 2}
+  - {fileID: 11400000, guid: 67e85b2555a30684d98ff9bc639f4617, type: 2}

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0de135cb7f8ef604eb61b85b5e794346
+guid: ce3ab14bc851dd14eb6c4ccbe7e4bbc3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6359245536368183611
-    second: 3nature_0
+      213: 157535440263447933
+    second: butcher-event_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 3nature_0
+      name: butcher-event_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1376
-        height: 673
+        width: 680
+        height: 380
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b39c6b26f14904850800000000000000
-      internalID: 6359245536368183611
+      spriteID: d750074f5adaf2200800000000000000
+      internalID: 157535440263447933
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      3nature_0: 6359245536368183611
+      butcher-event_0: 157535440263447933
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

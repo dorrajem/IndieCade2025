@@ -12,10 +12,12 @@ public class MapLoc : MonoBehaviour
     
     private bool clickable = false;
     private MapManager mapManager;
+    private GameSceneManager sceneManager;
 
     void Start()
     {
         mapManager = GameObject.FindWithTag("PManager").GetComponent<MapManager>();
+        sceneManager = Camera.main.GetComponent<GameSceneManager>();
         Circle.enabled=false;
         clickable = false;
     }
@@ -39,6 +41,7 @@ public class MapLoc : MonoBehaviour
         if(clickable)
         {
             mapManager.PlayerLoc = name;
+            sceneManager.OpenEvent(mapEvent.ToString());
         }
     }
 }
@@ -46,6 +49,10 @@ public enum MapEvent{
     Butcher,
     Verdant_Lands,
     Battle,
+    Battle_Lv2,
+    Battle_Lv3,
+    Battle_Lv4,
+    Boss,
     Card_Choice,
     Monopoly,
     Industry_Expansion,

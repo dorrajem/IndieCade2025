@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19651d9971e080e4daace37421da4cdc, type: 3}
+  m_Name: AIDeck 1
+  m_EditorClassIdentifier: 
+  cards:
+  - {fileID: 11400000, guid: fdde0b36129c94843997239d8affafd0, type: 2}
+  - {fileID: 11400000, guid: 9ae296a41fe1af04d80e9043a5aca0cb, type: 2}
+  - {fileID: 11400000, guid: 56afa225e092c3a40af38abf0eba87e9, type: 2}
+  - {fileID: 11400000, guid: 181bb69565d5ab743803ef6c65550fa6, type: 2}
+  - {fileID: 11400000, guid: 10c45e963ebfa3c46a7b40a29b374f57, type: 2}
+  - {fileID: 11400000, guid: 10c45e963ebfa3c46a7b40a29b374f57, type: 2}
+  - {fileID: 11400000, guid: aaa4214223ad4c74881acd5e1a495b63, type: 2}
+  - {fileID: 11400000, guid: 7aa65e316c21bc44db701ae8da4971f9, type: 2}
+  - {fileID: 11400000, guid: aee9fefcd58a0064aac4fd23e755795b, type: 2}
+  - {fileID: 11400000, guid: b76cf564343df10468c4b88439cc1c62, type: 2}

@@ -9,9 +9,11 @@ public class ChoiceCardRoom : MonoBehaviour
     public DeckData deckData;
     private const int NumberOfChoice = 3;
     public UICardChoice choiceUI;
+    private GameSceneManager sceneManager;
 
     private void Start()
     {
+        sceneManager = GameObject.FindWithTag("Manager").GetComponent<GameSceneManager>();
         List<CardData> selectedCards = deckData.cards.
                                        OrderBy(_ => Random.value)
                                        .Take(NumberOfChoice)
@@ -23,16 +25,6 @@ public class ChoiceCardRoom : MonoBehaviour
     private void OnCardChosen(CardData selected)
     {
         GameSession.Instance.PlayerDeck.AddCard(selected);
-        Debug.Log("Added Card: " + selected);
-        Debug.Log(GameSession.Instance.PlayerDeck);
-        Debug.Log("====== Player's Current Deck ======");
-        foreach (var card in GameSession.Instance.PlayerDeck.GetAllCards())
-        {
-            Debug.Log($"- {card.CardName} (CardCategory: " +
-                      $"{card.cardCategory}, CostCheck: {card.SaplingCostPoint})");
-        }
-        Debug.Log("====================================");
-        // load next scene or return to world map
-        // SceneManager.LoadScene("WorldMap")
+        sceneManager.Map();
     }
 }

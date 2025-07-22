@@ -143,23 +143,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4decf693f3021c4d9d41f803539deb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MapEvents: 000000000100000003000000040000000500000006000000
+  MapEvents: 070000000800000001000000
   MapLocs: []
   iconPairsList:
   - mapEvent: 0
     icon: {fileID: 2105708645165569765, guid: 9492b229d125a7348aaa4be2acb4707d, type: 3}
   - mapEvent: 1
     icon: {fileID: 2114315179832446111, guid: f7c447a473abeb24b94d1f1771b6694e, type: 3}
+  - mapEvent: 7
+    icon: {fileID: 2876996051366427447, guid: a3b002d9f47861845a158d3d0455eff7, type: 3}
+  - mapEvent: 8
+    icon: {fileID: 2921459335136691152, guid: fc798c0575985cb4b85dd85672c0a776, type: 3}
   - mapEvent: 2
     icon: {fileID: -1682047984822140000, guid: a17701b195e82cf4a94d5b674bc3bbb7, type: 3}
   - mapEvent: 3
-    icon: {fileID: 2876996051366427447, guid: a3b002d9f47861845a158d3d0455eff7, type: 3}
+    icon: {fileID: -1682047984822140000, guid: a17701b195e82cf4a94d5b674bc3bbb7, type: 3}
   - mapEvent: 4
-    icon: {fileID: 2921459335136691152, guid: fc798c0575985cb4b85dd85672c0a776, type: 3}
+    icon: {fileID: -1682047984822140000, guid: a17701b195e82cf4a94d5b674bc3bbb7, type: 3}
   - mapEvent: 5
-    icon: {fileID: 8833764855369466586, guid: e11474b0c5ca45a47a7375411f9d7f94, type: 3}
+    icon: {fileID: -1682047984822140000, guid: a17701b195e82cf4a94d5b674bc3bbb7, type: 3}
   - mapEvent: 6
-    icon: {fileID: 2075669092268502290, guid: ac0f14d2c84d08f4ebb87b057f81b1ca, type: 3}
+    icon: {fileID: -1682047984822140000, guid: a17701b195e82cf4a94d5b674bc3bbb7, type: 3}
   PlayerLoc: 
 --- !u!114 &2645141229442386171
 MonoBehaviour:

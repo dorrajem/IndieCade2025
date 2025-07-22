@@ -32,10 +32,10 @@ public class GameSceneManager : MonoBehaviour
             }
         }
     }
-    
-    public void Battle()
+
+    public void OpenEvent(string sceneName)
     {
-        SceneManager.LoadScene("Battle Scene");
+        SceneManager.LoadScene(sceneName);
     }
     
     public void Map()

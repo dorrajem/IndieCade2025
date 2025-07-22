@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/__Scenes__/Events/Butcher.unity
     guid: 222a288e9fb6c414f8e73a4ac37400a5
   - enabled: 1
-    path: Assets/__Scenes__/Battle Scene.unity
+    path: Assets/__Scenes__/Battle.unity
     guid: 0ba372196f65633458d49d1a3d512642
   - enabled: 1
     path: Assets/__Scenes__/Options.unity
@@ -35,6 +35,27 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/__Scenes__/Tutorial.unity
     guid: f53c9095658542842a7caa12d6d5c44e
+  - enabled: 1
+    path: Assets/__Scenes__/Events/CardChoice/Card_Choice.unity
+    guid: b3f447fe23f1fe349b385bb6d7103246
+  - enabled: 1
+    path: Assets/__Scenes__/Events/CardChoice/Monopoly.unity
+    guid: d7804d03c3f98694ea0611a99fc77993
+  - enabled: 1
+    path: Assets/__Scenes__/Events/CardChoice/Verdant_Lands.unity
+    guid: b093ba8d4f0a37440acf05c7dde7047b
+  - enabled: 1
+    path: Assets/__Scenes__/Battle_Lv2.unity
+    guid: 49dd1230fab6efd4d88404c4873585ce
+  - enabled: 1
+    path: Assets/__Scenes__/Battle_Lv3.unity
+    guid: 948f0ad51c499854fa3c6d55e6e49aac
+  - enabled: 1
+    path: Assets/__Scenes__/Battle_Lv4.unity
+    guid: cfb999c085eb0e745b465342ef16f467
+  - enabled: 1
+    path: Assets/__Scenes__/Boss.unity
+    guid: 4df681b0c0e48cd42ac19c84cee50cf4
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

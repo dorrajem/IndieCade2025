@@ -69,6 +69,7 @@ public class MapManager : MonoBehaviour
         
         if (MapStorage.Count==0)
         {
+            
             foreach (MapLoc mapLoc in MapLocs)
             {
                 if (mapLoc.mapEvent == MapEvent.Null)
@@ -82,7 +83,6 @@ public class MapManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Die");
             foreach (string mapLocName in MapStorage.Keys)
             {
                 MapLoc mapLoc = GameObject.Find(mapLocName).GetComponent<MapLoc>();
