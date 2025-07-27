@@ -69,7 +69,6 @@ public class MapManager : MonoBehaviour
         
         if (MapStorage.Count==0)
         {
-            
             foreach (MapLoc mapLoc in MapLocs)
             {
                 if (mapLoc.mapEvent == MapEvent.Null)

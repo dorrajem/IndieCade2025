@@ -148,10 +148,10 @@ MonoBehaviour:
   iconPairsList:
   - mapEvent: 0
     icon: {fileID: 2105708645165569765, guid: 9492b229d125a7348aaa4be2acb4707d, type: 3}
-  - mapEvent: 1
-    icon: {fileID: 2114315179832446111, guid: f7c447a473abeb24b94d1f1771b6694e, type: 3}
   - mapEvent: 7
     icon: {fileID: 2876996051366427447, guid: a3b002d9f47861845a158d3d0455eff7, type: 3}
+  - mapEvent: 1
+    icon: {fileID: 2114315179832446111, guid: f7c447a473abeb24b94d1f1771b6694e, type: 3}
   - mapEvent: 8
     icon: {fileID: 2921459335136691152, guid: fc798c0575985cb4b85dd85672c0a776, type: 3}
   - mapEvent: 2

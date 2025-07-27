@@ -1283,6 +1283,7 @@ MonoBehaviour:
   enemyDeckTemplate: {fileID: 11400000, guid: aca5002e9575f064896901a32b58cd10, type: 2}
   maxSaplingPoints: 5
   currentSaplingPoints: 0
+  saplingsPerTurn: 1
   currentDisasterPoints: 0
   maxDisasterPoints: 7
   maxBoardSlots: 4
@@ -2154,8 +2155,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 801074489}
         m_TargetAssemblyTypeName: GameSceneManager, Assembly-CSharp
-        m_MethodName: OpenEvent
-        m_Mode: 5
+        m_MethodName: Map
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

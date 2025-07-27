@@ -40,6 +40,7 @@ public class GameSceneManager : MonoBehaviour
     
     public void Map()
     {
+        Debug.Log("Fill");
         mapManager.StartCoroutine(mapManager.MapFill());
         SceneManager.LoadScene("Map");
     }

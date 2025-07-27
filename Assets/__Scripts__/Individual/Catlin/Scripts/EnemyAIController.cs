@@ -11,6 +11,7 @@ public class EnemyAIController : MonoBehaviour
     private List<CardData> enemyHand = new();
     public int maxSaplingPoints = 5;
     public int currentSaplingPoints;
+    public int saplingsPerTurn=2;
 
     
     public int currentDisasterPoints;
@@ -91,7 +92,7 @@ public class EnemyAIController : MonoBehaviour
 
     public void EnemyTakeTurn(TurnManager turnManager)
     {
-        currentSaplingPoints += 2;
+        currentSaplingPoints += saplingsPerTurn;
         currentSaplingPoints = Mathf.Min(currentSaplingPoints, maxSaplingPoints);
         SetDisasterPoints(1);
 
