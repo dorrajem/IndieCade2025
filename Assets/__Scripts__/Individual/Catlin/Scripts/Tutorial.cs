@@ -13,11 +13,24 @@ public class Tutorial : MonoBehaviour
     public float storyTextFadeDuration = 1f;
     public float delayBetweenStoryLines = 2f;
 
+    public TextMeshProUGUI skipText;
+
     public List<string> storyLines;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void StartTutorial()
     {
         StartCoroutine(PlayTutorial());
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            StopCoroutine(PlayTutorial());
+            storyText.gameObject.SetActive(false);
+            skipText.gameObject.SetActive(false);
+            this.enabled = false;
+        }
     }
 
     IEnumerator PlayTutorial()

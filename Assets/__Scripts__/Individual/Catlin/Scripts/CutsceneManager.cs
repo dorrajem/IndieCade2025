@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
 
 public class CutsceneManager : MonoBehaviour
@@ -115,5 +116,17 @@ public class CutsceneManager : MonoBehaviour
 
         color.a = toAlpha;
         textElement.color = color;
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            GameSceneManager gsm = GameObject.FindFirstObjectByType<GameSceneManager>();
+            if (gsm != null)
+            {
+                gsm.Tutorial();
+            }
+        }
     }
 }

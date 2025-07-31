@@ -62,9 +62,6 @@ public class CameraController : MonoBehaviour
             }
         }
         
-        transform.position = Vector3.MoveTowards(transform.position, target_pos, Time.deltaTime*switchSpeed);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(target_rot), Time.deltaTime*switchSpeed*4);
-        mainCam.fieldOfView = Mathf.Lerp(mainCam.fieldOfView, target_fov, Time.deltaTime*switchSpeed/4);
     }
     
     
